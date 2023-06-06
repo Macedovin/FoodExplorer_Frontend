@@ -43,6 +43,8 @@ As the second persona you will be able to create, see/ read, edit and delete (CR
 ## Preview
 
 
+
+
 ## Tech Stack and tools
 
 <div style="display: inline_block"><br>
@@ -53,6 +55,8 @@ As the second persona you will be able to create, see/ read, edit and delete (CR
   <img align="center" height="35" width="40" src="./README-assets/vite-svgrepo-com.svg" />  
   <img align="center" height="40" width="70" src="https://axios-http.com/assets/logo.svg" alt="Macedovin-Axios" />
   <img align="center" height="40" width="40" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" alt="Macedovin-Styled-Components" />
+	<img align="center"  height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="Macedovin-HTML" />
+  <img align="center"  height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" alt="Macedovin-CSS" />
   <img align="center" height="40" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/figma/figma-original.svg" alt="Macedovin-Figma" />
 	<img align="center" height="40" width="100" src="./README-assets/jwtio-json-web-token.svg" alt="Macedovin-JSON Web Token" />	
 	<img align="center" height="30" width="80" src="./README-assets/Bcryptjs.png" alt="Macedovin-BcryptJS" />
