@@ -62,6 +62,7 @@ export const FoodInfos = styled.div`
   > h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    font-size: 1.4rem;
   }
 
   > p {
@@ -71,6 +72,8 @@ export const FoodInfos = styled.div`
 
     text-align: center;
     text-align-last: center;
+
+    display: none; // !!!! MUDAR NO DESKTOP !!!!!
   }
 
   > h3 {

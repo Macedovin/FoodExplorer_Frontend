@@ -2,20 +2,24 @@ import { Container } from './styles';
 
 import { useState } from 'react';
 
+import { useTheme } from '../../hooks/theme';
+
 import { ReactComponent as DarkerTheme } from '../../assets/icons/Moon.svg';
 import { ReactComponent as LighterTheme } from '../../assets/icons/Sun.svg';
 
-//import { darkTheme, lightTheme } from '../../styles/theme';
+export function ThemeSwitcher({ onClick, ...rest }) {
 
-export function ThemeSwitcher({ onClick, isToggle = false, ...rest }) {
-
-  const [theme, setTheme] = useState('dark');
+  const { toggleTheme, theme } = useTheme();
 
   const isDarkTheme = theme === 'dark';
 
+  function handleToggleTheme() {
+    toggleTheme();
+  }
+
   return (
-    <Container>
-      {isDarkTheme ? <DarkerTheme /> : <LighterTheme />}
+    <Container onClick={handleToggleTheme}>
+      {isDarkTheme ? <LighterTheme /> : <DarkerTheme />}
     </Container>
   )
 }

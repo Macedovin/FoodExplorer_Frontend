@@ -8,7 +8,7 @@ export function Button({ title, quantity, icon: Icon, ...rest }) {
     >
       {Icon && <Icon size={32} />}
       {title}
-      {quantity && quantity}
+      {quantity && `(${quantity})`}
     </Container>
   );
 }

@@ -6,15 +6,14 @@ display: flex;
 align-items: center;
 
 > svg {
-  height: 2.6rem; 
-  width: 2.6rem; 
+  height: 2.4rem; 
+  width: 2.4rem; 
 
   cursor: pointer;
 } 
 
-> svg:first-child {
-  height: 2.3rem; 
-  width: 2.3rem; 
+> svg path {
+  fill: ${({ theme }) => theme.primary_text};
 }
 
 .hide {

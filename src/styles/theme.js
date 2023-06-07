@@ -16,7 +16,10 @@ export const darkTheme = {
 
   price: "#82f3ff", // TINTS_LIGHTBLUE
 
-  description: "#c4c4cc" // LIGHT 400
+  description: "#c4c4cc", // LIGHT 400
+
+  footer_logo: "#4d585e", // LIGHT 700
+  footer_rights: "#fffaf1" // LIGHT 200
 }
 
 export const lightTheme = {
@@ -37,10 +40,26 @@ export const lightTheme = {
   
   price: "#065e7c", // TINTS_DARKBLUE
 
-  description: "#0d161b" // DARK 800
+  description: "#0d161b", // DARK 800
+
+  footer_logo: "#4d585e", // LIGHT 700
+  footer_rights: "#00070a" // DARK 200
 }
 
-const colors = {
+/* export default {
+  fontFamily: {
+    body: 'Poppins, sans-serif',
+    detail: 'Roboto, sans-serif',
+  },
+
+  fontWeights: {
+		light: 400,
+		normal: 500,
+		bold: 700,
+	},
+}
+ */
+const colors =  {
   COLORS: {
 
     LIGHT_LIGHT_100_BACKGROUND: "#ffffff",

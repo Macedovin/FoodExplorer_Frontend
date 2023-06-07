@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { AppBasis } from './AppBasis';
+import GlobalStyles from './styles/global';
+
+import { CustomThemeProvider } from './hooks/theme';
+
+import { Home } from './pages/Home';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppBasis />
+    <CustomThemeProvider>
+      <Fragment>
+        <GlobalStyles />
+        <Home />
+      </Fragment>
+    </CustomThemeProvider>
   </React.StrictMode>
 )
