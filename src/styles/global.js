@@ -41,16 +41,18 @@ export default createGlobalStyle`
     
     border: 0;
     border-radius: 0.5rem;
-  } 
 
-  button,
-  a {
     cursor: pointer;
     transition: 0.2s;
+  } 
+
+
+
+  button:hover {
+    background-color: ${({ theme }) => theme.buttons_hover};
   }
 
-  button:hover,
-  a:hover {
-    filter: ${({ theme }) => theme.buttons_hover};
+  ul {
+    list-style: none;
   }
 `;

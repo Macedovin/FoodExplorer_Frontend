@@ -12,7 +12,7 @@ export const Container = styled.header`
   justify-content: space-between;
 
   margin: 0 auto;
-  padding: 5.6rem 2.8rem 2.4rem;
+  padding: 5.6rem 2.4rem 2.4rem 3.8rem;
 `; 
 
 export const Brand = styled.div`

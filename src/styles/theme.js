@@ -7,11 +7,13 @@ export const darkTheme = {
   primary_text: "#e1e1e6", // LIGHT 300
   secondary_text: "#ffffff",  // LIGHT 100
 
+  search_background: "#0d1d25", // DARK 900
+  
   buttons_background: "#750310", // TOMATO 100
   buttons_hover: "#92000e", // TOMATO 200
   buttons_disabled: "#ab4d55", // TOMATO 400
 
-  card_background: "#00070a", // DARK 2000
+  card_background: "#00070a", // DARK 200
   card_border: "#000204", // DARK 300
 
   price: "#82f3ff", // TINTS_LIGHTBLUE
@@ -30,6 +32,8 @@ export const lightTheme = {
 
   primary_text: "#0d1d25", // DARK 900
   secondary_text: "#192227",  // DARK 1000
+
+  search_background: "#4d585e", // LIGHT 700
 
   buttons_background: "#ab222e", // TOMATO 300
   buttons_hover: "#92000e", // TOMATO 200
