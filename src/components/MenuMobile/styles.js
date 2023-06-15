@@ -16,24 +16,16 @@ const slideIn = keyframes`
   }
 `;
 
-const slideOut = keyframes`
-  from {
-    opacity: 1;
-    visibility: visible; 
-
-    transform: translateX(0);
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden; 
-
-    transform: translateX(-5rem);
-  }
-`;
-
 export const Container = styled.div`
-    .menu {
+  .menu {
+
+    display: grid;
+    grid-template-rows: 11.4rem 1fr 7.7rem;
+    grid-template-areas:
+      'menu_header'
+      'content'
+      'footer';
+
     height: 100vh;
     width: 100vw;
 
@@ -44,19 +36,51 @@ export const Container = styled.div`
     top: 0;
     left: 0;
 
+    > main {
+      grid-area: content;
+
+      background-color: ${({ theme }) => theme.full_background};
+
+      overflow-y: scroll;
+    }
+
+    > Footer {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+  
+  .hidden {
+    opacity: 0;
+    visibility: hidden; 
+
+    transform: translateX(-5rem);
+
+    transition: 0.5s;
   }
 
   .visible {
-
     animation: ${slideIn} 0.5s ease-out; 
-  }
-   
-  .hidden {
 
-    animation: ${slideOut} 0.5s ease-in-out forwards;
+    transition-timing-function: 0.5s;
+
+    li:nth-child(1) {
+      animation: ${slideIn} 0.5s 0.1s ease-out backwards;
+    }
+
+    li:nth-child(2) {
+      animation: ${slideIn} 0.5s 0.2s ease-out backwards;
+    }
+
+    li:nth-child(3) {
+      animation: ${slideIn} 0.5s 0.3s ease-out backwards;
+    }
+
+    li:nth-child(4) {
+      animation: ${slideIn} 0.5s 0.4s ease-out backwards;
+    }
   }
-`;
-  
+`;  
 
 export const MenuIcon = styled.div`  
   
@@ -114,47 +138,14 @@ export const MenuList = styled.ul`
 
   padding-top: 3.6rem;
 
+  padding-bottom: 20rem;
+
   padding-inline: 2.8rem;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
-  .MenuLi {
-    width: 100%;
-    
-    padding: 1rem;
-
-    border-bottom: 1px solid ${({ theme }) => theme.footer_logo};    
-  
-    cursor: pointer;
-    
-    font-weight: 300;
-    font-size: 2.4rem;
-    line-height: 3.4rem;
-    
-    color: ${({ theme }) => theme.primary_text};
-
-    transition: 0.3s;
-         
-    > a {
-      color: inherit;
-    }
-  }
-
-  .MenuLi:hover {
-    background-color: ${({ theme }) => theme.description}; 
-
-    font-weight: 500;
-
-    color: ${({ theme }) => theme.search_background};
-
-    a:hover {
-      color: inherit;
-    } 
-
-  }  
 
 `;
 

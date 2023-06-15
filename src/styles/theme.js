@@ -1,5 +1,4 @@
 export const darkTheme = {
-
   full_background: "#000a0f", // DARK 400
 
   header_background: "#001119", // DARK 700
@@ -8,6 +7,8 @@ export const darkTheme = {
   secondary_text: "#ffffff",  // LIGHT 100
 
   search_background: "#0d1d25", // DARK 900
+
+  menu_active: "#ffffff", // LIGHT 100
   
   buttons_background: "#750310", // TOMATO 100
   buttons_hover: "#92000e", // TOMATO 200
@@ -25,7 +26,6 @@ export const darkTheme = {
 }
 
 export const lightTheme = {
-
   full_background: "#ffffff", // LIGHT 100
 
   header_background: "#c4c4cc", // LIGHT 400
@@ -34,6 +34,8 @@ export const lightTheme = {
   secondary_text: "#192227",  // DARK 1000
 
   search_background: "#4d585e", // LIGHT 700
+
+  menu_active: "#000a0f", // DARK 400
 
   buttons_background: "#ab222e", // TOMATO 300
   buttons_hover: "#92000e", // TOMATO 200

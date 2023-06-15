@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
 
-  height: 11.4rem;
+  grid-area: menu_header;
+
+  //height: 11.4rem;
   width: 100%;
 
   display: flex;
@@ -23,7 +25,6 @@ export const Container = styled.header`
     color: ${({ theme }) => theme.secondary_text}; 
 
     margin-left: 3.5rem;
-
   }
 `;
 

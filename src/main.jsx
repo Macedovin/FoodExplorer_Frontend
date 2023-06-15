@@ -5,14 +5,14 @@ import GlobalStyles from './styles/global';
 
 import { CustomThemeProvider } from './hooks/theme';
 
-import { Home } from './pages/Home';
+import { Routes } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CustomThemeProvider>
       <Fragment>
         <GlobalStyles />
-        <Home />
+        <Routes />
       </Fragment>
     </CustomThemeProvider>
   </React.StrictMode>

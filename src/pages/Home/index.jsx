@@ -1,6 +1,5 @@
 import { Container } from './styles';
 
-
 import { Mobile_wrapper } from '../../components/Mobile_wrapper';
 import { Header } from '../../components/Header';
 import { FoodSection } from '../../components/FoodSection';

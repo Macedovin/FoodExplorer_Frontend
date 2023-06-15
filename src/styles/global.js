@@ -46,13 +46,11 @@ export default createGlobalStyle`
     transition: 0.2s;
   } 
 
-
-
   button:hover {
     background-color: ${({ theme }) => theme.buttons_hover};
   }
 
-  ul {
+  ul, li {
     list-style: none;
   }
 `;

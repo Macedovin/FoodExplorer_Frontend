@@ -1,9 +1,12 @@
 import { Container, MenuIcon, MenuList } from './styles';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { MenuHeader } from '../MenuHeader';
-import { useEffect } from 'react';
+import { MenuCustomLink } from '../MenuCustomLink';
+import { Footer } from '../Footer';
+
+import { Link, NavLink } from 'react-router-dom';
 
 export function MenuMobile() {
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
@@ -37,30 +40,25 @@ export function MenuMobile() {
       </MenuIcon>
       <div className={menu_class}>
         <MenuHeader />
-        <nav>
-          <MenuList>
-            <li className="MenuLi" onClick={updateMenu}>
-              <a href="#">
+        <main>
+          <nav>
+            <MenuList>
+              <MenuCustomLink to='/favorites'>
                 Meus favoritos
-              </a>
-            </li>
-            <li className="MenuLi" onClick={updateMenu}>
-              <a href="#">
-                  Pedidos
-              </a>
-            </li>
-            <li className="MenuLi" onClick={updateMenu}>
-              <a href="#">
+              </MenuCustomLink>
+              <MenuCustomLink to='/orders'>
+                Pedidos
+              </MenuCustomLink>
+              <MenuCustomLink to='/order_history'>
                 Histórico de pedidos
-              </a>
-            </li>
-            <li className="MenuLi" onClick={updateMenu}>
-              <a href="#">
+              </MenuCustomLink>
+              <MenuCustomLink to='/'>
                 Sair
-              </a>
-            </li>
-          </MenuList>
-        </nav>
+              </MenuCustomLink>
+            </MenuList>
+          </nav>
+        </main>
+        <Footer />
       </div>
     </Container>
   );
