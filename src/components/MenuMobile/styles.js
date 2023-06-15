@@ -18,7 +18,6 @@ const slideIn = keyframes`
 
 export const Container = styled.div`
   .menu {
-
     display: grid;
     grid-template-rows: 11.4rem 1fr 7.7rem;
     grid-template-areas:
@@ -38,6 +37,8 @@ export const Container = styled.div`
 
     > main {
       grid-area: content;
+
+      padding-inline: 2.8rem;
 
       background-color: ${({ theme }) => theme.full_background};
 
@@ -94,7 +95,7 @@ export const MenuIcon = styled.div`
 
   position: absolute;
   z-index: 101;
-  top: 6.5rem;
+  top: 6.4rem;
   left: 2.2rem;  
 
   cursor: pointer;
@@ -134,13 +135,38 @@ export const MenuIcon = styled.div`
   }  
 `;
 
+export const MenuHeader = styled.header`
+  
+  grid-area: menu_header;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: ${({ theme }) => theme.header_background}; // DARK_DARK_700
+
+  padding-top: 3.2rem;
+  //padding-bottom: 2.1rem;
+  padding-inline: clamp(1.4rem, 4.4vw, 2.8rem);
+
+  > h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 400;
+
+    color: ${({ theme }) => theme.secondary_text}; 
+    
+    margin-left: 3.5rem;
+  }
+`;
+
 export const MenuList = styled.ul`
 
   padding-top: 3.6rem;
 
   padding-bottom: 20rem;
-
-  padding-inline: 2.8rem;
 
   display: flex;
   flex-direction: column;

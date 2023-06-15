@@ -7,6 +7,9 @@ export const darkTheme = {
   secondary_text: "#ffffff",  // LIGHT 100
 
   search_background: "#0d1d25", // DARK 900
+  search_placeholder: "#7c7c8a", // LIGHT 500
+
+  input_icon: "#c4c4cc", //LIGHT 400
 
   menu_active: "#ffffff", // LIGHT 100
   
@@ -34,6 +37,9 @@ export const lightTheme = {
   secondary_text: "#192227",  // DARK 1000
 
   search_background: "#4d585e", // LIGHT 700
+  search_placeholder: "#c4c4cc", // LIGHT 400
+
+  input_icon: "#e1e1e6", //LIGHT 300
 
   menu_active: "#000a0f", // DARK 400
 

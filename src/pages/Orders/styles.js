@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+/*   width: 100%;
 
   min-height: 100%;
 
@@ -10,7 +10,8 @@ export const Container = styled.div`
   grid-template-areas:
     'header'
     'content'
-    'footer';
+    'footer'; 
+*/
   
     > main {
     overflow-x: visible;

@@ -19,7 +19,7 @@ export function ThemeSwitcher({ onClick, ...rest }) {
 
   return (
     <Container onClick={handleToggleTheme}>
-      {isDarkTheme ? <LighterTheme /> : <DarkerTheme />}
+      {isDarkTheme ? <LighterTheme width={28} height={28} /> : <DarkerTheme width={24} height={24} />}
     </Container>
   )
 }

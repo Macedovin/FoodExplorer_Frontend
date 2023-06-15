@@ -6,9 +6,6 @@ display: flex;
 align-items: center;
 
 > svg {
-  height: 2.4rem; 
-  width: 2.4rem; 
-
   cursor: pointer;
 } 
 

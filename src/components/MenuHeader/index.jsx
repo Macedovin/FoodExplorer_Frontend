@@ -1,23 +1,10 @@
-import { Container, Profile } from './styles';
+/* import { Container, Profile } from './styles';
 
-export function MenuHeader() {
+export function MenuHeader({ onClick }) {
   return(
     <Container>
-      <h2>
-        Menu
-      </h2>
-      <Profile>
-        <div>
-          <span>Bem-vindo,</span>
-          <strong>Vinicius Macedo</strong>
-        </div>
 
-        <img 
-          src="https://github.com/Macedovin.png" 
-          alt="Foto do usuário" 
-        />
 
-      </Profile>
     </Container>
   );
-}
+} */

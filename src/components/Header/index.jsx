@@ -10,14 +10,14 @@ export function Header() {
   return (
     <Container>
       <MenuMobile />
-      <Brand>
+      <Brand to='/home'>
         <LogoIcon />
         <LogoText>
           <h1>food Explorer</h1>
           {/* <span>admin</span> */}
         </LogoText>
       </Brand>
-      <OrderBadge />
+      <OrderBadge to='/orders' />
       <ThemeSwitcher />
     </Container>
   );

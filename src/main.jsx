@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client';
 import GlobalStyles from './styles/global';
 
 import { CustomThemeProvider } from './hooks/theme';
-
+import { SearchDataProvider } from './hooks/searchData';
+ 
 import { Routes } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,7 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CustomThemeProvider>
       <Fragment>
         <GlobalStyles />
-        <Routes />
+        <SearchDataProvider>
+          <Routes />
+        </SearchDataProvider>
       </Fragment>
     </CustomThemeProvider>
   </React.StrictMode>

@@ -5,15 +5,20 @@ import { Header } from '../../components/Header';
 import { FoodSection } from '../../components/FoodSection';
 import{ FoodCard } from '../../components/FoodCard';
 import { Footer } from '../../components/Footer'; 
+
+import { useSearchData } from '../../hooks/searchData'; 
  
 export function Home() {
 
-  return (
-    <Mobile_wrapper>
-      <Container>
-        <Header />
-        <main>
+  const searchDataResult = useSearchData(); 
 
+  console.log(searchDataResult);
+
+  return (
+/*     <Mobile_wrapper> */
+      <Container>
+        {/* <Header /> */}
+        <main>
           <FoodSection title='Refeições'>        
             <FoodCard 
               data={
@@ -93,8 +98,8 @@ export function Home() {
             />        
           </FoodSection>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
-    </Mobile_wrapper>
+/*     </Mobile_wrapper> */
   );
 }

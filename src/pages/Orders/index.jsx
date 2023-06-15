@@ -6,16 +6,16 @@ import { Footer } from '../../components/Footer';
 
 export function Orders() {
   return (
-    <Mobile_wrapper>
-    <Container>
-      <Header />
-      <main>
-        <h2>
-          Pedidos
-        </h2>
-      </main>
-      <Footer />
-      </Container>
-    </Mobile_wrapper>
+  /*     <Mobile_wrapper> */
+      <Container>
+  {/*       <Header /> */}
+        <main>
+          <h2>
+            Meu pedido
+          </h2>
+        </main>
+  {/*       <Footer /> */}
+        </Container>
+  /*     </Mobile_wrapper> */
   );
 }

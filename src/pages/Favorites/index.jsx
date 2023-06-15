@@ -6,16 +6,16 @@ import { Footer } from '../../components/Footer';
 
 export function Favorites() {
   return (
-    <Mobile_wrapper>
-    <Container>
-      <Header />
-      <main>
+/*     <Mobile_wrapper> */
+      <Container>
+{/*       <Header /> */}
+      <main> 
         <h2>
           Meus Favoritos
         </h2>
-      </main>
-      <Footer />
+       </main>
+    {/*  <Footer /> */}
       </Container>
-    </Mobile_wrapper>
+/*     </Mobile_wrapper> */
   );
 }

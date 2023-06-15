@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+/* import styled from 'styled-components';
 
 export const Container = styled.div`
-/*   width: 100%;
+  width: 100%;
+
   min-height: 100%;
 
   display: grid;
@@ -9,17 +10,17 @@ export const Container = styled.div`
   grid-template-areas:
     'header'
     'content'
-    'footer'; */
-
-  /* grid-area: content; */
-
-  > main {
-    /* grid-area: content; */
-
+    'footer';
+   */
+/*     > main {
     overflow-x: visible;
     overflow-y: overlay;
 
     padding: 0 2.4rem;
-  }
 
-`;
+    > h2 {
+      font-size: 2.4rem;
+    }
+  } 
+
+`;*/
