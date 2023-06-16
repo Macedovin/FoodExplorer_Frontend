@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-import { Mobile_wrapper } from '../../components/Mobile_wrapper';
+//import { Mobile_wrapper } from '../../components/Mobile_wrapper';
 import { Header } from '../../components/Header';
 import { FoodSection } from '../../components/FoodSection';
 import{ FoodCard } from '../../components/FoodCard';
@@ -16,9 +16,9 @@ export function Home() {
 
   return (
 /*     <Mobile_wrapper> */
-      <Container>
-        {/* <Header /> */}
-        <main>
+      /* <Container> */
+        /* <Header /> */
+        <Container>
           <FoodSection title='Refeições'>        
             <FoodCard 
               data={
@@ -97,9 +97,9 @@ export function Home() {
               }
             />        
           </FoodSection>
-        </main>
-        {/* <Footer /> */}
-      </Container>
+        </Container>
+        /* <Footer /> */
+      /* </Container> */
 /*     </Mobile_wrapper> */
   );
 }

@@ -37,11 +37,12 @@ export const Brand = styled.div`
   gap: 0.65rem;
 
   > svg {
-    height: 2.2rem;
+    height: 2rem;
     width: 2.2rem;
   }  
 
   > svg path {
+    
     fill: ${({ theme }) => theme.footer_logo};
   }  
 

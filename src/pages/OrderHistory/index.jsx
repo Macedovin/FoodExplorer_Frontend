@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-import { Mobile_wrapper } from '../../components/Mobile_wrapper';
+//import { Mobile_wrapper } from '../../components/Mobile_wrapper';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer'; 
 

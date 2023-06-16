@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
 /*   width: 100%;
   min-height: 100%;
 
@@ -13,13 +13,13 @@ export const Container = styled.div`
 
   /* grid-area: content; */
 
+  grid-area: content; 
+
+  overflow-x: visible;
+  overflow-y: overlay;
+
+  padding: 0 2.4rem;
   > main {
-    /* grid-area: content; */
-
-    overflow-x: visible;
-    overflow-y: overlay;
-
-    padding: 0 2.4rem;
   }
 
 `;

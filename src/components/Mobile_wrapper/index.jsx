@@ -1,4 +1,4 @@
-import { Container } from './styles';
+/* import { Container } from './styles';
 
 export function Mobile_wrapper({ children }) {
   return(
@@ -6,4 +6,4 @@ export function Mobile_wrapper({ children }) {
       {children}
     </Container>
   );
-}
+} */

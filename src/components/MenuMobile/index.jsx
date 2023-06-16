@@ -10,10 +10,11 @@ import { SearchInput } from '../SearchInput';
 import { MenuCustomLink } from '../MenuCustomLink';
 import { Footer } from '../Footer';
 
-import { Link, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function MenuMobile() {
-  
+  const navigate = useNavigate();
+
   const { fetchDishes } = useSearchData();
 
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
@@ -34,6 +35,13 @@ export function MenuMobile() {
     setIsMenuClicked(!isMenuClicked);
   }
 
+  function handleSearchRedirect() {
+/*     if(searchInputValue === '') {
+      return
+    } */
+
+    navigate('/home');
+  }
 
   useEffect(() => {
     document.body.style.overflowY = isMenuClicked ? 'hidden' : 'auto';
@@ -56,7 +64,11 @@ export function MenuMobile() {
         <main>
           <SearchInput 
             placeholder='Busque por pratos ou ingredientes'
-            onClick={updateMenu} // Vai ter uma outra função verificando se o input esta vazio. Se tiver não faça nada; se não tiver feche o menu. 
+            onClick={() => {
+              handleSearchRedirect();
+              updateMenu();
+               // Vai ter uma outra função verificando se o input esta vazio. Se tiver não faça nada; se não tiver feche o menu. 
+            }} 
           />
           <nav>
             <MenuList>

@@ -6,7 +6,7 @@ export const Container = styled.header`
   grid-area: header;
 
   width: 100%;
-  height: 11.4rem;
+  //height: 11.4rem;
 
   background-color: ${({ theme }) => theme.header_background}; // DARK_DARK_700
   
@@ -15,7 +15,7 @@ export const Container = styled.header`
   justify-content: space-between;
 
   margin: 0 auto;
-  padding: 5.6rem 2.4rem 2.4rem 3.8rem;
+  padding: 5.8rem 2.4rem 2.8rem 3.8rem;
 
 `; 
 
@@ -45,6 +45,8 @@ export const LogoText = styled.div`
     font-size: 2.12rem;
     font-weight: 700;
     
+    line-height: 2.5rem;
+
     color: ${({ theme }) => theme.secondary_text}
   }
   
