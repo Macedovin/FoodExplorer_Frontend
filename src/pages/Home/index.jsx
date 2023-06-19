@@ -2,6 +2,7 @@ import { Container } from './styles';
 
 //import { Mobile_wrapper } from '../../components/Mobile_wrapper';
 import { Header } from '../../components/Header';
+import { Banner } from '../../components/Banner';  
 import { FoodSection } from '../../components/FoodSection';
 import{ FoodCard } from '../../components/FoodCard';
 import { Footer } from '../../components/Footer'; 
@@ -19,6 +20,7 @@ export function Home() {
       /* <Container> */
         /* <Header /> */
         <Container>
+          <Banner />
           <FoodSection title='Refeições'>        
             <FoodCard 
               data={

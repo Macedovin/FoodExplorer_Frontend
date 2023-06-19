@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+//import macaroonsImg from '../../assets/macarrons_full.png';
+
 export const Container = styled.main`
 /*   width: 100%;
   min-height: 100%;
@@ -19,7 +21,14 @@ export const Container = styled.main`
   overflow-y: overlay;
 
   padding: 0 2.4rem;
-  > main {
+
+  > div {
+    width: 94vw;
+
+    position: relative;
+    left: calc(-48vw + 50%);
+
   }
 
-`;
+  `;
+
