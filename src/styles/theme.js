@@ -10,6 +10,7 @@ export const darkTheme = {
   search_placeholder: "#7c7c8a", // LIGHT 500
 
   input_icon: "#c4c4cc", //LIGHT 400
+  input_text: "#ffffff", //LIGHT 100
 
   menu_active: "#ffffff", // LIGHT 100
   
@@ -24,8 +25,13 @@ export const darkTheme = {
 
   description: "#c4c4cc", // LIGHT 400
 
+  ingredient_tag: "#192227", // DARK 1000
+
   footer_logo: "#4d585e", // LIGHT 700
-  footer_rights: "#fffaf1" // LIGHT 200
+  footer_rights: "#fffaf1", // LIGHT 200
+
+  first_gradient: "#091E26", // GREEN 300
+  second_gradient: "#00131C", // GREEN 400
 }
 
 export const lightTheme = {
@@ -40,6 +46,7 @@ export const lightTheme = {
   search_placeholder: "#c4c4cc", // LIGHT 400
 
   input_icon: "#e1e1e6", //LIGHT 300
+  input_text: "#ffffff", //LIGHT 100
 
   menu_active: "#000a0f", // DARK 400
 
@@ -54,8 +61,13 @@ export const lightTheme = {
 
   description: "#0d161b", // DARK 800
 
+  ingredient_tag: "#4d585e", // LIGHT 700
+
   footer_logo: "#4d585e", // LIGHT 700
-  footer_rights: "#00070a" // DARK 200
+  footer_rights: "#00070a", // DARK 200
+
+  first_gradient: "#144c61", // GREEN 100
+  second_gradient: "#065e7c", // DARKBLUE 100
 }
 
 /* export default {
@@ -93,6 +105,11 @@ const colors =  {
     DARK_DARK_900_MAIN_TEXT: "#0d1d25",
     DARK_DARK_1000: "#192227",
 
+    DARK_GREEN_100: "#144c61",
+    DARK_GREEN_200: "#002333",
+    DARK_GREEN_300: "#091E26",
+    DARK_GREEN_400: "#00131C",
+
     TINTS_RED_100: "#750310",
     TINTS_RED_200: "#92000e",
     TINTS_RED_300: "#ab222e",
@@ -106,6 +123,9 @@ const colors =  {
 
     TINTS_DARKBLUE_100: "#065e7c",
     
+    // GRADIENT_200: "linear-gradient(180deg, #091E26 0%, #00131C 100%)";
+
+    // GRADIENT_100: "linear-gradient(180deg, #144c61 0%, #002333 100%)";
   }  
 }; 
 

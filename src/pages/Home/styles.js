@@ -22,12 +22,11 @@ export const Container = styled.main`
 
   padding: 0 2.4rem;
 
-  > div {
+  > div:nth-child(1){
     width: 94vw;
 
     position: relative;
-    left: calc(-48vw + 50%);
-
+    left: calc(-49vw + 50%);
   }
 
   `;

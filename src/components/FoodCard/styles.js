@@ -1,4 +1,7 @@
-import styled, { ThemeConsumer } from 'styled-components';
+import styled from 'styled-components';
+
+import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
+import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
 
 import prato_teste from '../../assets/Prato_1.png'
 
@@ -13,6 +16,7 @@ export const Container = styled.div`
   flex-direction: column;
   flex-grow: 0;     
   flex-shrink: 0;
+  align-items: center;
 
   gap: 1.2rem;
 
@@ -26,28 +30,53 @@ export const Container = styled.div`
 
   border: 1px solid red; // ${({ theme }) => theme.card_boarder}
   border-radius: 0.8rem;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: none;
+
+    .cardPicture {
+      transform: translateY(-0.5rem); 
+
+      transition: all 0.3s ease-in-out;
+    }
+  }
 `;
 
 export const TopCard = styled.div`
-
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;
 
-  > svg {
-    height: 2.4rem;
-    width: 2.4rem;
-  }
+  > button {
+    > svg {
+      height: 2.4rem;
+      width: 2.4rem;
+      
+      > path {
+        fill: ${({ theme }) => theme.primary_text};
+        stroke: ${({ theme }) => theme.primary_text};
+        stroke-width: 0.5;        
+      }
+    }
+
+  }  
 `;
 
 export const Picture = styled.div`
   flex: 1;
 
+  align-self: center;
+
   min-height: 8.8rem;
-  min-width: 8.8rem;
+  width: 8.8rem;
 
   background: url(${prato_teste}) no-repeat center center;
   background-size: contain;
+
+  transition: all 0.3s ease-out;
 `;
 
 export const FoodInfos = styled.div`
@@ -63,6 +92,8 @@ export const FoodInfos = styled.div`
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 1.4rem;
+
+    color: ${({ theme }) => theme.primary_text};
   }
 
   > p {
@@ -73,15 +104,19 @@ export const FoodInfos = styled.div`
     text-align: center;
     text-align-last: center;
 
-    display: none; // !!!! MUDAR NO DESKTOP !!!!!
+    display: none; // !!!! CHANGE ON DESKTOP !!!!!
   }
 
   > h3 {
-    
     font-weight: 400;
 
     color: ${({ theme }) => theme.price};
   }
+`;
+
+export const FoodIngredients = styled.div`
+
+  display: none; // CHANGE WHEN NEEDED
 `;
 
 export const OrderInfos = styled.div`
@@ -89,22 +124,25 @@ export const OrderInfos = styled.div`
   flex-direction: column;
 
   align-items: center;
+  
+  width: 100%;
+
+  gap: 1.6rem;
 
   .quantity {
     display: flex;
     align-items: center;
 
-    margin-bottom: 1.6rem;
-
     gap: 1.6rem;
-  }
 
-  > span {
-    margin: 1.4rem;
-  }
+    > span {
+      font-family: 'Roboto', sans-serif;
+    }
 
-  > svg {
-    height: 2.4rem;
-    width: 2.4rem;
+    > button {
+      > svg path {
+        fill: ${({ theme }) => theme.secondary_text};
+      }
+    }
   }
 `;

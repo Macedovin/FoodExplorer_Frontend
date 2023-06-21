@@ -68,7 +68,8 @@ export function MenuMobile() {
               handleSearchRedirect();
               updateMenu();
                // Vai ter uma outra função verificando se o input esta vazio. Se tiver não faça nada; se não tiver feche o menu. 
-            }} 
+            }}
+            type='text'
           />
           <nav>
             <MenuList>

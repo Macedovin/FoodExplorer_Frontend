@@ -23,7 +23,7 @@ function CustomThemeProvider({ children }) {
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
+    const localTheme = window.localStorage.getItem('@foodexplorer:theme');
     localTheme && setTheme(localTheme);
   }, []);
 

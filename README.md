@@ -58,6 +58,7 @@ As the second persona you will be able to create, see/ read, edit and delete (CR
 	<img align="center"  height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="Macedovin-HTML" />
   <img align="center"  height="40" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" alt="Macedovin-CSS" />
   <img align="center" height="40" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/figma/figma-original.svg" alt="Macedovin-Figma" />
+	<img align="center" height="37" width="90" src="./README-assets/Swiper.png" alt="Macedovin-Swiper" />	
 	<img align="center" height="40" width="100" src="./README-assets/jwtio-json-web-token.svg" alt="Macedovin-JSON Web Token" />	
 	<img align="center" height="30" width="80" src="./README-assets/Bcryptjs.png" alt="Macedovin-BcryptJS" />
 </div>

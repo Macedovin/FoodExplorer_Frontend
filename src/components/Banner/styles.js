@@ -41,6 +41,7 @@ export const Container = styled.div`
   width: 100%;
 
   margin-top: 1.5rem;
+  margin-bottom: 2.4rem; // Verificar de acordo com o Swiper
 
   position: relative;
 
@@ -64,7 +65,7 @@ export const Image = styled.div`
   
   position: absolute;
   bottom: 0;
-  left: -0.75rem;
+  left: -0.65rem;
 
   height: 15rem;
   width: 19rem;
@@ -87,7 +88,7 @@ export const GradientText = styled.div`
 
   margin-left: 3.2rem;
 
-  background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
+  background: linear-gradient(180deg, ${({ theme }) => theme.first_gradient} 0%, ${({ theme }) => theme.second_gradient} 100%);
   
   border-radius: 0.3rem;
 

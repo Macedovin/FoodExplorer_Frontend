@@ -14,6 +14,7 @@ export const Container = styled.footer`
 
   background-color: ${({ theme }) => theme.header_background};
 
+  height: 7.7rem;
   width: 100%;
 
   font-family: 'Roboto', sans-serif;

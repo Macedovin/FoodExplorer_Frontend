@@ -13,4 +13,8 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  > svg path {
+    fill: ${({ theme }) => theme.secondary_text};
+  }
 `;

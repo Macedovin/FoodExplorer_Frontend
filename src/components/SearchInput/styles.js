@@ -18,9 +18,12 @@ export const Container = styled.form`
     width: 100%;
     height: 4.8rem;
 
+    overflow-wrap: break-word;
+
     padding: 1.4rem;
 
-    color: ${({ theme }) => theme.secondary_text};
+    color: ${({ theme }) => theme.input_text};
+    font-size: clamp(1.3rem, 0.3rem + 3vw, 1.6rem);
     
     background-color: transparent;
 

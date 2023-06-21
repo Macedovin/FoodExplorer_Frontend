@@ -11,8 +11,6 @@ export const Container = styled.div`
     'header'
     'content'
     'footer';
-
-
 `;
 /*   
   > main {
