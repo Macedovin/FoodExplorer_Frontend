@@ -8,7 +8,7 @@ export const Container = styled.main`
   overflow-x: visible;
   overflow-y: overlay;
 
-  height: max-content;
+  height: max-content;  // DID MAKE THE MAIN CONTENT'S PADDING BOTTOM STAY AWAY FROM THE FOOTER 
 
   padding-inline: clamp(3.2rem, 3.5rem + 6vw, 5.6rem);
 
@@ -45,21 +45,26 @@ export const Container = styled.main`
     padding: 0;
     gap: 0;
   
-    margin-top: 1.6rem;
-
+    
     &:hover {
       transform: scale(1);
     }
-
+    
     .heart {
       display: none;
     }
-
+    
     .cardPicture {
-      display: block;
-      
-      min-height: 26.4rem;
+      margin-top: 1.6rem;
+
       width:  26.4rem;
+
+      > img {
+        display: block;
+        
+        min-height: 26.4rem;
+        width:  26.4rem;
+      }
 
       &:hover {
         transform: translateY(0);

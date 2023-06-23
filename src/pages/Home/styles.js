@@ -17,10 +17,10 @@ export const Container = styled.main`
 
   grid-area: content; 
 
-  overflow-x: visible;
+  overflow-x: hidden;
   overflow-y: overlay;
 
-  padding: 0 2.4rem;
+  //padding: 0 2.4rem;
 
   > div:nth-child(1){
     width: 94vw;

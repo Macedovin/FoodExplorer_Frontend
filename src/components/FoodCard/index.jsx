@@ -14,8 +14,12 @@ import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
 import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
 import { useEffect } from 'react';
 
-export function FoodCard({ data, title, price, icon, ...rest }) {
-  
+export function FoodCard({ dish, to, button, ...rest }) {
+
+  const { name, description, picture, price, ingredients } = dish;
+
+  const { title, btn_price, icon } = button;
+
   const [total, setTotal] = useState(1);
 
   const [isFavorite, setIsFavorite] = useState(false);
@@ -50,26 +54,29 @@ export function FoodCard({ data, title, price, icon, ...rest }) {
   }
 
   return(
-  /*   <Link to='#'> */
+
+    <Link to={to}>
     <Container {...rest}>
       <TopCard>
         <IconButton className='heart' onClick={handleFavoritedChange}>
           {!isFavorite ? <Heart /> : <FullHeart />}
         </IconButton>
       </TopCard>
-      <Picture className='cardPicture' />
+      <Picture className='cardPicture'>
+        <img src={picture} alt="Imagem do prato" />
+      </Picture>
       <FoodInfos className='dishData'>
         <h2>
-          {data.name}            
+          {name}            
         </h2> 
         
-        <p>{data.description}</p>
-        <h3>{data.price}</h3>
+        <p>{description}</p>
+        <h3>{price}</h3>
       </FoodInfos>
       <FoodIngredients className='dishIngredients'>
-        {data.ingredients && 
+        {ingredients && 
 
-          data.ingredients.map(ingredients => (
+          ingredients.map(ingredients => (
 
             <IngredientsTag 
               key={String(ingredients.id)}
@@ -94,11 +101,12 @@ export function FoodCard({ data, title, price, icon, ...rest }) {
           className='include' 
           title={title}
           onClick={handlePreventDefault}
-          price={price}
+          btn_price={btn_price}
           icon={icon}
         />
       </OrderInfos>
     </Container>
-/*     </Link> */
+    </Link> 
+
   );
 }

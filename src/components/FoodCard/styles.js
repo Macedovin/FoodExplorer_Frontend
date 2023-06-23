@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
-import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
-
 import prato_teste from '../../assets/Prato_1.png'
 
 export const Container = styled.div`
-
   height: 29.2rem;
   width: 21rem;
 
@@ -67,16 +63,21 @@ export const TopCard = styled.div`
 
 export const Picture = styled.div`
   flex: 1;
+  
+  width: 8.8rem;
 
   align-self: center;
 
-  min-height: 8.8rem;
-  width: 8.8rem;
-
+  transition: all 0.3s ease-out;
+  
   background: url(${prato_teste}) no-repeat center center;
   background-size: contain;
+  
+  > img {
+    min-height: 8.8rem;
+    width: 8.8rem;
+  }
 
-  transition: all 0.3s ease-out;
 `;
 
 export const FoodInfos = styled.div`

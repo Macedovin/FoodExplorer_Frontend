@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-export function Button({ title, quantity, price, icon: Icon, ...rest }) {
+export function Button({ title, quantity, btn_price, icon: Icon, ...rest }) {
   return(
     <Container
       type='button'
@@ -9,7 +9,7 @@ export function Button({ title, quantity, price, icon: Icon, ...rest }) {
       {Icon && <Icon size={32} />}
       {title}
       {quantity && `(${quantity})`}
-      {price && ` · ${price}`}
+      {btn_price && ` · ${btn_price}`}
     </Container>
   );
 }

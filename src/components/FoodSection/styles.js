@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
-      
-  margin: 2.4rem 0;
+
+  position: relative;
 
   > h2 {
     color: ${({ theme }) => theme.primary_text};
@@ -10,12 +10,28 @@ export const Container = styled.section`
     font-size: 1.8rem;
     font-weight: 500;
 
-    margin-bottom: 2.4rem;
+    padding-left: 2.4rem;
+
   }
 
-  > main {
+  .swiper {
+
+    width: 100vw;
+    height: 100%;
+
+    padding-block: 2.4rem;
+    
+  }
+ 
+  .swiper-wrapper {
+    position: relative;
+  }
+
+  .swiper-slide {
     display: flex;
-
-    gap: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
+
 `;

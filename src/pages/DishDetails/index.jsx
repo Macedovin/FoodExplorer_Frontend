@@ -6,18 +6,17 @@ import { ReactComponent as ArrowLeft } from '../../assets/icons/CaretLeft.svg';
 import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
  
 import { FoodCard } from '../../components/FoodCard';
-import { Button } from '../../components/Button';
 
-export function DishDetails({ data }) {
+export function DishDetails() {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/home">
         <ArrowLeft />
         voltar
       </Link>
       <FoodCard
         className='foodInfos' 
-        data={
+        dish={
           {
             name: 'Camarão',
             description: 'Muito camarão comum monte de coisa junto deles.',
@@ -32,9 +31,13 @@ export function DishDetails({ data }) {
             ]
           }
         }
-        title='pedir'
-        price='R$ 25,00'
-        icon={Receipt}
+        button={
+          {
+            title: 'pedir',
+            btn_price: 'R$ 25,00',
+            icon: Receipt
+          }
+        }
       />
     </Container>
   );
