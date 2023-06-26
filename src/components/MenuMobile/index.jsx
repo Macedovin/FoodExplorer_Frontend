@@ -82,7 +82,7 @@ export function MenuMobile() {
               <MenuCustomLink to='/order_history' onClick={updateMenu}>
                 Histórico de pedidos
               </MenuCustomLink>
-              <MenuCustomLink to='/home' onClick={updateMenu}>
+              <MenuCustomLink to='/' onClick={updateMenu}>
                 Sair
               </MenuCustomLink>
             </MenuList>

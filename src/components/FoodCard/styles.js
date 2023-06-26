@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+
+import { Link } from 'react-router-dom';
+
 import prato_teste from '../../assets/Prato_1.png'
 
 export const Container = styled.div`
+
   height: 29.2rem;
   width: 21rem;
 

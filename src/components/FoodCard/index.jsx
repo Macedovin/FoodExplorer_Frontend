@@ -4,9 +4,13 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { ConditionalLink } from '../ConditionalLink';  
+
 import { Button } from '../Button';
 import { IconButton } from '../IconButton';
 import { IngredientsTag } from '../IngredientsTag'; 
+
+import { formatCurrency } from '../../utilities/formatCurrency';
 
 import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
 import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
@@ -14,7 +18,8 @@ import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
 import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
 import { useEffect } from 'react';
 
-export function FoodCard({ dish, to, button, ...rest }) {
+export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
+  //const ConditionalLink = isLink ? Link : React.DOM.div;
 
   const { name, description, picture, price, ingredients } = dish;
 
@@ -54,59 +59,63 @@ export function FoodCard({ dish, to, button, ...rest }) {
   }
 
   return(
-
-    <Link to={to}>
-    <Container {...rest}>
-      <TopCard>
-        <IconButton className='heart' onClick={handleFavoritedChange}>
-          {!isFavorite ? <Heart /> : <FullHeart />}
-        </IconButton>
-      </TopCard>
-      <Picture className='cardPicture'>
-        <img src={picture} alt="Imagem do prato" />
-      </Picture>
-      <FoodInfos className='dishData'>
-        <h2>
-          {name}            
-        </h2> 
-        
-        <p>{description}</p>
-        <h3>{price}</h3>
-      </FoodInfos>
-      <FoodIngredients className='dishIngredients'>
-        {ingredients && 
-
-          ingredients.map(ingredients => (
-
-            <IngredientsTag 
-              key={String(ingredients.id)}
-              name={ingredients.name}
-            />
-
-          ))
-
-        }
-      </FoodIngredients>
-      <OrderInfos id='orderData' >
-        <div className="quantity">
-          <IconButton onClick={handleRemove}>
-            <Remove  />
+    // <Link to={to}>
+    <ConditionalLink  to={to} isLink={isLink}>
+      <Container {...rest}>
+        <TopCard>
+          <IconButton 
+            className='heart' 
+            onClick={handleFavoritedChange}
+          >
+            {!isFavorite ? <Heart /> : <FullHeart />}
           </IconButton>
-            <span>{total < 10 ? `0${total}` : total}</span>
-          <IconButton onClick={handleAdd}>
-            <Add  />
-          </IconButton>
-        </div>
-        <Button
-          className='include' 
-          title={title}
-          onClick={handlePreventDefault}
-          btn_price={btn_price}
-          icon={icon}
-        />
-      </OrderInfos>
-    </Container>
-    </Link> 
+        </TopCard>
+        <Picture className='cardPicture'>
+          <img src={picture} alt="Imagem do prato" />
+        </Picture>
+        <FoodInfos className='dishData'>
+          <h2>
+            {name}            
+          </h2> 
+          
+          <p>{description}</p>
+          <h3>{formatCurrency(price)}</h3>
+        </FoodInfos>
+        <FoodIngredients className='dishIngredients'>
+          {ingredients && 
+
+            ingredients.map(ingredients => (
+
+              <IngredientsTag 
+                key={String(ingredients.id)}
+                name={ingredients.name}
+              />
+
+            ))
+
+          }
+        </FoodIngredients>
+        <OrderInfos id='orderData' >
+          <div className="quantity">
+            <IconButton onClick={handleRemove}>
+              <Remove  />
+            </IconButton>
+              <span>{total < 10 ? `0${total}` : total}</span>
+            <IconButton onClick={handleAdd}>
+              <Add  />
+            </IconButton>
+          </div>
+          <Button
+            className='include' 
+            title={title}
+            onClick={handlePreventDefault}
+            btn_price={btn_price}
+            icon={icon}
+          />
+        </OrderInfos>
+      </Container>
+    </ConditionalLink> 
+    //</Link> 
 
   );
 }

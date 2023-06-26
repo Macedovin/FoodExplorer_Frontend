@@ -3,10 +3,10 @@ import { Container } from './styles';
 import { Outlet } from 'react-router-dom'; 
 
 //import { Mobile_wrapper } from '../Mobile_wrapper';
-import { Header } from '../Header';
-import { Footer } from '../Footer'; 
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer'; 
 
-export function Layout() {
+export function UsersLayout() {
   return (
 /*     <Mobile_wrapper> */
           <Container> 

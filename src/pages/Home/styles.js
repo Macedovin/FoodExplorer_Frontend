@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-//import macaroonsImg from '../../assets/macarrons_full.png';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.main`
 /*   width: 100%;
@@ -31,3 +31,4 @@ export const Container = styled.main`
 
   `;
 
+export const FoodCard = styled(Link)``;

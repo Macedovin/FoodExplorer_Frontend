@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import prato_teste from '../../assets/Prato_1.png'
 
+import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
+import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
+
 export const Container = styled.main`
   grid-area: content; 
   
@@ -15,7 +18,7 @@ export const Container = styled.main`
   padding-top: 3.7rem;
   padding-bottom: 5.4rem;
 
-  > a:nth-child(1) {
+  .goBack {
     font-size: 2.4rem;
     font-weight: 500;
 
@@ -40,12 +43,12 @@ export const Container = styled.main`
     width: 100%;
 
     border: none;
-    background-color: transparent;
 
     padding: 0;
     gap: 0;
   
-    
+    background: none;
+
     &:hover {
       transform: scale(1);
     }
@@ -90,6 +93,10 @@ export const Container = styled.main`
 
         margin-top: 2.4rem;
       }
+
+      > h3 {
+        display: none;
+      }
     }
     
     .dishIngredients {
@@ -127,7 +134,6 @@ export const Container = styled.main`
       }
     }
 
-  }
-  
+  } 
 
 `;

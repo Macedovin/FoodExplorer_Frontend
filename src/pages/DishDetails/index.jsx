@@ -1,19 +1,43 @@
 import { Container } from './styles';
 
+import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as ArrowLeft } from '../../assets/icons/CaretLeft.svg';
-import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
- 
 import { FoodCard } from '../../components/FoodCard';
+import { IconButton } from '../../components/IconButton';
+
+import { ReactComponent as ArrowLeft } from '../../assets/icons/CaretLeft.svg';
+import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
+import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
+import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
 
 export function DishDetails() {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  function handlePreventDefault(event) {
+    if (event.defaultPrevented) return;  
+    event.preventDefault();
+  }
+
+  function handleFavoritedChange(event) {
+    handlePreventDefault(event);
+
+    console.log(isFavorite);
+    
+    if(!isFavorite) {
+      setIsFavorite(true); 
+    }
+    
+    // setIsFavorite(false);
+  }
+
   return (
     <Container>
-      <Link to="/home">
+      <Link className='goBack' to='/home'>
         <ArrowLeft />
         voltar
-      </Link>
+      </Link>  
       <FoodCard
         className='foodInfos' 
         dish={

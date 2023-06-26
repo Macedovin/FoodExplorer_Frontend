@@ -49,11 +49,4 @@ export const LogoText = styled.div`
 
     color: ${({ theme }) => theme.secondary_text}
   }
-  
-  > span {
-    //align-self: center;
-
-    color: ${({ theme }) => theme.price};
-    font-size: 1.2rem;
-  }
 `;

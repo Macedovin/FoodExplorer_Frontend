@@ -1,6 +1,6 @@
 import { Container } from './styles';
 
-export function IconButton({ onClick, children, ...rest }) {
+export function IconButton({ inputType, onClick, children, ...rest }) {
   return (
     <Container 
       onClick={onClick} 

@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 
 import { api } from '../../services/api'; 
 
-import categories from '../../mock.json';
+import categories from '../../categories_mock.json';
+import favorites from '../../favorites_mock.json';
 
 //import { Mobile_wrapper } from '../../components/Mobile_wrapper';
 import { Header } from '../../components/Header';
@@ -17,8 +18,9 @@ import { useSearchData } from '../../hooks/searchData';
  
 export function Home({ card }) {
   const [search, setSearch] = useState('');
-  const [ingredients, setIngredients] = useState([]);
   //const [categories, setCategories] = useState([]);
+  //const [favorite, setFavorite] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(true);
 
   const searchDataResult = useSearchData(); 
 
@@ -34,6 +36,19 @@ export function Home({ card }) {
     }
 
     //fetchDishes();
+
+    async function fetchFavorites() {
+      const response = api.get(`/favorites`);
+
+      console.log(response.data);
+
+      setFavorites(response.data);
+    }
+
+    //fetchFavorites();
+
+    
+
   },[]);
 
   return (
@@ -55,6 +70,8 @@ export function Home({ card }) {
 
                   <FoodCard
                     key={String(dish.id)}
+
+                    isLink
                     to={`/dish_details/${dish.id}`}
                     dish={
                       {
