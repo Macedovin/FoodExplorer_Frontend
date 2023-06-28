@@ -15,6 +15,27 @@ export const Container = styled.div`
 
 `;
 
+export const LabelWrapper = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 2.5rem;
+
+  > label {
+    
+    display: flex;
+    flex-direction: column;
+    
+    gap: 0.5rem;
+    
+    font-family: 'Roboto', sans-serif;
+    color: ${({ theme }) => theme.input_icon};
+
+  }
+`;
+
 export const InputWrapper = styled.div`
   height: 4.8rem;
 

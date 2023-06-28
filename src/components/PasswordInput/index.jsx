@@ -1,41 +1,55 @@
-import { Container, InputWrapper } from './styles';
+import { Container, LabelWrapper, InputWrapper } from './styles';
+
+import { useState } from 'react';
+
+import { forwardRef } from 'react'; 
+
+import { InputError } from '../InputError';
 
 import { ReactComponent as EyeOn } from '../../assets/icons/eye.svg';
 import { ReactComponent as EyeOff } from '../../assets/icons/eye-off.svg'; 
 
-import { useState } from 'react';
-
-export function PasswordInput({ label, ...rest }) {
-  const [passwordType, setPasswordType] = useState("password");
-
-  function handleInputType() {
-    if(passwordType === "password") {
+export const PasswordInput = forwardRef(function PasswordInput({ name, label, errors, ...rest }, ref) {
+    const [passwordType, setPasswordType] = useState("password");
+  
+    function handleInputType() {
+      if(passwordType === "password") {
+        
+        setPasswordType("text");
+        return;
+      } 
       
-      setPasswordType("text");
-      return;
-    } 
-    
-    setPasswordType("password");
-  }
-
-  return(
-    <Container>
-      <label htmlFor='password'>
-        {label}
-      </label>
-      <InputWrapper>      
-        <input 
-          id='password'
-          type={passwordType}
-          {...rest} 
-        />
-        <button
-          type="button"
-          onClick={handleInputType}
-        >
-          { passwordType === "password" ? <EyeOn /> : <EyeOff /> }  
-        </button>
-      </InputWrapper>
-    </Container>
-  )
-}
+      setPasswordType("password");
+    }
+  
+    return(
+      <Container>
+        <LabelWrapper>
+          <label htmlFor='password'>
+            {label}
+          </label>
+          {errors && (
+  
+            <InputError
+                message={errors}
+            />
+          )} 
+        </LabelWrapper>
+        <InputWrapper>      
+          <input
+            name={name} 
+            id='password'
+            type={passwordType}
+            {...rest}
+            ref={ref} 
+          />
+          <button
+            type="button"
+            onClick={handleInputType}
+          >
+            { passwordType === "password" ? <EyeOn /> : <EyeOff /> }  
+          </button>
+        </InputWrapper>
+      </Container>
+    );
+  });

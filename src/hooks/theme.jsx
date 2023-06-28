@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 import { ThemeProvider } from 'styled-components';
  
 import { darkTheme, lightTheme } from '../styles/theme';
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext({});
 
 function CustomThemeProvider({ children }) {
   

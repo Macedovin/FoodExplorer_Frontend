@@ -12,6 +12,8 @@ export const darkTheme = {
   input_icon: "#c4c4cc", //LIGHT 400
   input_text: "#ffffff", //LIGHT 100
 
+  input_error: '#f2c0c4',
+
   menu_active: "#ffffff", // LIGHT 100
   
   buttons_background: "#750310", // TOMATO 100
@@ -47,6 +49,8 @@ export const lightTheme = {
 
   input_icon: "#e1e1e6", //LIGHT 300
   input_text: "#ffffff", //LIGHT 100
+
+  input_error: '#f2c0c4',
 
   menu_active: "#000a0f", // DARK 400
 

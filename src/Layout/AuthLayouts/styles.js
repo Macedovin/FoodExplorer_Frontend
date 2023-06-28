@@ -3,15 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: clamp(33rem, 31rem + 52vw, 75rem);
 
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   margin-left: clamp(3.7rem, 2.5rem + 9vw, 6.5rem);
   margin-right: clamp(2.7rem, 1.5rem + 8vw, 4.7rem);
+  margin-block: clamp(8rem, 3rem + 15vh, 15rem);
 `;
 
 export const Brand = styled.div`

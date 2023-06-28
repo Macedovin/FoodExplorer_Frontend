@@ -1,12 +1,30 @@
-import { Container } from './styles';
+import { Container, LabelWrapper } from './styles';
 
-export function Input({ label, ...rest }) {
+import { forwardRef } from 'react'; 
+
+import { InputError } from '../InputError';
+
+export const Input = forwardRef(function Input({ label, id, type, errors, register, ...rest}, ref) {
+
   return(
     <Container>
-      <label>
-        {label}
-        <input {...rest} />
-      </label>
+      <LabelWrapper>
+        <label htmlFor={id}>
+          {label}
+        </label>  
+        {errors && (
+          <InputError
+            message={errors}
+          />  
+        )}  
+      </LabelWrapper>
+      <input 
+        id={id}
+        type={type}
+        register={register}
+        {...rest}
+        ref={ref}
+      />
     </Container>
-  )
-}
+  );
+});
