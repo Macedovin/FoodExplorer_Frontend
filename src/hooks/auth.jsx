@@ -2,14 +2,19 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 import { api } from '../services/api';
 
+import { Toast } from '../Toast';
+
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
 
   const [data, setData] = useState({});
 
+  const [showLoading, setShowLoading] = useState(false);
+
   async function signIn({ email, password }) {
 
+    setShowLoading(true);
     console.log(email, password)
 
     try {
@@ -23,17 +28,40 @@ function AuthProvider({ children }) {
 
       console.log(user, token);
 
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(user));
+      localStorage.setItem('@foodexplorer:token', token);
+
     } catch(error) {
       if(error.response) {
-        alert(error.response.data.message);
+        Toast().handleError(error.response.data.message);
       } else {
-        alert ('Não foi possível entrar')
+        Toast().handleError('Não foi possível entrar')
       }
     }
+
+    setShowLoading(false);
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@foodexplorer:token');
+
+    const user = localStorage.getItem('@foodexplorer:user');
+
+    if(token && user) {
+
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      setData({
+        token,
+        user: JSON.parse(user)
+      })
+    }
+  },[])
 
   return (
     <AuthContext.Provider value={{
+      showLoading,
+      setShowLoading,   
       signIn,
       user: data.user
     }}>

@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from '../../assets/icons/Logo_polygon.svg';
 
 export function AuthLayout() {
+ 
   return (
     <Container>
       <Brand>

@@ -21,7 +21,11 @@ export const LabelWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 2.5rem;
+  min-height: 2.5rem;
+
+  @media only screen and (max-width: 390px) and (min-width: 320px) {
+    gap: 2rem;
+  }
 
   > label {
     
@@ -31,7 +35,7 @@ export const LabelWrapper = styled.div`
     gap: 0.5rem;
     
     font-family: 'Roboto', sans-serif;
-    color: ${({ theme }) => theme.input_icon};
+    color: ${({ theme }) => theme.secondary_text};
 
   }
 `;
@@ -67,7 +71,8 @@ export const InputWrapper = styled.div`
   }
 
   > button {
-    
+    -webkit-tap-highlight-color: transparent;
+
     display: flex;
     align-items: center;
 
@@ -86,5 +91,8 @@ export const InputWrapper = styled.div`
       fill: ${({ theme }) => theme.search_placeholder};
     }
 
+    &:hover {
+      background-color: transparent;
+    }
   }
 `;

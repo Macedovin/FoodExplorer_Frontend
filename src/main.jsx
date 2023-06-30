@@ -7,6 +7,7 @@ import { CustomThemeProvider } from './hooks/theme';
 import { AuthProvider } from './hooks/auth';
 import { SearchDataProvider } from './hooks/searchData';
 
+import { ToastContainer } from 'react-toastify';
  
 import { Routes } from './routes';
 
@@ -15,6 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CustomThemeProvider>
       <Fragment>
         <GlobalStyles />
+        <ToastContainer 
+          autoClose={3000}
+        />
         <AuthProvider>
         <SearchDataProvider>
           <Routes />

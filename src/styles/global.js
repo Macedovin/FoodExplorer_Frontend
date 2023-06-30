@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -45,10 +46,6 @@ export default createGlobalStyle`
     cursor: pointer;
     transition: 0.2s;
   } 
-
-  button:hover {
-    background-color: ${({ theme }) => theme.buttons_hover};
-  }
 
   ul, li {
     list-style: none;

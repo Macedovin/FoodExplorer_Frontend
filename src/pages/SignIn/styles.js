@@ -31,6 +31,11 @@ export const Form = styled.form`
 
   .handle {
     height: 4.8rem;
+
+    &:hover {
+      
+      background-color: ${({ theme }) => theme.buttons_hover};
+    }
   }
 
   > a { 

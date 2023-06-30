@@ -16,7 +16,6 @@ const slideUp = keyframes`
   }
 `;
 
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -24,8 +23,8 @@ export const Container = styled.div`
 
   gap: 1.2rem;
 
-  width: max-content;
-  height: 2rem;
+  width: fit-content;
+  min-height: 2rem;
 
   padding-inline: 1.2rem;
   margin-bottom: 0.5rem;

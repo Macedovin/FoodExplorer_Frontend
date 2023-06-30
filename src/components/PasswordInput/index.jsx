@@ -44,7 +44,8 @@ export const PasswordInput = forwardRef(function PasswordInput({ name, label, er
             ref={ref} 
           />
           <button
-            type="button"
+            className='eyeButton'
+            type='button'
             onClick={handleInputType}
           >
             { passwordType === "password" ? <EyeOn /> : <EyeOff /> }  

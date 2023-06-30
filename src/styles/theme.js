@@ -74,19 +74,6 @@ export const lightTheme = {
   second_gradient: "#065e7c", // DARKBLUE 100
 }
 
-/* export default {
-  fontFamily: {
-    body: 'Poppins, sans-serif',
-    detail: 'Roboto, sans-serif',
-  },
-
-  fontWeights: {
-		light: 400,
-		normal: 500,
-		bold: 700,
-	},
-}
- */
 const colors =  {
   COLORS: {
 
