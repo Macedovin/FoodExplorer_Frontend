@@ -1,9 +1,9 @@
-import { Container, MenuIcon, MenuHeader, MenuList } from './styles';
+import { Container, MenuIcon, MenuHeader, MenuList, MenuButtonLink } from './styles';
 
 import { useState, useEffect } from 'react';
 
+import { useAuth } from '../../hooks/auth';
 import { useSearchData } from '../../hooks/searchData';
-
 
 import { ProfileDiv } from '../ProfileDiv'; 
 import { SearchInput } from '../SearchInput';
@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 export function MenuMobile() {
   const navigate = useNavigate();
 
+  const { signOut } = useAuth();
   const { fetchDishes } = useSearchData();
 
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
@@ -41,6 +42,12 @@ export function MenuMobile() {
     } */
 
     navigate('/home');
+  }
+
+  function handleSignOut() {
+    signOut();
+
+    navigate('/', { replace: true }); 
   }
 
   useEffect(() => {
@@ -82,9 +89,13 @@ export function MenuMobile() {
               <MenuCustomLink to='/order_history' onClick={updateMenu}>
                 Histórico de pedidos
               </MenuCustomLink>
-              <MenuCustomLink to='/' onClick={updateMenu}>
-                Sair
-              </MenuCustomLink>
+              <MenuButtonLink 
+                onClick={handleSignOut}
+              >
+                <button>
+                  Sair
+                </button>
+              </MenuButtonLink>
             </MenuList>
           </nav>
         </main>

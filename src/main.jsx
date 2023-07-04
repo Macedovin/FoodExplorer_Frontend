@@ -16,10 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CustomThemeProvider>
       <Fragment>
         <GlobalStyles />
-        <ToastContainer 
-          autoClose={3000}
-        />
-        <AuthProvider>
+        <ToastContainer autoClose={3000}/>        <AuthProvider>
         <SearchDataProvider>
           <Routes />
         </SearchDataProvider>

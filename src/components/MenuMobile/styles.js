@@ -175,4 +175,46 @@ export const MenuList = styled.ul`
 
 `;
 
+export const MenuButtonLink = styled.li`
+  width: 100%;
 
+  border-bottom: 1px solid ${({ theme }) => theme.footer_logo};    
+
+  cursor: pointer;
+
+  color: ${({ theme }) => theme.primary_text};
+
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.description}; 
+
+    font-weight: 500;
+
+    color: ${({ theme }) => theme.search_background};
+  }  
+
+  > button {
+    width: 100%;
+    height: 100%;
+    
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+    color: inherit;
+
+    text-align: start;
+
+    background-color: transparent;
+
+    display: block;
+
+    padding: 1rem;
+
+    &:hover {
+
+      font-weight: 500;
+    }  
+
+  }
+`; 
