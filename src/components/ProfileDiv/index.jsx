@@ -1,6 +1,15 @@
 import { Container } from './styles';
 
+import { api } from '../../services/api';
+
+import { useAuth } from '../../hooks/auth'; 
+
 export function ProfileDiv({ onClick }) {
+
+  const { user } = useAuth();
+
+  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/avatar/${user.avatar}` : avatarPlaceholder;
+
   return (
     <Container 
       to='/profile' 
@@ -8,12 +17,12 @@ export function ProfileDiv({ onClick }) {
     >
       <div>
         <span>Bem-vindo,</span>
-        <strong>Vinicius Macedo</strong>
+        <strong>{user.name}</strong>
       </div>
 
       <img 
-        src="https://github.com/Macedovin.png" 
-        alt="Foto do usuário" 
+        src={avatarURL} 
+        alt={`Foto de ${user.name}`}  
       />
     </Container>
   ); 

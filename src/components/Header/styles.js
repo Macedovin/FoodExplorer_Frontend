@@ -35,8 +35,6 @@ export const LogoText = styled.div`
   display: flex;
   align-items: center;
   
-  //flex-direction: column;
-  
   gap: 0.8rem;
   
   font-family: 'Roboto', sans-serif;
@@ -48,5 +46,10 @@ export const LogoText = styled.div`
     line-height: 2.5rem;
 
     color: ${({ theme }) => theme.secondary_text}
+  }
+
+  > p { 
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.price};
   }
 `;

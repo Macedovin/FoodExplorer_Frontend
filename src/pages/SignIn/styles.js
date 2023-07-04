@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
 
-  margin-top: 7.3rem;
-
 /*   //DESKTOP
   background-color: ${({ theme }) => theme.header_background};
 
@@ -14,11 +12,46 @@ export const Container = styled.div`
 
 `;
 
+export const Brand = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+
+  gap: 0.8rem;
+  
+  text-align: start;
+
+  > svg {
+    height: 2.7rem;
+    width: 2.7rem;
+  }
+`;
+
+export const LogoText = styled.div`
+  display: flex;
+  align-items: center;
+  
+  
+  gap: 0.8rem;
+  
+  font-family: 'Roboto', sans-serif;
+  
+  > h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    color: ${({ theme }) => theme.secondary_text}
+  }
+
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
 
   gap: 3.2rem;
+
+  margin-top: 7.3rem;
 
   > h2 {
     

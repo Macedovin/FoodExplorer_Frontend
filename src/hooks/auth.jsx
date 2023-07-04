@@ -35,7 +35,7 @@ function AuthProvider({ children }) {
       if(error.response) {
         Toast().handleError(error.response.data.message);
       } else {
-        Toast().handleError('Não foi possível entrar')
+        Toast().handleError('Não foi possível entrar.')
       }
     }
     
@@ -50,6 +50,39 @@ function AuthProvider({ children }) {
     setUserData({});
     
     //console.log('outing', isAdmin);
+  }
+
+  async function updateUserProfile({ user, avatarFile }) {
+    try {
+
+      if (avatarFile ) {
+
+        const fileUploadForm = new FormData();
+
+        fileUploadForm.append('avatar', avatarFile);
+
+        const response = await api.patch('/users/avatar', fileUploadForm);
+
+        user.avatar = response.data.avatar; 
+      }
+
+      const response = await api.put('/users', user);
+
+      user = response.data.updatedUser;
+
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(user));
+
+      setUserData({ user, token: userData.token });
+
+      Toast().handleSuccess('Perfil atualizado com sucesso.');
+
+    } catch(error) {
+      if(error.response) {
+        Toast().handleError(error.response.data.message);
+      } else {
+        Toast().handleError('Não foi possível atualizar o perfil.')
+      }
+    }
   }
 
   useEffect(() => {
@@ -71,7 +104,7 @@ function AuthProvider({ children }) {
   useEffect(() => {
     async function loadRoles() {
 
-      try {
+      try{
 
         const response = await api.get('/users/roles');
   
@@ -80,26 +113,21 @@ function AuthProvider({ children }) {
         const findRole = roles.includes('ROLE_ADMIN');
 
         if(!findRole) {
+
           setIsAdmin(false);
-          //console.log('Não encontrei nada', isAdmin);
+
         } else {
 
           setIsAdmin(true);
-          //console.log('auth:', roles, '->', findRole);
         }
-
-
 
         setIsAdmin(findRole);
-        
-        
+                
       } catch(error) {
-        if(error.response) {
-          console.error(error.response.data.message);
-        } else { 
-          console.error('Deu merda');
-        }
+        if(error.response)
+        console.error(error.response.data.message);
       }
+      
     }
 
     loadRoles();
@@ -114,6 +142,7 @@ function AuthProvider({ children }) {
       isAdmin,
       signIn,
       signOut,
+      updateUserProfile
     }}>
       {children}
     </AuthContext.Provider>

@@ -11,8 +11,13 @@ export const Container = styled(Link)`
   
   > img {
 
-    width: 6.4rem;
     height: 6.4rem;
+    width: 6.4rem;
+
+    @media only screen and (width: 320px) {
+      height: 4.4rem;
+      width: 4.4rem;
+    }
   
     border-radius: 50%;
   }

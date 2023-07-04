@@ -10,13 +10,6 @@ export function Routes({ role }) {
 
   const { user, isAdmin } = useAuth();
 
-  const checkAdmin = user && isAdmin;
-
-  const checkUser = user && !isAdmin;
-  
-  console.log(typeof user, ':', user);
-  //console.log('routes:', isAdmin);
-
   function renderRoutes() {
     if(!user) {
       return <AuthRoutes />

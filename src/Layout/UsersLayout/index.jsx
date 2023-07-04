@@ -10,7 +10,12 @@ export function UsersLayout() {
   return (
 /*     <Mobile_wrapper> */
           <Container> 
-            <Header />
+            <Header.Root>
+              <Header.MenuMobile />
+              <Header.Brand />
+              <Header.Badge />
+              <Header.ThemeSwitcher />
+            </Header.Root>
               <Outlet />
             <Footer />
           </Container>
