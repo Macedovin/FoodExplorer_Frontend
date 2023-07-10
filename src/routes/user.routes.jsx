@@ -12,7 +12,7 @@ import { NotFound } from '../pages/NotFound';
 export function UserRoutes() {
   return(
     <Routes>
-      <Route path='/' element={<UsersLayout role='ROLE_ADMIN'/>}  > 
+      <Route path='/' element={<UsersLayout />} > 
         <Route index element={<Home />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/orders' element={<Orders />} />

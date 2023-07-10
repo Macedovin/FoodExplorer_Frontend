@@ -1,7 +1,29 @@
-import styled from 'styled-components';
+import styled , { css } from 'styled-components';
 
+export const SliderWrap = styled.div`
+  position: relative;
 
-import { Link } from 'react-router-dom';
+  .swiper {
+    width: 100%;
+    display: flex;
+  
+    padding-block: 2.4rem;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+  }
+
+  .swiper-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+  }
+`;
 
 import prato_teste from '../../assets/Prato_1.png'
 
@@ -51,11 +73,11 @@ export const TopCard = styled.div`
   right: 1.6rem;
 
   > button {
-    svg {
+    > svg {
       height: 2.4rem;
       width: 2.4rem;
       
-      path {
+      > path {
         fill: ${({ theme }) => theme.primary_text};
         stroke: ${({ theme }) => theme.primary_text};
         stroke-width: 0.5;        
@@ -67,21 +89,16 @@ export const TopCard = styled.div`
 
 export const Picture = styled.div`
   flex: 1;
-  
-  width: 8.8rem;
 
   align-self: center;
 
-  transition: all 0.3s ease-out;
-  
+  height: 8.8rem;
+  width: 8.8rem;
+
   background: url(${prato_teste}) no-repeat center center;
   background-size: contain;
-  
-  > img {
-    min-height: 8.8rem;
-    width: 8.8rem;
-  }
 
+  transition: all 0.3s ease-out;
 `;
 
 export const FoodInfos = styled.div`
@@ -109,19 +126,15 @@ export const FoodInfos = styled.div`
     text-align: center;
     text-align-last: center;
 
-    display: none; // !!!! CHANGE ON DESKTOP !!!!!
+    display: none; // !!!! MUDAR NO DESKTOP !!!!!
   }
 
   > h3 {
+    
     font-weight: 400;
 
     color: ${({ theme }) => theme.price};
   }
-`;
-
-export const FoodIngredients = styled.div`
-
-  display: none; // CHANGE WHEN NEEDED
 `;
 
 export const OrderInfos = styled.div`
@@ -132,11 +145,11 @@ export const OrderInfos = styled.div`
   
   width: 100%;
 
-  gap: 1.6rem;
-
   .quantity {
     display: flex;
     align-items: center;
+
+    margin-bottom: 1.6rem;
 
     gap: 1.6rem;
 

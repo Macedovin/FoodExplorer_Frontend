@@ -17,4 +17,10 @@ export const Container = styled.button`
   > svg path {
     fill: ${({ theme }) => theme.secondary_text};
   }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.buttons_disabled};
+
+    cursor: default; 
+  }
 `;

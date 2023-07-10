@@ -1,22 +1,21 @@
 import { Container, TopCard, Picture, FoodInfos, FoodIngredients, OrderInfos } from './styles';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { ConditionalLink } from '../ConditionalLink';  
+import { formatCurrency } from '../../utilities/formatCurrency';
 
+import { ConditionalLink } from '../ConditionalLink';  
 import { Button } from '../Button';
 import { IconButton } from '../IconButton';
 import { IngredientsTag } from '../IngredientsTag'; 
 
-import { formatCurrency } from '../../utilities/formatCurrency';
 
 import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
 import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
 import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
 import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
-import { useEffect } from 'react';
 
 export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
   //const ConditionalLink = isLink ? Link : React.DOM.div;
@@ -88,7 +87,7 @@ export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
 
               <IngredientsTag 
                 key={String(ingredients.id)}
-                name={ingredients.name}
+                value={ingredients.name}
               />
 
             ))

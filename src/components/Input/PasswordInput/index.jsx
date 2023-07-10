@@ -6,8 +6,8 @@ import { forwardRef } from 'react';
 
 import { InputError } from '../InputError';
 
-import { ReactComponent as EyeOn } from '../../assets/icons/eye.svg';
-import { ReactComponent as EyeOff } from '../../assets/icons/eye-off.svg'; 
+import { ReactComponent as EyeOn } from '../../../assets/icons/eye.svg';
+import { ReactComponent as EyeOff } from '../../../assets/icons/eye-off.svg'; 
 
 export const PasswordInput = forwardRef(function PasswordInput({ name, label, errors, ...rest }, ref) {
     const [passwordType, setPasswordType] = useState("password");

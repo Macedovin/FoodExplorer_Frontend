@@ -2,21 +2,24 @@ import { Container, LabelWrapper } from './styles';
 
 import { forwardRef } from 'react'; 
 
-import { InputError } from '../InputError';
+import { InputError } from './InputError';
 
-export const Input = forwardRef(function Input({ label, id, type, errors, register, ...rest}, ref) {
+export const Input = forwardRef(function Input({ label, id, type, errors, register, className, ...rest}, ref) {
 
   return(
     <Container>
-      <LabelWrapper>
+      <LabelWrapper
+        className={className}
+      >
         <label htmlFor={id}>
           {label}
         </label>  
         {errors && (
-          <InputError
-            message={errors}
-          />  
-        )}  
+            <InputError
+              message={errors}
+            />  
+          )
+        }  
       </LabelWrapper>
       <input 
         id={id}

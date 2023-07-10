@@ -14,6 +14,8 @@ export const darkTheme = {
 
   input_error: '#f2c0c4',
 
+  select_background: "#0d161b", //DARK 800
+
   menu_active: "#ffffff", // LIGHT 100
   
   buttons_background: "#750310", // TOMATO 100
@@ -28,6 +30,8 @@ export const darkTheme = {
   description: "#c4c4cc", // LIGHT 400
 
   ingredient_tag: "#192227", // DARK 1000
+
+  ingredient_add: "#76797b", //LIGHT 600
 
   footer_logo: "#4d585e", // LIGHT 700
   footer_rights: "#fffaf1", // LIGHT 200
@@ -52,6 +56,8 @@ export const lightTheme = {
 
   input_error: '#f2c0c4',
 
+  select_background: "#76797b", //LIGHT 600
+
   menu_active: "#000a0f", // DARK 400
 
   buttons_background: "#ab222e", // TOMATO 300
@@ -66,6 +72,8 @@ export const lightTheme = {
   description: "#0d161b", // DARK 800
 
   ingredient_tag: "#4d585e", // LIGHT 700
+
+  ingredient_add: "#192227", //DARK 1000
 
   footer_logo: "#4d585e", // LIGHT 700
   footer_rights: "#00070a", // DARK 200

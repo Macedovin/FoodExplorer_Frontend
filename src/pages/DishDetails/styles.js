@@ -21,16 +21,12 @@ export const Container = styled.main`
   .goBack {
     font-size: 2.4rem;
     font-weight: 500;
-
-    text-align: left;
-
-    color: ${({ theme }) => theme.primary_text};
-
-    display: flex;
-    align-items: center;
-
+    
     svg {     
       margin-right: 1.1rem;
+
+      height: 2.2rem; 
+      width: 1.2rem;
     }
 
     svg path {

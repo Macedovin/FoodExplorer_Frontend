@@ -104,6 +104,8 @@ function AuthProvider({ children }) {
   useEffect(() => {
     async function loadRoles() {
 
+      //setShowLoading(true);
+
       try{
 
         const response = await api.get('/users/roles');
@@ -128,6 +130,8 @@ function AuthProvider({ children }) {
         console.error(error.response.data.message);
       }
       
+      //setShowLoading(false);
+
     }
 
     loadRoles();
@@ -146,7 +150,7 @@ function AuthProvider({ children }) {
     }}>
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 function useAuth() {

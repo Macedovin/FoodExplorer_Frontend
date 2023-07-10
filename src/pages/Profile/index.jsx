@@ -11,11 +11,9 @@ import { name_validation, email_validation, password_validation } from '../../ut
 import { api } from '../../services/api';
  
 import { Input } from '../../components/Input';
-import { PasswordInput } from '../../components/PasswordInput';
+import { PasswordInput } from '../../components/Input/PasswordInput';
 import { Button } from '../../components/Button';
-//import { Mobile_wrapper } from '../../components/Mobile_wrapper';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer'; 
+import { TurnBackButton } from '../../components/TurnBackButton';
 
 import avatarPlaceholder from '../../assets/icons/avatar.svg';
 import { ReactComponent as Camera} from '../../assets/icons/Câmera.svg';
@@ -65,9 +63,11 @@ export function Profile() {
   } 
 
   return (
-/*     <Mobile_wrapper> */
+
     <Container>
-{/*       <Header /> */}
+
+      <TurnBackButton />
+
       <h1>
       Dados do perfil
       </h1>
@@ -137,8 +137,8 @@ export function Profile() {
           title='Salvar'
         />
       </Form>
-{/*       <Footer /> */}
+
     </Container>
-/*     </Mobile_wrapper> */
+
   );
 }

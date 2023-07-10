@@ -5,17 +5,21 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useSearchData } from '../../hooks/searchData';
 
-import { ProfileDiv } from '../ProfileDiv'; 
-import { SearchInput } from '../SearchInput';
-import { MenuCustomLink } from '../MenuCustomLink';
-import { Footer } from '../Footer';
-
 import { useNavigate } from 'react-router-dom';
 
-export function MenuMobile() {
+import { userLinks } from '../../utilities/userLinks';
+import { adminLinks } from '../../utilities/adminLinks';
+
+import { ProfileDiv } from '../ProfileDiv'; 
+import { SearchInput } from '../SearchInput';
+import { MenuCustomLink } from './MenuCustomLink';
+import { Footer } from '../Footer';
+
+export function MenuMobile() { 
+
   const navigate = useNavigate();
 
-  const { signOut } = useAuth();
+  const { signOut, isAdmin } = useAuth();
   const { fetchDishes } = useSearchData();
 
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
@@ -80,15 +84,31 @@ export function MenuMobile() {
           />
           <nav>
             <MenuList>
-              <MenuCustomLink to='/orders' onClick={updateMenu}>
-                Pedidos
-              </MenuCustomLink>
-              <MenuCustomLink to='/favorites' onClick={updateMenu}>
-                Meus favoritos
-              </MenuCustomLink>
-              <MenuCustomLink to='/order_history' onClick={updateMenu}>
-                Histórico de pedidos
-              </MenuCustomLink>
+              {
+                isAdmin 
+                
+                ? adminLinks.map(link => (
+
+                    <MenuCustomLink 
+                      key={link.name}
+                      to={link.to}
+                      onClick={updateMenu}
+                      name={link.name}
+                    />    
+
+                  ))
+                : userLinks.map(link => (
+                
+                  <MenuCustomLink 
+                    key={link.name}
+                    to={link.to}
+                    onClick={updateMenu}
+                    name={link.name}
+                  />               
+  
+                ))              
+              }
+              
               <MenuButtonLink 
                 onClick={handleSignOut}
               >

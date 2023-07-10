@@ -13,7 +13,7 @@ import { api } from '../../services/api';
 import { Loading } from '../../components/Loading'
 import { Toast } from '../../Toast';
 import { Input } from '../../components/Input';
-import { PasswordInput } from '../../components/PasswordInput';
+import { PasswordInput } from '../../components/Input/PasswordInput';
 import { Button } from '../../components/Button';
 
 import { ReactComponent as LogoIcon } from '../../assets/icons/Logo_polygon.svg';

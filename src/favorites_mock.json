@@ -1,0 +1,23 @@
+[
+  {
+    "favorite_id": 24,
+    "user_id": 3,
+    "dish_id": 2,
+    "name": "Refeição 2",
+    "picture": null
+  },
+  {
+    "favorite_id": 26,
+    "user_id": 3,
+    "dish_id": 5,
+    "name": "Bebida 3",
+    "picture": "ac4911ab4f1f2f19c1eb-clipart1333209.png"
+  },
+  {
+    "favorite_id": 27,
+    "user_id": 3,
+    "dish_id": 4,
+    "name": "Bebida 2",
+    "picture": "e8a7164f72c6155b94b4-Prato_2.png"
+  }
+]

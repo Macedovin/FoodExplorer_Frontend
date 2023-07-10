@@ -24,7 +24,7 @@ export function Home({ card }) {
 
   const searchDataResult = useSearchData(); 
 
-  console.log(searchDataResult);
+  //console.log(searchDataResult);
 
   useEffect(() => {
     async function fetchDishes() {

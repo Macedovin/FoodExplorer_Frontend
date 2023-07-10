@@ -1,30 +1,27 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  max-width: clamp(33rem, 31rem + 52vw, 75rem);
 
-  min-height: 100%;
+  height: 100vh;
 
   display: grid;
-  grid-template-rows: 11.4rem 1fr 7.7rem;
+  grid-template-rows: min-content auto min-content;
   grid-template-areas:
     'header'
     'content'
-    'footer'; 
-
-  
-    > main {
+    'footer';
+`;
+/*   
+  > main {
 
     grid-area: content;
-
+    
     overflow-x: visible;
     overflow-y: overlay;
 
-    padding: 0 2.4rem;
+    padding: 0 2.4rem; 
 
-    > h2 {
-      font-size: 2.4rem;
-    }
-  }
+  } 
 
-`;
+`;*/

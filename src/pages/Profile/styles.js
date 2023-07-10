@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-/*   width: 100%;
-
-  min-height: 100%;
-
-  display: grid;
-  grid-template-rows: 11.4rem 1fr 7.7rem;
-  grid-template-areas:
-    'header'
-    'content'
-    'footer';
-   */
 
   grid-area: content;
 
@@ -26,6 +15,34 @@ export const Container = styled.main`
 
   @media only screen and (width: 320px) {
     padding-inline: 3.4rem;
+  }
+
+  .goBack {
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    text-align: left;
+
+    color: ${({ theme }) => theme.primary_text};
+
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-top: 1.1rem;
+
+    svg {     
+      margin-right: 0.7rem;
+
+      height: 1.5rem; 
+      width: 0.8rem;
+    }
+
+    svg path {
+      fill: ${({ theme }) => theme.primary_text};
+    }
   }
 
   > h1 {

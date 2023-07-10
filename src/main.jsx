@@ -5,7 +5,9 @@ import GlobalStyles from './styles/global';
 
 import { CustomThemeProvider } from './hooks/theme';
 import { AuthProvider } from './hooks/auth';
+import{ DishesProvider } from './hooks/dishes' 
 import { SearchDataProvider } from './hooks/searchData';
+
 
 import { ToastContainer } from 'react-toastify';
  
@@ -17,9 +19,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Fragment>
         <GlobalStyles />
         <ToastContainer autoClose={3000}/>        <AuthProvider>
-        <SearchDataProvider>
-          <Routes />
-        </SearchDataProvider>
+          <DishesProvider>
+          <SearchDataProvider>
+            <Routes />
+          </SearchDataProvider>
+          </DishesProvider>
         </AuthProvider>
       </Fragment>
     </CustomThemeProvider>

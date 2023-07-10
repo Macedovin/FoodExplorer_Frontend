@@ -2,10 +2,9 @@ import { Container } from './styles';
 
 import { useState } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import { FoodCard } from '../../components/FoodCard';
-import { IconButton } from '../../components/IconButton';
+import { Button } from '../../components/Button';
+import { TurnBackButton } from '../../components/TurnBackButton';
 
 import { ReactComponent as ArrowLeft } from '../../assets/icons/CaretLeft.svg';
 import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
@@ -13,6 +12,7 @@ import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
 import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
 
 export function DishDetails() {
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   function handlePreventDefault(event) {
@@ -34,10 +34,11 @@ export function DishDetails() {
 
   return (
     <Container>
-      <Link className='goBack' to='/home'>
-        <ArrowLeft />
-        voltar
-      </Link>  
+
+      <TurnBackButton
+        className='goBack'
+      />
+
       <FoodCard
         className='foodInfos' 
         dish={

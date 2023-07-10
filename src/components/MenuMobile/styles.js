@@ -64,6 +64,7 @@ export const Container = styled.div`
     animation: ${slideIn} 0.5s ease-out; 
 
     transition-timing-function: 0.5s;
+    
 
     li:nth-child(1) {
       animation: ${slideIn} 0.5s 0.1s ease-out backwards;
@@ -80,6 +81,30 @@ export const Container = styled.div`
     li:nth-child(4) {
       animation: ${slideIn} 0.5s 0.4s ease-out backwards;
     }
+
+    li:nth-child(5) {
+      animation: ${slideIn} 0.5s 0.5s ease-out backwards;
+    } 
+    
+    li:nth-child(6) {
+      animation: ${slideIn} 0.5s 0.6s ease-out backwards;
+    } 
+
+    li:nth-child(7) {
+      animation: ${slideIn} 0.5s 0.7s ease-out backwards;
+    } 
+
+    li:nth-child(8) {
+      animation: ${slideIn} 0.5s 0.8s ease-out backwards;
+    } 
+
+    li:nth-child(9) {
+      animation: ${slideIn} 0.5s 0.9s ease-out backwards;
+    } 
+    
+    li:nth-child(10) {
+      animation: ${slideIn} 0.5s 0.10s ease-out backwards;
+    } 
   }
 `;  
 
@@ -102,7 +127,7 @@ export const MenuIcon = styled.div`
 
   .burger-bar {
     height: 0.3rem;
-    width: 2.4rem;
+    width: 2rem;
 
     border-radius: 0.3rem;
 
@@ -166,7 +191,7 @@ export const MenuList = styled.ul`
 
   padding-top: 3.6rem;
 
-  padding-bottom: 20rem;
+  padding-bottom: 15rem;
 
   display: flex;
   flex-direction: column;

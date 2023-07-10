@@ -9,7 +9,7 @@ export function Toast() {
     toast.error(message);
   }
 
-  function handleWarning() {
+  function handleWarning(message) {
     toast.warning(message);
   }
 
