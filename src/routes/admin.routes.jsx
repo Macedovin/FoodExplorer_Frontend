@@ -6,7 +6,7 @@ import { NewDish } from '../pages/NewDish';
 import { EditDish } from '../pages/EditDish';
 import { DishDetails } from '../pages/DishDetails';
 import { Profile } from '../pages/Profile';
-import { NotFound } from '../pages/NotFound';
+import { NotFoundApp } from '../pages/NotFoundApp';
 
 export function AdminRoutes() {
 
@@ -18,10 +18,10 @@ export function AdminRoutes() {
       <Route path='/' element={<AdminLayout />} >
         <Route index element={<Home />} />  
         <Route path='/new_dish' element={<NewDish />}/>
-        <Route path='/edit_dish/:1' element={<EditDish />}/>
-        <Route path='/dish_details/1' element={<DishDetails />} />
+        <Route path='/edit_dish/:id' element={<EditDish />}/>
+        <Route path='/dish_details/:id' element={<DishDetails />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='*' element={<NotFound />}/>
+        <Route path='*' element={<NotFoundApp />}/>
       </Route>
     </Routes> 
   )

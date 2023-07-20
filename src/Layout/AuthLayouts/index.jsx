@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 import { Outlet } from 'react-router-dom'; 
 
-export function AuthLayout() {
+export function AuthLayout({ isNotFound = false }) {
  
   return (
     <Container>

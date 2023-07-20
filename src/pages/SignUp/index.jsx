@@ -52,7 +52,6 @@ export function SignUp() {
           setShowLoading(false);
         }
       })
-
   }
 
   return(

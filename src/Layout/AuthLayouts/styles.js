@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin-left: 4.9rem;
   }
 
-  @media only screen and (max-width: 390px) and (min-width: 375px) {
+  @media only screen and (max-width: 390px) and (min-width: 360px) {
     margin-top: 11rem;
   }
 `;

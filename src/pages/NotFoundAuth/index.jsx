@@ -1,12 +1,12 @@
 import { Container, Information } from './styles.js';
 
-import { Button } from '../../components/Button';
+import { Button } from '../../components/Button/index.jsx';
 
 import{ ReactComponent as NoFood } from '../../assets/icons/covered_food.svg';
 
 import { useNavigate } from 'react-router-dom';
 
-export function NotFound() {
+export function NotFoundAuth() {
   const navigate = useNavigate();
 
   function handleTurnBack() {

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthLayout } from '../Layout/AuthLayouts'
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
-import { NotFound } from '../pages/NotFound';  
+import { NotFoundAuth } from '../pages/NotFoundAuth';  
 
 export function AuthRoutes() {
   return( 
@@ -11,7 +11,7 @@ export function AuthRoutes() {
       <Route path='/' element={<AuthLayout />}>
         <Route path="/" element={<SignIn />}/>
         <Route path="/register" element={<SignUp />}/>
-        <Route path='*' element={<NotFound />}/>
+        <Route path='*' element={<NotFoundAuth />}/>
       </Route>
     </Routes>
   )

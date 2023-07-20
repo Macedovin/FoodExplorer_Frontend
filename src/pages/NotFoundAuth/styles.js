@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: 100vh;
+export const Container = styled.main`
+  
+  grid-area: content; 
+
   width: 100%;
 
   display: flex;
@@ -12,12 +14,35 @@ export const Container = styled.div`
 
   font-family: 'Roboto', sans-serif;
 
+  padding-top: 2.4rem;
+  padding-bottom: 4.2rem;
+
+  padding-inline: 3.4rem;
+
+  @media only screen and (width: 320px) {
+    padding-inline: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media only screen and (max-width: 390px) and (min-width: 360px) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+/*   overflow-x: hidden;
+  overflow-y: overlay; */
+
+  //height: 100vh;
+
+
   > h1 {
     font-size: 3.4rem;
     color: ${({ theme }) => theme.price};
   }
 
   > svg {
+
     height: 15.7rem;
     width: 15.7rem;
   }

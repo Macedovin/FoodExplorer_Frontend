@@ -7,7 +7,7 @@ import { Orders } from '../pages/Orders';
 import { OrderHistory } from '../pages/OrderHistory';
 import { DishDetails } from '../pages/DishDetails';
 import { Profile } from '../pages/Profile';
-import { NotFound } from '../pages/NotFound';
+import { NotFoundApp } from '../pages/NotFoundApp';
 
 export function UserRoutes() {
   return(
@@ -17,9 +17,9 @@ export function UserRoutes() {
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/orders' element={<Orders />} />
         <Route path='/order_history' element={<OrderHistory />} />
-        <Route path='/dish_details/1' element={<DishDetails />} />
+        <Route path='/dish_details/:id' element={<DishDetails />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='*' element={<NotFound />}/>
+        <Route path='*' element={<NotFoundApp />}/>
       </Route>
     </Routes>
   )
