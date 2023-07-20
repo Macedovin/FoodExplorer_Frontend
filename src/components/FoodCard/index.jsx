@@ -1,50 +1,52 @@
-import { Container, TopCard, Picture, FoodInfos, FoodIngredients, OrderInfos } from './styles';
+import { FoodCardRoot } from './FoodCardRoot';
+import { FoodCardTopCard } from './FoodCardTopCard';
+import { FoodCardPicture } from './FoodCardPicture';
+import { FoodCardFoodInfos } from './FoodCardFoodInfos';
+import { FoodCardIngredients } from './FoodCardIngredients';
+import { FoodCardOrderInfos } from './FoodCardOrderInfos';
 
-import { useState, useEffect } from 'react';
+export const FoodCard = {
+  Root: FoodCardRoot,
+  TopCard: FoodCardTopCard,
+  Picture: FoodCardPicture,
+  FoodInfos: FoodCardFoodInfos,
+  Ingredients: FoodCardIngredients,
+  OrderInfos: FoodCardOrderInfos
+}
 
-import { Link } from 'react-router-dom';
+/* import { Container, TopCard, Picture, FoodInfos, FoodIngredients, OrderInfos } from './styles'; */
 
-import { formatCurrency } from '../../utilities/formatCurrency';
+/* import { useState, useEffect } from 'react'; */
 
-import { ConditionalLink } from '../ConditionalLink';  
-import { Button } from '../Button';
-import { IconButton } from '../IconButton';
-import { IngredientsTag } from '../IngredientsTag'; 
+//import { Link } from 'react-router-dom';
 
+/* import { formatCurrency } from '../../utilities/formatCurrency'; */
 
-import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
-import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
-import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
-import { ReactComponent as Add } from '../../assets/icons/Plus.svg';
+/* import { ConditionalLink } from '../ConditionalLink';   */
+/* import { Button } from '../Button';
+import { IconButton } from '../IconButton'; */
+/* import { IngredientsTag } from '../IngredientsTag'; */
 
-export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
+/* import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
+import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg'; */
+/* import { ReactComponent as Remove } from '../../assets/icons/Minus.svg';
+import { ReactComponent as Add } from '../../assets/icons/Plus.svg'; */
+
+/* export function FoodCard({ isLink = false, dish, to, button, ...rest }) { */
   //const ConditionalLink = isLink ? Link : React.DOM.div;
 
-  const { name, description, picture, price, ingredients } = dish;
+  //const { name, description, picture, price, ingredients } = dish;
 
-  const { title, btn_price, icon } = button;
+  //const { title, btn_price, icon } = button;
 
-  const [total, setTotal] = useState(1);
+/*   const [total, setTotal] = useState(1); */
 
-  const [isFavorite, setIsFavorite] = useState(false);
+/*   const [isFavorite, setIsFavorite] = useState(false); */
 
-  function handlePreventDefault(event) {
+   /* function handlePreventDefault(event) {
     if (event.defaultPrevented) return;  
     event.preventDefault();
   }
-
-  function handleFavoritedChange(event) {
-    handlePreventDefault(event);
-
-    console.log(isFavorite);
-    
-    if(!isFavorite) {
-      setIsFavorite(true); 
-    }
-    
-    // setIsFavorite(false);
-  }
-
   function handleRemove(event) {
     handlePreventDefault(event);
 
@@ -55,32 +57,46 @@ export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
     handlePreventDefault(event);
 
     setTotal((prevState) => prevState + 1);  
-  }
+  } */
 
-  return(
+/*   function handleFavoritedChange(event) {
+    handlePreventDefault(event);
+
+    console.log(isFavorite);
+    
+    if(!isFavorite) {
+      setIsFavorite(true); 
+    }
+    
+    // setIsFavorite(false);
+  } */
+
+
+
+  /* return(
     // <Link to={to}>
     <ConditionalLink  to={to} isLink={isLink}>
-      <Container {...rest}>
-        <TopCard>
+      <Container {...rest}> */
+{/*         <TopCard>
           <IconButton 
             className='heart' 
             onClick={handleFavoritedChange}
           >
             {!isFavorite ? <Heart /> : <FullHeart />}
           </IconButton>
-        </TopCard>
-        <Picture className='cardPicture'>
+        </TopCard> */}
+{/*         <Picture className='cardPicture'>
           <img src={picture} alt="Imagem do prato" />
-        </Picture>
-        <FoodInfos className='dishData'>
+        </Picture> */}
+{/*         <FoodInfos className='dishData'>
           <h2>
             {name}            
           </h2> 
           
           <p>{description}</p>
           <h3>{formatCurrency(price)}</h3>
-        </FoodInfos>
-        <FoodIngredients className='dishIngredients'>
+        </FoodInfos> */}
+{/*         <FoodIngredients className='dishIngredients'>
           {ingredients && 
 
             ingredients.map(ingredients => (
@@ -93,8 +109,8 @@ export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
             ))
 
           }
-        </FoodIngredients>
-        <OrderInfos id='orderData' >
+        </FoodIngredients> */}
+{/*         <OrderInfos id='orderData' >
           <div className="quantity">
             <IconButton onClick={handleRemove}>
               <Remove  />
@@ -111,10 +127,10 @@ export function FoodCard({ isLink = false, dish, to, button, ...rest }) {
             btn_price={btn_price}
             icon={icon}
           />
-        </OrderInfos>
-      </Container>
-    </ConditionalLink> 
+        </OrderInfos> */}
+/*       </Container>
+    </ConditionalLink>  
     //</Link> 
 
   );
-}
+} */

@@ -7,13 +7,16 @@ import "swiper/css";
 import { Children } from 'react'; 
 import { FoodCard } from '../FoodCard'; 
 
-export function FoodSection({ title, settings, children }) {
- 
+export function FoodSection({ content, title,children }) {
+
 /*   const { spaceBetween, slidesPerView, modules, loop, navigation } = settings; */
 /* 
 const arrayChildren = Children.toArray(children); */
 
+  const hasContent = content && content.length
+
   return(
+       
     <Container>
       <h2>
         {title}
@@ -39,15 +42,14 @@ const arrayChildren = Children.toArray(children); */
           },
         }}
       >
-       {/*  <main> */}
-       {Children.map(children, child => (
+      {Children.map(children, child => (
 
-          <SwiperSlide>{child}</SwiperSlide>
+            <SwiperSlide>{child}</SwiperSlide>
 
-        )) 
+          )) 
         }          
-        {/* </main> */}
       </Swiper>
     </Container>
+
   );
 }
