@@ -34,7 +34,7 @@ export const Container = styled.form`
     }
   }
 
-  > svg {
+  > button {
     margin-left: 1.4rem;
   }
 

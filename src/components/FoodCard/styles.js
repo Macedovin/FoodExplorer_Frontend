@@ -22,7 +22,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.card_background};
 
-  padding: 2.4rem;
+  padding: 1.4rem 2.4rem 2.4rem;
 
   color: ${({ theme }) => theme.primary_text};
   
@@ -74,6 +74,7 @@ export const TopCard = styled.div`
 export const Picture = styled.div`
   flex: 1;
   
+  height: 8.8rem;
   width: 8.8rem;
 
   align-self: center;
@@ -99,6 +100,8 @@ export const FoodInfos = styled.div`
   gap: 1.2rem;
 
   > h2 {
+    text-align: center;
+
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 1.4rem;

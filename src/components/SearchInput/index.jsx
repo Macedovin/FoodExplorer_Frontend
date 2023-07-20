@@ -1,5 +1,7 @@
 import { Container } from './styles';
 
+import { IconButton } from '../IconButton';
+
 import { ReactComponent as MagnifyGlass } from '../../assets/icons/search.svg';
 
 export function SearchInput({ onClick, onChange, ...rest }) {
@@ -8,7 +10,12 @@ export function SearchInput({ onClick, onChange, ...rest }) {
 
   return(
     <Container onSubmit={handleSubmit}>
-        <MagnifyGlass onClick={onClick} />      
+      <IconButton 
+        type='submit'
+        onClick={onClick}
+      >
+        <MagnifyGlass  />      
+      </IconButton>
         
         <input 
           onChange={onChange}

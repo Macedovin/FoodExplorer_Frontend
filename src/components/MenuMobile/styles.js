@@ -20,6 +20,11 @@ export const Container = styled.div`
   .menu {
     display: grid;
     grid-template-rows: 11.4rem 1fr 7.7rem;
+
+    @media only screen and (width: 320px) {
+      grid-template-rows: 6.8rem 1fr 5.7rem;
+    }
+
     grid-template-areas:
       'menu_header'
       'content'
@@ -123,6 +128,11 @@ export const MenuIcon = styled.div`
   top: 6.4rem;
   left: 2.2rem;  
 
+  @media only screen and (width: 320px) {
+    top: 2.5rem;
+    left: 2.2rem; 
+  }
+
   cursor: pointer;
 
   .burger-bar {
@@ -165,16 +175,22 @@ export const MenuHeader = styled.header`
   grid-area: menu_header;
 
   width: 100%;
-
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   background-color: ${({ theme }) => theme.header_background}; // DARK_DARK_700
-
+  
   padding-top: 3.2rem;
-  //padding-bottom: 2.1rem;
   padding-inline: clamp(1.4rem, 4.4vw, 2.8rem);
+  
+  @media only screen and (width: 320px) {
+    height: 6.8rem;
+    
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 
   > h2 {
     font-family: 'Roboto', sans-serif;

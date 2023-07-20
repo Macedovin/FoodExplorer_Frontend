@@ -16,7 +16,7 @@ import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
 import { ReactComponent as Pencil } from '../../assets/icons/Pencil.svg';
 import { useEffect } from 'react';
 
-export function FoodCardTopCard({ dish }) {
+export function FoodCardTopCard({ dish = false }) {
   const params = useParams();
 
   const { id } = dish;
@@ -45,7 +45,7 @@ export function FoodCardTopCard({ dish }) {
 
     console.log(isFavorite, params, dish.id);
     try {
-      const response = await api.post(`/favorites/${params.id}`);
+      await api.post(`/favorites/${params.id}`);
 
       Toast().handleSuccess('Prato favoritado.');
     } catch (error) {
@@ -65,22 +65,24 @@ export function FoodCardTopCard({ dish }) {
 
   useEffect(() => {
 
-
     async function fetchFavorites() {
       
       const response = await api.get('/favorites');
       
-      const favorite = response.data;
-  
-      if(dish.id === favorite.dish_id) {
-        console.log('Foi!!!');
-      }
+      const favorites = response.data;
+
+      const favoriteDishes = favorites.map(favorite => {
+        return favorite.dish_id;
+      });
       
-      
+      favoriteDishes.map(favID => {
+        if(favID === dish.id) {
+          setIsFavorite(true);
+        } 
+      });
     }
 
     fetchFavorites();
-
 
   },[]);
 
@@ -88,6 +90,7 @@ export function FoodCardTopCard({ dish }) {
     <TopCard>
       <IconButton 
         //className='heart' 
+        favorite={isFavorite}
       >
         
         {isAdmin 

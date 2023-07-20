@@ -16,11 +16,14 @@ import { MenuCustomLink } from './MenuCustomLink';
 import { Footer } from '../Footer';
 
 export function MenuMobile() { 
+  const { handleSearchChange, search, setSearch } = useSearchData();
 
   const navigate = useNavigate();
 
   const { signOut, isAdmin } = useAuth();
   const { fetchDishes } = useSearchData();
+
+  //const [search, setSearch] = useState('');
 
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
 
@@ -32,22 +35,25 @@ export function MenuMobile() {
     if(!isMenuClicked) {
       setBurgerClass('burger-bar clicked');
       setMenuClass('menu visible');
+
     } else {
       setBurgerClass('burger-bar unclicked');
       setMenuClass('menu hidden');
-    }
 
+
+    }
+    
     setIsMenuClicked(!isMenuClicked);
   }
 
   function handleSearchRedirect() {
-/*     if(searchInputValue === '') {
-      return
-    } */
-
-    navigate('/home');
+    navigate('/');    
   }
 
+/*   function handleChange(event) {
+    console.log(event.target.value)
+  }
+ */
   function handleSignOut() {
     signOut();
 
@@ -55,6 +61,7 @@ export function MenuMobile() {
   }
 
   useEffect(() => {
+
     document.body.style.overflowY = isMenuClicked ? 'hidden' : 'auto';
   }, [isMenuClicked]);
 
@@ -74,13 +81,13 @@ export function MenuMobile() {
         </MenuHeader>
         <main>
           <SearchInput 
+            type='text'
             placeholder='Busque por pratos ou ingredientes'
+            onChange={handleSearchChange}
             onClick={() => {
               handleSearchRedirect();
               updateMenu();
-               // Vai ter uma outra função verificando se o input esta vazio. Se tiver não faça nada; se não tiver feche o menu. 
             }}
-            type='text'
           />
           <nav>
             <MenuList>
