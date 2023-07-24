@@ -22,7 +22,7 @@ import { Button } from '../../components/Button';
  
 
 export function Home() {
-  const { handleSearchChange, search } = useSearchData();
+  const { search } = useSearchData();
   const { isAdmin } = useAuth();
 
   const navigate = useNavigate();
@@ -30,13 +30,6 @@ export function Home() {
   const [showLoading, setShowLoading] = useState(false);
 
   const [allCategories, setAllCategories] = useState([]);
-
-  const [favorite, setFavorite] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(true);
-
-  //const searchDataResult = useSearchData(); 
-
-  //console.log(searchDataResult);
 
   function handleDishRedirect() {
     navigate('/new_dish');
@@ -47,7 +40,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    console.log(search)
+    console.log(search);
 
     async function fetchDishes() {
       setShowLoading(true);
@@ -59,7 +52,7 @@ export function Home() {
         const categories = response.data  
 
         setAllCategories(categories);
-
+        
       } catch (error) {
         if (error.response) {
           console.error(error.response.data.message);
@@ -71,31 +64,9 @@ export function Home() {
       setShowLoading(false);
     }    
 
+    console.log(allCategories);
+
     fetchDishes();
-    
-/*     async function fetchFavorites() {
-      
-      const response = await api.get('/favorites');
-      
-      setFavorites(response.data);
-      
-    }
-    
-    fetchFavorites();
-    
-    handleFavoriteDishes(); */
-          //categories.map( category => category.dishes.map(dish => console.log(dish.id)))
-
-/*     async function fetchFavorites() {
-      const response = api.get(`/favorites`);
-
-      console.log(response.data);
-
-      setFavorites(response.data);
-    }
-
-    //fetchFavorites();
- */
     
   },[search]);
 
