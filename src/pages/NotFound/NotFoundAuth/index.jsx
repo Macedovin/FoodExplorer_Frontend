@@ -1,8 +1,8 @@
 import { Container, Information } from './styles.js';
 
-import { Button } from '../../components/Button/index.jsx';
+import { Button } from '../../../components/Button';
 
-import{ ReactComponent as NoFood } from '../../assets/icons/covered_food.svg';
+import{ ReactComponent as NoFood } from '../../../assets/icons/covered_food.svg';
 
 import { useNavigate } from 'react-router-dom';
 

@@ -19,23 +19,6 @@ export const Container = styled.main`
 
   padding-inline: 3.4rem;
 
-  @media only screen and (width: 320px) {
-    padding-inline: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  @media only screen and (max-width: 390px) and (min-width: 360px) {
-    padding-inline: 0;
-    padding-top: 0;
-  }
-
-/*   overflow-x: hidden;
-  overflow-y: overlay; */
-
-  //height: 100vh;
-
-
   > h1 {
     font-size: 3.4rem;
     color: ${({ theme }) => theme.price};
@@ -54,6 +37,23 @@ export const Container = styled.main`
   > button {
     height: 4.8rem;
   }
+
+  @media only screen and (width: 320px) {
+    padding-inline: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media only screen and (max-width: 390px) and (min-width: 360px) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+  @media only screen and (min-width: 768px) {
+    > button {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 export const Information = styled.div`
@@ -69,4 +69,5 @@ export const Information = styled.div`
 
     margin-top: 1.2rem;
   }
+
 `;

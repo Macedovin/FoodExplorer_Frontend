@@ -3,13 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
 
-/*   //DESKTOP
-  background-color: ${({ theme }) => theme.header_background};
+  @media only screen and (min-width: 768px) {
+    display: flex;
 
-  padding: 6.4rem;
-
-  border-radius: 1.6rem; */
-
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 export const Brand = styled.div`
@@ -25,24 +24,41 @@ export const Brand = styled.div`
     height: 2.7rem;
     width: 2.7rem;
   }
+
+  @media only screen and (min-width: 768px) {
+    align-self: center;
+
+    > svg {
+      height: 4.3rem;
+      width: 4.3rem;
+    }
+  }  
+
+  @media only screen and (max-width: 850px) and (min-width: 800px) {
+    max-width: 23.5rem;
+  }
 `;
 
 export const LogoText = styled.div`
   display: flex;
   align-items: center;
   
-  
   gap: 0.8rem;
   
   font-family: 'Roboto', sans-serif;
   
-  > h1{
+  > h1 {
     font-size: 2.4rem;
     font-weight: 700;
 
     color: ${({ theme }) => theme.secondary_text}
   }
 
+  @media only screen and (min-width: 768px) {
+    > h1 {
+      font-size: 3.6rem;
+    } 
+  }
 `;
 
 export const Form = styled.form`
@@ -54,12 +70,7 @@ export const Form = styled.form`
   margin-top: 7.3rem;
 
   > h2 {
-    
     display: none;
-
-    color: ${({ theme }) => theme.secondary_color};
-    font-size: 3.2rem;
-    font-weight: 500;
   }
 
   .handle {
@@ -78,4 +89,29 @@ export const Form = styled.form`
     font-size: 1.4rem;
     color: ${({ theme }) => theme.secondary_text};
   }
-`;
+
+  //DESKTOP
+  @media only screen and (min-width: 768px) {
+
+    background-color: ${({ theme }) => theme.header_background};
+
+    padding: 6.4rem;
+    margin-top: 0;
+
+    border-radius: 1.6rem;
+
+    min-width: 47.6rem;
+
+
+    > h2 {
+    
+      display: block;
+
+      color: ${({ theme }) => theme.secondary_color};
+      font-size: 3.2rem;
+      font-weight: 500;
+
+      text-align: center; 
+    }
+  } 
+`; 
