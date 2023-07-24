@@ -18,40 +18,74 @@ import { Textarea } from '../../components/Textarea';
 import { Button } from '../../components/Button';
 
 import { ReactComponent as Upload } from '../../assets/icons/UploadSimple.svg';
-import { toast } from 'react-toastify';
 
 export function NewDish() {
-  
+
   const navigate = useNavigate();
 
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
   
+  const [picture, setPicture] = useState(null);
+  const [pictureFile, setPictureFile] = useState(null);
+
   const [dishName, setDishName] = useState('');
   
   /* -------------- Select logic data --------------- */
 
-  const [categoryID, setCategoryID] = useState('');
   const [newCategory, setNewCategory] = useState('');
-
+  
   const [selectValue, setSelectValue] = useState('');
   const [selectOptions, setSelectOptions] = useState([]);
   const [isSelectInputShown, setIsSelectInputShown] = useState(false);
   const [isSelectShown, setIsSelectShown] = useState(true);
-
-  function handleSelectInput(event) {
-    setIsSelectInputShown(prevState => !prevState);
-    setIsSelectShown(prevState => !prevState);
-  }
+  
+  const [categoryID, setCategoryID] = useState('');
 
   /* -------------- Select logic data --------------- */
   
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState('');
-
+  
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-
+  
   const [data, setData] = useState({});
+
+  function handlePictureChange(event) {
+    const file = event.target.files[0]; 
+
+    setPictureFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setPicture(imagePreview);
+  } 
+
+  function handleSelectInput() {
+
+    setIsSelectInputShown(prevState => !prevState);
+    setIsSelectShown(prevState => !prevState);
+    setSelectValue('');
+    setCategoryID('');
+    setNewCategory('');
+
+  }
+
+  function handleSelectedOption(option) {
+
+    if(option) {
+      setNewCategory('');
+
+      const optionValueAsCategoryID = option.value;
+
+      setCategoryID(optionValueAsCategoryID);
+    }
+
+    if(!option) {
+
+      setCategoryID('');
+      return
+    } 
+  }
 
   function handleAddIngredients() {
     
@@ -69,88 +103,104 @@ export function NewDish() {
       setIngredients(prevState => [...prevState, newIngredient.trim()]);
 
       setNewIngredient('');
-
     }
-
-    console.log(ingredients, '->', newIngredient)
   }
 
   function handleRemoveIngredient(deleted) {
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
   }
 
-  function handleSelectedOption(option) {
+  async function registerNewCategory() {
+    
+    try {
+      const response = await api.post('/dish_categories', { name: newCategory })
 
-    if(!option) {
-      console.log('Estou vazio')
+      const { category } = response.data;
+      
+      const newCategoryId = category.id;
+      
+      return newCategoryId; 
+        
+    } catch(error) {
+      if(error.response) {
+        return Toast().handleError(error.response.data.message);
+      } else {
+        return console.error;
+      }
     }
-    
-    setCategoryID(option.value);
-    
-    console.log(option, categoryID, 'Fui clicado na pagina')
   }
 
-  function handleCategoryName() {
-    console.log(newCategory)
+  async function registerNewDish(cat_id) {
+
+    const dataContent = new FormData();
+    
+    const data = JSON.stringify({
+      name: dishName,
+      description,
+      price: numberFromCurrency(price),
+      category_id: cat_id,
+      ingredients
+    });
+    
+    dataContent.append('data', data);
+    dataContent.append('picture', pictureFile);     
+
+    try {
+      await api.post('/dishes', dataContent); 
+      
+      Toast().handleSuccess('Prato cadastrado com sucesso.');
+
+      navigate('/');
+
+    } catch(error) {
+      if(error.response) {
+        Toast().handleError(error.response.data.message);
+      } else {
+        Toast().handleError('Não foi possível cadastrar o prato.');
+      }
+
+      fetchDishCategories();
+    }  
   }
 
   async function handleNewDish(event) {
-    event.preventDefault()
-
-    console.log(typeof price); // passar como number
-
-    if (newCategory && selectValue) {
-      
-      console.log(newCategory, selectValue);
-
-      return Toast().handleWarning('O prato esta recebendo 2 (duas) CATEGORIAS. Verifique.')
-    } 
-    
-    if (newCategory && !selectValue) {
-
-      console.log('Nova categoria vai ser criada')
-      try {
-
-        const response = await api.post('/dish_categories', { name: newCategory }); 
-  
-        const { category } = response.data;
-        
-        console.log('"113"', category.id);
-
-        //setCategoryID(category.id);
-      
-      } catch(error) {
-        if(error.response) {
-          Toast().handleError(error.response.data.message);
-        } else {
-          Toast().handleError('Algo deu errado. Verifique a categoria.');
-        }
-      }
-      return category
-    }
-
-    console.log('NC ->', newCategory, 'SV', selectValue, 'ID ->', categoryID);
-    
-
-
-
-    /* ---------- INGREDIENTS ------------------- */
+    event.preventDefault();
 
     if (newIngredient) {
       return Toast().handleWarning('Ingrediente digitado, mas não adicionado. Verifique.')
-    }   
+    }         
+  
+    const hasCurrencySymbol = price.includes('R$');
+    const hasStrangeSpaceBeforeComma = price.includes(' ,');
+    const hasStrangeSpaceAfterComma = price.includes(', ');
 
+    if (!hasCurrencySymbol || hasStrangeSpaceBeforeComma || hasStrangeSpaceAfterComma) {
+      return Toast().handleWarning('O preço esta fora do padrão. Verifique.');
+    }
 
-    console.log({dishName, description, price, categoryID, ingredients});
+    if(newCategory) {
 
-    /*     await api.post('/dishes', {
-          name,
-          description,
-          price,
-          category_id,
-          ingredients
-        }); */
+      const newCategoryID = await registerNewCategory();
+
+      if (!newCategoryID || newCategoryID === undefined) {
+        return;
+      }
+
+      await registerNewDish(newCategoryID);
+    
+    } else {
+
+      await registerNewDish(categoryID);
+    }
   }
+
+  useEffect(() => {
+    
+    const hasCategoryID = categoryID || newCategory;
+
+    setIsDisabled(!dishName || !hasCategoryID || ingredients.length === 0 || !price || !description);
+
+  }, [dishName, description, price, ingredients, categoryID, newCategory]);
 
   useEffect(() => {
     async function fetchDishCategories() {
@@ -169,7 +219,8 @@ export function NewDish() {
       setSelectOptions(fetchedCategories);
     }
 
-    fetchDishCategories()
+    fetchDishCategories();
+
   },[]);
 
   return (
@@ -183,8 +234,9 @@ export function NewDish() {
 
         <Form>
           <Picture>
-            <img src='https://github.com/Macedovin.png' alt='Imagem do prato'/>
-
+            {picture && 
+              <img src={picture} alt='Imagem do prato'/>
+            }
             <p>
               Imagem do prato
             </p>
@@ -193,15 +245,15 @@ export function NewDish() {
               <input 
                 id='picture'
                 type='file'
-
-                 //onChange={handleAvatarChange} 
+                onChange={handlePictureChange} 
               />
               <Upload />      
               Selecione imagem
             </label>
           </Picture>
 
-          <Input 
+          <Input
+            type='text' 
             className='new_dish'
             label='Nome'
             id='dish_name'
@@ -218,8 +270,7 @@ export function NewDish() {
                   placeholder='Nova categoria. Ex.: Bebidas' 
                   value={newCategory}
                   onChange={e => {
-                    setNewCategory(e.target.value)
-                    handleCategoryName()
+                    setNewCategory(e.target.value) 
                   }} 
                 />
               }
@@ -229,6 +280,7 @@ export function NewDish() {
                   id='categories'
                   selectValue={selectValue}
                   placeholder='Selecione uma categoria'
+                  hasEmptyOption
                   options={selectOptions}
                   onChange={(option) => {
                     setSelectValue(option)
@@ -253,8 +305,8 @@ export function NewDish() {
                   <IngredientsTag 
                     className='ingredients'
                     key={String(index)}
-                    actionButton
                     value={ingredient}
+                    actionButton
                     onClick={() => handleRemoveIngredient(ingredient)}
                   />
 
@@ -267,9 +319,9 @@ export function NewDish() {
                   className='new-ingredients'
                   isNew 
                   placeholder='Adicionar'
-                  actionButton
                   value={newIngredient}
                   onChange={e => setNewIngredient(e.target.value)}
+                  actionButton
                   onClick={handleAddIngredients}
                 />
               </div>
@@ -278,11 +330,12 @@ export function NewDish() {
           </IngredientsSection>
           
           <Input 
+            type='text'
             className='new_dish'
             label='Preço'
             id='dish_price'
             placeholder='R$ 00,00'
-            onChange={e => setPrice(numberFromCurrency(e.target.value))}
+            onChange={e => setPrice(e.target.value)}
           />
 
           <Textarea 
@@ -294,12 +347,11 @@ export function NewDish() {
           />
 
           <Button
-            type='button'
+            type='submit'
             title='Salvar alterações'
-            onClick={event => handleNewDish(event)}
-            //disabled={isDisabled}
+            onClick={handleNewDish}
+            disabled={isDisabled}
           />
-
         </Form>
       </Container>
   /*     </Mobile_wrapper> */

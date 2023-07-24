@@ -17,14 +17,14 @@ export const Container = styled.div`
 
 export const SelectContainer = styled.div`
   
-  background-color: ${({ theme }) => theme.select_background};
+  background-color: ${({ theme }) => theme.search_background};
 
   height: 4.8rem;
 
   display: flex;
   align-items: center;
   
-  > input {
+  .select-input {
     flex: 1;
     
     font-family: 'Roboto', sans-serif;
@@ -35,7 +35,6 @@ export const SelectContainer = styled.div`
     border: none;
     
     padding-left: 1.6rem;
-
 
     &::placeholder {
       color: ${({ theme }) => theme.search_placeholder}; // LIGHT 500
@@ -79,6 +78,8 @@ export const InnerSelect = styled.div`
     background-color: ${({ theme }) => theme.search_background};
 
     padding-right: 1rem;
+
+    border-radius: 0.4rem 0px 0px 0.4rem;
   }
 `;
 
@@ -113,7 +114,6 @@ export const ChangeButton = styled.div`
     border-radius: 0;
 
     transition: 0.2s;
-    
   }
 `;
 
@@ -143,12 +143,17 @@ export const OptionsList = styled.ul`
 
   > li:first-child {
     height: 3.4rem;
+
+    &:hover {
+      filter: brightness(1.4);
+    }
   }
 
   > li {
 
     font-family: 'Roboto', sans-serif;
     font-size: clamp(1.2rem, 0.5rem + 2vw, 1.6rem);
+    font-weight: 400;
 
     background-color: ${({ theme }) => theme.search_background};
 
@@ -159,10 +164,6 @@ export const OptionsList = styled.ul`
 
     transition: 0.2s;
 
-    &:hover {
-      filter: brightness(1.4);
-    }
-
     &.selected {
       
       background-color: ${({ theme }) => theme.footer_rights};
@@ -170,6 +171,11 @@ export const OptionsList = styled.ul`
       color: ${({ theme }) => theme.search_background};
       font-weight: 700;
     }
+
+    &.highlighted {
+      filter: brightness(1.4);
+    } 
+
   }
 
 `;
