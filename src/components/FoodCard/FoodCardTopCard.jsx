@@ -59,8 +59,6 @@ export function FoodCardTopCard({ dish = false }) {
     if(!isFavorite) {
       setIsFavorite(true); 
     }
-    
-    // setIsFavorite(false);
   }
 
   useEffect(() => {

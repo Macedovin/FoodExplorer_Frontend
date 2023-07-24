@@ -17,7 +17,7 @@ export function Toast() {
     toast.success(message);
   }
 
-  function handleInfo() {
+  function handleInfo(message) {
     toast.info(message);
   }
 

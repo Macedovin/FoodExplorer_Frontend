@@ -47,12 +47,12 @@ export const Container = styled.main`
 
     &:hover {
       transform: scale(1);
+
+      .cardPicture {
+        transform: translateY(0); 
+      }
     }
-    
-    .heart {
-      display: none;
-    }
-    
+
     .cardPicture {
       margin-top: 1.6rem;
 
@@ -63,10 +63,6 @@ export const Container = styled.main`
         
         min-height: 26.4rem;
         width:  26.4rem;
-      }
-
-      &:hover {
-        transform: translateY(0);
       }
     }
 
@@ -132,4 +128,7 @@ export const Container = styled.main`
 
   } 
 
+  .edit-redirect {
+    height: 4.8rem;
+  }
 `;

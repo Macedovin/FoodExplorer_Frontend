@@ -7,10 +7,13 @@ export function formatCurrency(number) {
   return CURRENCY_FORMATTER.format(number);
 }
 
-export function numberFromCurrency(currency) {
-  const removeSymbols = currency.replace('R$ ', '');	
+export function numberFromCurrency(currency) { 
+  
+  const removeSymbols = currency.replace('R$', '');	
 
   const removedComma = removeSymbols.replace(',', '.');
   
-  return removedComma;
+  const stringPriceAsNumber = Number(removedComma);
+
+  return stringPriceAsNumber;
 }

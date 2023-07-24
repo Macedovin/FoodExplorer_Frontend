@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   grid-area: header;
-
+  
   width: 100%;
-  //height: 11.4rem;
+  
+  @media only screen and (width: 320px) {
+    //height: 4.4rem;
+    padding: 1.8rem 2.4rem 1.8rem 3.8rem;
+  }
 
   background-color: ${({ theme }) => theme.header_background}; // DARK_DARK_700
   
@@ -16,6 +20,10 @@ export const Container = styled.header`
 
   margin: 0 auto;
   padding: 5.8rem 2.4rem 2.8rem 3.8rem;
+
+/*   @media only screen and (width: 320px) {
+    padding: 2.5rem 2.8rem 3.8rem;
+  } */
 
 `; 
 

@@ -10,6 +10,8 @@ export function ProfileDiv({ onClick }) {
 
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/avatar/${user.avatar}` : avatarPlaceholder;
 
+  //console.log(typeof avatarURL, avatarURL, user.avatar);
+
   return (
     <Container 
       to='/profile' 

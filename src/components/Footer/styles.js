@@ -3,19 +3,25 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   grid-area: footer;
 
+  height: 7.7rem;
+  width: 100%;
+
+  padding-block: 2.9rem; 
+  padding-inline: clamp(1.4rem, 4.4vw, 2.8rem);
+ 
+  @media only screen and (width: 320px) {
+    height: 5.7rem;
+
+    padding-block: 2.9rem; 
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   //gap: 0.8rem;
 
-  padding-block: 2.9rem; 
-  padding-inline: clamp(1.4rem, 4.4vw, 2.8rem);
-
   background-color: ${({ theme }) => theme.header_background};
-
-  height: 7.7rem;
-  width: 100%;
 
   font-family: 'Roboto', sans-serif;
 

@@ -38,6 +38,8 @@ export const darkTheme = {
 
   first_gradient: "#091E26", // GREEN 300
   second_gradient: "#00131C", // GREEN 400
+
+  windowConfirm_bg: "#ffffff"
 }
 
 export const lightTheme = {
@@ -80,6 +82,8 @@ export const lightTheme = {
 
   first_gradient: "#144c61", // GREEN 100
   second_gradient: "#065e7c", // DARKBLUE 100
+
+  windowConfirm_bg: "#ffffff"
 }
 
 const colors =  {

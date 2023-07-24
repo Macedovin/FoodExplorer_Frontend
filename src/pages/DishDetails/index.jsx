@@ -1,18 +1,28 @@
 import { Container } from './styles';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import { useParams, useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/auth';
+
+import { api } from '../../services/api';
 
 import { FoodCard } from '../../components/FoodCard';
-import { Button } from '../../components/Button';
 import { TurnBackButton } from '../../components/TurnBackButton';
+import { Button } from '../../components/Button';
 
-import { ReactComponent as ArrowLeft } from '../../assets/icons/CaretLeft.svg';
-import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
-import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
 import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
 
-export function DishDetails() {
+import { formatCurrency } from '../../utilities/formatCurrency';
 
+export function DishDetails() {
+  const { isAdmin } = useAuth();
+  const params = useParams();
+
+  const navigate = useNavigate();
+
+  const [dish, setDish] = useState({}); 
   const [isFavorite, setIsFavorite] = useState(false);
 
   function handlePreventDefault(event) {
@@ -20,7 +30,11 @@ export function DishDetails() {
     event.preventDefault();
   }
 
-  function handleFavoritedChange(event) {
+  function handleEditRedirect() {
+    navigate(`/edit_dish/${dish.id}`)
+  }
+
+/*   function handleFavoritedChange(event) {
     handlePreventDefault(event);
 
     console.log(isFavorite);
@@ -30,7 +44,19 @@ export function DishDetails() {
     }
     
     // setIsFavorite(false);
-  }
+  } */
+
+  useEffect(() => {
+    async function fetchDish() {
+      const response = await api.get(`/dishes/${params.id}`);
+
+      console.log(response.data);
+
+      setDish(response.data);
+    }
+
+    fetchDish();
+  }, [])
 
   return (
     <Container>
@@ -38,32 +64,46 @@ export function DishDetails() {
       <TurnBackButton
         className='goBack'
       />
-
-      <FoodCard
-        className='foodInfos' 
-        dish={
-          {
-            name: 'Camarão',
-            description: 'Muito camarão comum monte de coisa junto deles.',
-            ingredients: [
-              {id: 1, name: 'alface'},
-              {id: 2, name: 'cebola'},
-              {id: 3, name: 'pão naan'},
-              {id: 4, name: 'pepino'},
-              {id: 5, name: 'rabanete'},
-              {id: 6, name: 'tomate'},
-              {id: 7, name: 'chicória'},
-            ]
+      
+      <FoodCard.Root className='foodInfos' >
+        <FoodCard.Picture 
+          dish={
+            {
+              picture: dish.picture,
+              name: dish.name
+            }
           }
-        }
-        button={
-          {
-            title: 'pedir',
-            btn_price: 'R$ 25,00',
-            icon: Receipt
+        />
+        <FoodCard.FoodInfos 
+          dish={
+            {
+              name: dish.name,
+              description: dish.description
+            }
           }
+        />
+        <FoodCard.Ingredients 
+          ingredients={dish.dishIngredients}
+        />
+        {isAdmin 
+          ?   
+            <Button
+              className='edit-redirect' 
+              title='Editar prato'
+              onClick={handleEditRedirect}
+            />
+          :    
+            <FoodCard.OrderInfos 
+              button={
+                {
+                  title: 'pedir',
+                  btn_price: formatCurrency(dish.price),
+                  icon: Receipt
+                }
+              }
+            />
         }
-      />
+        </FoodCard.Root>
     </Container>
   );
 }
