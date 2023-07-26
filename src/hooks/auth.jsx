@@ -1,7 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-
 import { api } from '../services/api';
 
 import { Toast } from '../Toast';
@@ -48,8 +46,7 @@ function AuthProvider({ children }) {
     
     setIsAdmin(false);
     setUserData({});
-    
-    //console.log('outing', isAdmin);
+
   }
 
   async function updateUserProfile({ user, avatarFile }) {
@@ -102,9 +99,8 @@ function AuthProvider({ children }) {
   },[]);
 
   useEffect(() => {
-    async function loadRoles() {
 
-      //setShowLoading(true);
+    async function loadRoles() {
 
       try{
 
@@ -129,14 +125,28 @@ function AuthProvider({ children }) {
         if(error.response)
         console.error(error.response.data.message);
       }
-      
-      //setShowLoading(false);
-
     }
 
     loadRoles();
 
   }, [userData.token]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('@foodexplorer:token');
+    const user = localStorage.getItem('@foodexplorer:user');
+
+    if(user && token) {
+      const parseJwt = JSON.parse(atob(token.split('.')[1]));
+
+      const { exp } = parseJwt;
+
+      if(exp * 1000 < Date.now()) {
+        return signOut();
+      }
+
+      console.log(parseJwt, (exp * 1000), '/', Date.now());
+    }
+  }, [])
 
   return (
     <AuthContext.Provider value={{
