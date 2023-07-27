@@ -8,7 +8,10 @@ export function HeaderBrand() {
   const { isAdmin } = useAuth();
 
   return (
-    <Brand to='/'>
+    <Brand 
+      className='logo-link'
+      to='/'
+    >
       <LogoIcon />
       <LogoText>
         <h1>food Explorer</h1>

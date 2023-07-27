@@ -1,13 +1,19 @@
 import { HeaderRoot } from './HeaderRoot';
-import { HeaderBadge } from './HeaderBadge';
-import { HeaderBrand } from './HeaderBrand';
 import { HeaderMenuMobile } from './HeaderMenuMobile';
+import { HeaderBrand } from './HeaderBrand';
+import { HeaderSearch } from './HeaderSearch.jsx';
+import { HeaderOrders } from './HeaderOrders';
+import { HeaderNewDish } from './HeaderNewDish';
+import { HeaderLogout } from './HeaderLogout.jsx';
 import { HeaderThemeSwitcher } from './HeaderThemeSwitcher';
 
 export const Header = {
   Root: HeaderRoot,
-  Badge: HeaderBadge,
-  Brand: HeaderBrand,
   MenuMobile: HeaderMenuMobile,
-  ThemeSwitcher: HeaderThemeSwitcher
+  Brand: HeaderBrand,
+  Search: HeaderSearch,
+  Orders: HeaderOrders,
+  NewDish: HeaderNewDish,
+  Logout: HeaderLogout,
+  ThemeSwitcher: HeaderThemeSwitcher,
 }

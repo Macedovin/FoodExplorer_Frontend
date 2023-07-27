@@ -1,6 +1,4 @@
-import { Container } from './styles';
-
-import { useState } from 'react';
+import { ThemeButton } from './styles.js' 
 
 import { useTheme } from '../../hooks/theme';
 
@@ -18,8 +16,11 @@ export function ThemeSwitcher({ onClick, ...rest }) {
   }
 
   return (
-    <Container onClick={handleToggleTheme}>
-      {isDarkTheme ? <LighterTheme width={28} height={28} /> : <DarkerTheme width={24} height={24} />}
-    </Container>
+    <ThemeButton 
+      onClick={handleToggleTheme}
+      className={isDarkTheme ? 'light' : 'dark'} 
+    >
+      {isDarkTheme ? <LighterTheme /> : <DarkerTheme />}
+    </ThemeButton>
   )
 }

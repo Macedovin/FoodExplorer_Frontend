@@ -1,35 +1,60 @@
-import styled from 'styled-components';
-
-import { Link } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.main`
-/*   width: 100%;
-  min-height: 100%;
-
-  display: grid;
-  grid-template-rows: 11.4rem 1fr 7.7rem;
-  grid-template-areas:
-    'header'
-    'content'
-    'footer'; */
-
-  /* grid-area: content; */
 
   grid-area: content; 
 
   overflow-x: hidden;
   overflow-y: overlay;
 
-  //padding: 0 2.4rem;
+  position: relative;
 
-  > div:nth-child(1){
+  .bg-image {
     width: 94vw;
 
     position: relative;
     left: calc(-49vw + 50%);
+
+    @media only screen and (min-width: 1024px) {
+      width: 82vw;
+
+      position: relative;
+      left: calc(-42vw + 50%);
+    }
   }
 
-  `;
+  .user-greet {
+    position: absolute;
+    top: 2.5rem;
+    right: 4.5rem;
+
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      right: 11rem;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      top: 3.5rem;
+      right: 16rem;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      top: 3.5rem;
+      right: 16rem;
+    }
+
+    @media only screen and (min-width: 1700px) {
+      top: 3.5rem;
+      right: 26rem;
+    }
+  }
+
+`;
 
 export const FirstContact = styled.div`
   display: flex;

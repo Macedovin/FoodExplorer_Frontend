@@ -21,10 +21,6 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 11.4rem 1fr 7.7rem;
 
-    @media only screen and (width: 320px) {
-      grid-template-rows: 6.8rem 1fr 5.7rem;
-    }
-
     grid-template-areas:
       'menu_header'
       'content'
@@ -54,6 +50,11 @@ export const Container = styled.div`
       position: fixed;
       bottom: 0;
     }
+
+    @media only screen and (width: 320px) {
+      grid-template-rows: 6.8rem 1fr 5.7rem;
+    }
+
   }
   
   .hidden {
@@ -111,6 +112,10 @@ export const Container = styled.div`
       animation: ${slideIn} 0.5s 0.10s ease-out backwards;
     } 
   }
+
+  @media only screen and (min-width: 768px) {
+      display: none;
+    }
 `;  
 
 export const MenuIcon = styled.div`  

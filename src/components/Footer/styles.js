@@ -9,12 +9,6 @@ export const Container = styled.footer`
   padding-block: 2.9rem; 
   padding-inline: clamp(1.4rem, 4.4vw, 2.8rem);
  
-  @media only screen and (width: 320px) {
-    height: 5.7rem;
-
-    padding-block: 2.9rem; 
-  }
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,6 +25,20 @@ export const Container = styled.footer`
 
     font-size: 1.2rem;
     color: ${({ theme }) => theme.footer_rights};
+  }
+
+  @media only screen and (width: 320px) {
+    height: 5.7rem;
+
+    padding-block: 2.9rem; 
+  }
+
+  @media only screen and (min-width: 1440px) {
+    padding-inline: 6.9rem;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    padding-inline: 11.9rem;
   }
 `;
 

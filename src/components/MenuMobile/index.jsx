@@ -16,14 +16,11 @@ import { MenuCustomLink } from './MenuCustomLink';
 import { Footer } from '../Footer';
 
 export function MenuMobile() { 
-  const { handleSearchChange, search, setSearch } = useSearchData();
+  const { handleSearchChange } = useSearchData();
 
   const navigate = useNavigate();
 
   const { signOut, isAdmin } = useAuth();
-  const { fetchDishes } = useSearchData();
-
-  //const [search, setSearch] = useState('');
 
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
 
@@ -39,8 +36,6 @@ export function MenuMobile() {
     } else {
       setBurgerClass('burger-bar unclicked');
       setMenuClass('menu hidden');
-
-
     }
     
     setIsMenuClicked(!isMenuClicked);
@@ -50,10 +45,6 @@ export function MenuMobile() {
     navigate('/');    
   }
 
-/*   function handleChange(event) {
-    console.log(event.target.value)
-  }
- */
   function handleSignOut() {
     signOut();
 
@@ -82,6 +73,7 @@ export function MenuMobile() {
         <main>
           <SearchInput 
             type='text'
+            clearBtn
             placeholder='Busque por pratos ou ingredientes'
             onChange={handleSearchChange}
             onClick={() => {

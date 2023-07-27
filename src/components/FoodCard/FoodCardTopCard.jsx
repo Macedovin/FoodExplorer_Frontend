@@ -16,7 +16,7 @@ import { ReactComponent as FullHeart } from '../../assets/icons/FullHeart.svg';
 import { ReactComponent as Pencil } from '../../assets/icons/Pencil.svg';
 import { useEffect } from 'react';
 
-export function FoodCardTopCard({ dish = false }) {
+export function FoodCardTopCard({ dish }) {
   const params = useParams();
 
   const { id } = dish;
@@ -86,10 +86,7 @@ export function FoodCardTopCard({ dish = false }) {
 
   return (
     <TopCard>
-      <IconButton 
-        //className='heart' 
-        favorite={isFavorite}
-      >
+      <IconButton>
         
         {isAdmin 
           ?

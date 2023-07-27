@@ -1,8 +1,10 @@
 import { Container, Image, GradientText, Text } from './styles';
 
-export function Banner() {
+export function Banner({ className }) {
   return ( 
-    <Container>
+    <Container
+      className={className}
+    >
       <Image />
       <GradientText>
           <Text>

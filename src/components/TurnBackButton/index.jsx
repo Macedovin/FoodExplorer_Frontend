@@ -8,7 +8,7 @@ export function TurnBackButton({ ...rest }) {
   const navigate = useNavigate();
 
   function handleTurnBack() {
-    navigate(-1);
+    navigate('/');
   }
   
   return (

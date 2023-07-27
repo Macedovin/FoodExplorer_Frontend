@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+import { IconButton } from '../IconButton';
 
-display: flex;
-align-items: center;
+export const ThemeButton = styled(IconButton)`
 
-> svg {
-  cursor: pointer;
-} 
+  > svg {
+    cursor: pointer;
+  }
+  
+  > svg path {
+    fill: ${({ theme }) => theme.primary_text};
+  }
+  
+  &.light {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
 
-> svg path {
-  fill: ${({ theme }) => theme.primary_text};
-}
-
-.hide {
-  display: none;
-}
+  &.dark {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 
 `;

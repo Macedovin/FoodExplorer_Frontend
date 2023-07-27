@@ -7,7 +7,7 @@ import { IconButton } from '../IconButton';
 import { ReactComponent as MagnifyGlass } from '../../assets/icons/search.svg';
 import { ReactComponent as ClearTheInput } from '../../assets/icons/Close.svg';
 
-export function SearchInput({ onClick, onChange, ...rest }) {
+export function SearchInput({ className, onClick, onChange, clearBtn, ...rest }) {
 
   const { search, setSearch } = useSearchData();
 
@@ -18,7 +18,10 @@ export function SearchInput({ onClick, onChange, ...rest }) {
   }
 
   return(
-    <Container onSubmit={handleSubmit}>
+    <Container 
+      onSubmit={handleSubmit}
+      className={className}
+    >
       <IconButton 
         className='search'
         type='submit'
@@ -32,13 +35,16 @@ export function SearchInput({ onClick, onChange, ...rest }) {
           value={search}
           {...rest} 
         />
-      <IconButton
-        className='clear'
-        type='button'
-        onClick={handleClearSearch} 
-      >
-        <ClearTheInput />
-      </IconButton>
+      
+      {clearBtn &&
+        <IconButton
+          className='clear'
+          type='button'
+          onClick={handleClearSearch} 
+        >
+          <ClearTheInput />
+        </IconButton>
+      }
     </Container>
   )
 }

@@ -11,17 +11,8 @@ export const Container = styled.div`
     'header'
     'content'
     'footer';
+
+  @media only screen and (min-width: 768px) {
+    min-width: 100vw;
+  }  
 `;
-/*   
-  > main {
-
-    grid-area: content;
-    
-    overflow-x: visible;
-    overflow-y: overlay;
-
-    padding: 0 2.4rem; 
-
-  } 
-
-`;*/
