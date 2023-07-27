@@ -12,7 +12,6 @@ import { api } from '../../services/api';
 
 import { Toast } from '../../Toast'; 
 
-import { WindowConfirm } from '../../components/WindowConfirm';
 import { TurnBackButton } from '../../components/TurnBackButton';
 import { Input } from '../../components/Input';  
 import { Select } from '../../components/Select';
@@ -124,8 +123,7 @@ export function EditDish() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
   }
 
-  async function handleDeleteDish(event) {
-    //event.preventDefault();
+  async function handleDeleteDish() {
 
     const adminUserConfirmDishExclusion = await confirm({
       description: 'Ao prosseguir este prato será completa e definitivamente excluído.',
@@ -286,151 +284,154 @@ export function EditDish() {
   }, [])
 
   return (
-  /*     <Mobile_wrapper> */
-      <>    
-        <Container>
-          <TurnBackButton />
+    <Container>
+      <TurnBackButton 
+        className='goBack'
+      />
 
-          <h1>
-            Editar prato
-          </h1>      
+      <h1>
+        Editar prato
+      </h1>      
 
-          <Form>
-            <Picture>
-              <img 
-                src={picture} 
-                alt={`Imagem de ${dishName}`}
-              />
+      <img 
+        src={picture} 
+        alt={`Imagem de ${dishName}`}
+      />
 
-              <p>
-                Imagem do prato 
-              </p>
-              <label htmlFor='picture'>
-              
-                <input 
-                  id='picture'
-                  type='file'
-                  onChange={handlePictureChange} 
-                />
-                <Upload />      
-                Selecione imagem para alterá-la
-              </label>
-            </Picture>
-
-            <Input
-              type='text' 
-              className='new_dish'
-              label='Nome'
-              id='dish_name'
-              placeholder='Ex.: Salada Ceasar'
-              onChange={e => setDishName(e.target.value)}
-              value={dishName}
-            />
-
-            <Select.Root>
-              <Select.Label label='Categoria' />
-              <Select.Wrapper>
-                {isSelectInputShown &&
-                
-                  <Select.Input                
-                    placeholder='Nova categoria. Ex.: Bebidas'
-                    value={newCategory}
-                    onChange={e => {
-                      setNewCategory(e.target.value) 
-                    }}  
-                  />
-                }
-                {isSelectShown &&
-                  
-                  <Select.Inner 
-                    id='categories'
-                    selectValue={selectValue}
-                    placeholder='Selecione uma categoria'
-                    hasEmptyOption
-                    options={selectOptions}
-                    onChange={(option) => {
-                      setSelectValue(option)
-                      handleSelectOption(option)
-                    }} 
-                  />
-                }
-                <Select.Button onClick={handleSelectInput}/>
-              </Select.Wrapper>
-            </Select.Root>
-
-            <IngredientsSection>
-              <h2>
-                Ingredientes
-              </h2>
-              <div className='display-ingredients'>
-
-                {ingredients && 
-
-                  ingredients.map((ingredient, index) => (
-
-                    <IngredientsTag 
-                      className='ingredients'
-                      key={String(index)}
-                      value={ingredient}
-                      actionButton
-                      onClick={() => handleRemoveIngredient(ingredient)}
-                    />
-
-                  ))
-                }
-                <div className='only-new'>
-
-                  <IngredientsTag
-                    className='new-ingredients'
-                    isNew 
-                    placeholder='Adicionar'
-                    value={newIngredient}
-                    onChange={e => setNewIngredient(e.target.value)}
-                    actionButton
-                    onClick={handleAddIngredients}
-                  />
-                </div>
-
-              </div>
-            </IngredientsSection>
+      <Form>
+        <div className='col-3'>
+          <Picture>
+            <p>
+              Imagem do prato 
+            </p>
+            <label htmlFor='picture'>
             
-            <Input 
-              type='text'
-              className='new_dish'
-              label='Preço'
-              id='dish_price'
-              placeholder='R$ 00,00'
-              value={price}
-              onChange={e => setPrice(e.target.value)}
-            />
-
-            <Textarea 
-              className='new_dish'
-              label='Descrição'
-              id='description'
-              placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-            />
-
-            <ActionButtons>
-              <Button 
-                className='delete'
-                type='button'
-                title='Excluir prato'
-                onClick={handleDeleteDish}
+              <input 
+                id='picture'
+                type='file'
+                onChange={handlePictureChange} 
               />
-              <Button 
-                type='submit'
-                title='Salvar alterações'
-                onClick={handleUpdateDish}
-                disabled={isDisabled}
-              />
-            </ActionButtons>
+              <Upload />      
+              Selecione nova imagem para alterar
+            </label>
+          </Picture>
 
-          </Form>
-        </Container>
-      </>
-  /*     </Mobile_wrapper> */
+          <Input
+            type='text' 
+            className='new_dish'
+            label='Nome'
+            id='dish_name'
+            placeholder='Ex.: Salada Ceasar'
+            onChange={e => setDishName(e.target.value)}
+            value={dishName}
+          />
+
+          <Select.Root
+            className='category'
+          >
+            <Select.Label label='Categoria' />
+            <Select.Wrapper>
+              {isSelectInputShown &&
+              
+                <Select.Input                
+                  placeholder='Nova categoria. Ex.: Bebidas'
+                  value={newCategory}
+                  onChange={e => {
+                    setNewCategory(e.target.value) 
+                  }}  
+                />
+              }
+              {isSelectShown &&
+                
+                <Select.Inner 
+                  id='categories'
+                  selectValue={selectValue}
+                  placeholder='Selecione uma categoria'
+                  hasEmptyOption
+                  options={selectOptions}
+                  onChange={(option) => {
+                    setSelectValue(option)
+                    handleSelectOption(option)
+                  }} 
+                />
+              }
+              <Select.Button onClick={handleSelectInput}/>
+            </Select.Wrapper>
+          </Select.Root>
+        </div>
+
+        <div className='col-2'>
+          <IngredientsSection>
+            <h2>
+              Ingredientes
+            </h2>
+            <div className='display-ingredients'>
+
+              {ingredients && 
+
+                ingredients.map((ingredient, index) => (
+
+                  <IngredientsTag 
+                    className='ingredients'
+                    key={String(index)}
+                    value={ingredient}
+                    actionButton
+                    onClick={() => handleRemoveIngredient(ingredient)}
+                  />
+
+                ))
+              }
+              <div className='only-new'>
+
+                <IngredientsTag
+                  className='new-ingredients'
+                  isNew 
+                  placeholder='Adicionar'
+                  value={newIngredient}
+                  onChange={e => setNewIngredient(e.target.value)}
+                  actionButton
+                  onClick={handleAddIngredients}
+                />
+              </div>
+
+            </div>
+          </IngredientsSection>
+          
+          <Input 
+            type='text'
+            className='new_dish price'
+            label='Preço'
+            id='dish_price'
+            placeholder='R$ 00,00'
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+        </div>
+        <Textarea 
+          className='new_dish price'
+          label='Descrição'
+          id='description'
+          placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+
+        <ActionButtons>
+          <Button 
+            className='delete'
+            type='button'
+            title='Excluir prato'
+            onClick={handleDeleteDish}
+          />
+          <Button 
+            type='submit'
+            title='Salvar alterações'
+            onClick={handleUpdateDish}
+            disabled={isDisabled}
+          />
+        </ActionButtons>
+
+      </Form>
+    </Container>
   );
 }

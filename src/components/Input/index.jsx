@@ -7,7 +7,9 @@ import { InputError } from './InputError';
 export const Input = forwardRef(function Input({ label, id, type, errors, register, className, ...rest}, ref) {
 
   return(
-    <Container>
+    <Container 
+      className={className}
+    >
       <LabelWrapper
         className={className}
       >

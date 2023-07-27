@@ -18,6 +18,53 @@ export const Container = styled.main`
     font-size: 3.2rem;
     font-weight: 500;
   }
+
+  > img {
+    align-self: center;
+    
+    border-radius: 50%;
+
+    width: 7.5rem;
+    height: 7.5rem;
+
+    margin-bottom: 1.6rem;
+
+    @media only screen and (min-width: 768px) {     
+      width: 9rem;
+      height: 9rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    padding-inline: 12rem;
+
+    .goBack {
+      margin-top: 4rem;
+
+      font-size: 2.4rem;
+      font-weight: 700;
+
+      > svg {
+   
+        margin-right: 1.1rem;
+
+        height: 2.2rem; 
+        width: 1.2rem;
+      }
+    }
+  } 
+
+  @media only screen and (min-width: 1024px) {
+    padding-inline: 7rem;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    padding-inline: 12rem;
+  }
+
+  @media only screen and (min-width: 2560px) {
+    padding-inline: 17rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -28,6 +75,24 @@ export const Form = styled.form`
   gap: 2.4rem;
 
   margin-bottom: 4.2rem;
+
+  .col-3 {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2.4rem;
+
+    width: 100%;
+  }
+
+  .col-2 {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2.4rem;
+
+    width: 100%;
+  }
 
   #dish_name,
   #dish_price {
@@ -54,6 +119,29 @@ export const Form = styled.form`
     height: 4.8rem;
     font-weight: 400; 
   }
+
+  @media only screen and (min-width: 1024px) {
+    .col-3 {
+      flex-direction: row;
+
+      .category {
+        max-width: 36.4rem;
+      }
+    }
+   
+    .col-2 {
+      flex-direction: row;
+
+      .price {
+        width: 25rem;
+      }
+    }
+
+    > button {
+      width: 17.2rem;
+      align-self: flex-end; 
+    }
+  }
 `;
 
 export const Picture = styled.div`
@@ -62,17 +150,6 @@ export const Picture = styled.div`
   flex-direction: column;
 
   width: 100%;
-
-  > img {
-    align-self: center;
-    
-    border-radius: 50%;
-
-    width: 7.5rem;
-    height: 7.5rem;
-
-    margin-bottom: 1.6rem;
-  }
 
   > p {
     font-family: 'Roboto', sans-serif;
@@ -95,19 +172,11 @@ export const Picture = styled.div`
     gap: 0.8rem;
 
     padding-block: 1.2rem;
-    padding-left: 3.2rem;
-
-    @media only screen and (max-width: 390px) and (min-width: 320px) {
-      padding-inline: 2.4rem;
-    }
+    padding-inline: 3.2rem;
 
     background-color: ${({ theme }) => theme.select_background};
 
     border-radius: 0.8rem;
-
-    @media only screen and (max-width: 390px) and (min-width: 320px) {
-      gap: 1rem;
-    }
 
     input {
       display: none;
@@ -117,8 +186,21 @@ export const Picture = styled.div`
       height: 2.4rem;
       width: 2.4rem;
     }
+
+    @media only screen and (max-width: 390px) and (min-width: 320px) {
+      padding-inline: 2.4rem;
+      
+      gap: 1rem;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      padding-inline: 4.2rem;
+    }
   }
 
+  @media only screen and (min-width: 1024px) {
+    max-width: fit-content;
+  }
 `;
 
 export const IngredientsSection = styled.section`

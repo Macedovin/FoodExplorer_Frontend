@@ -1,8 +1,10 @@
 import { Container } from './styles.js';
 
-export function SelectRoot({ children }) {
+export function SelectRoot({ className, children }) {
   return(
-    <Container>
+    <Container
+      className={className}
+    >
       {children}
     </Container>
   );

@@ -224,19 +224,23 @@ export function NewDish() {
   },[]);
 
   return (
-  /*     <Mobile_wrapper> */
-      <Container>
-        <TurnBackButton />
+    <Container>
+      <TurnBackButton 
+        className='goBack'
+      />
 
-        <h1>
-          Novo prato
-        </h1>      
+      <h1>
+        Novo prato
+      </h1>      
 
-        <Form>
+      {picture && 
+        <img src={picture} alt='Imagem do prato'/>
+      }
+
+      <Form>
+        
+        <div className='col-3'>
           <Picture>
-            {picture && 
-              <img src={picture} alt='Imagem do prato'/>
-            }
             <p>
               Imagem do prato
             </p>
@@ -261,11 +265,13 @@ export function NewDish() {
             onChange={e => setDishName(e.target.value)}
           />
 
-          <Select.Root>
+          <Select.Root
+            className='category'
+          >
             <Select.Label label='Categoria' />
             <Select.Wrapper>
               {isSelectInputShown &&
-               
+                
                 <Select.Input
                   placeholder='Nova categoria. Ex.: Bebidas' 
                   value={newCategory}
@@ -291,7 +297,9 @@ export function NewDish() {
               <Select.Button onClick={handleSelectInput}/>
             </Select.Wrapper>
           </Select.Root>
+        </div>
 
+        <div className='col-2'>
           <IngredientsSection>
             <h2>
               Ingredientes
@@ -328,32 +336,32 @@ export function NewDish() {
 
             </div>
           </IngredientsSection>
-          
+        
           <Input 
             type='text'
-            className='new_dish'
+            className='new_dish price'
             label='Preço'
             id='dish_price'
             placeholder='R$ 00,00'
             onChange={e => setPrice(e.target.value)}
           />
+        </div>
 
-          <Textarea 
-            className='new_dish'
-            label='Descrição'
-            id='description'
-            placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
-            onChange={e => setDescription(e.target.value)}
-          />
+        <Textarea 
+          className='new_dish'
+          label='Descrição'
+          id='description'
+          placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+          onChange={e => setDescription(e.target.value)}
+        />
 
-          <Button
-            type='submit'
-            title='Salvar alterações'
-            onClick={handleNewDish}
-            disabled={isDisabled}
-          />
-        </Form>
-      </Container>
-  /*     </Mobile_wrapper> */
+        <Button
+          type='submit'
+          title='Salvar alterações'
+          onClick={handleNewDish}
+          disabled={isDisabled}
+        />
+      </Form>
+    </Container>
   );
 }
