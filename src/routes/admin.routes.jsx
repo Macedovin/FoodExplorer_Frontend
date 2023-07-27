@@ -6,7 +6,7 @@ import { NewDish } from '../pages/NewDish';
 import { EditDish } from '../pages/EditDish';
 import { DishDetails } from '../pages/DishDetails';
 import { Profile } from '../pages/Profile';
-import { NotFoundApp } from '../pages/NotFoundApp';
+import { NotFoundApp } from '../pages/NotFound/NotFoundApp';
 
 export function AdminRoutes() {
 

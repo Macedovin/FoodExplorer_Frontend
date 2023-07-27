@@ -7,7 +7,7 @@ import { Orders } from '../pages/Orders';
 import { OrderHistory } from '../pages/OrderHistory';
 import { DishDetails } from '../pages/DishDetails';
 import { Profile } from '../pages/Profile';
-import { NotFoundApp } from '../pages/NotFoundApp';
+import { NotFoundApp } from '../pages/NotFound/NotFoundApp';
 
 export function UserRoutes() {
   return(
