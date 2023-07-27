@@ -18,33 +18,16 @@ import { formatCurrency } from '../../utilities/formatCurrency';
 
 export function DishDetails() {
   const { isAdmin } = useAuth();
+  
   const params = useParams();
 
   const navigate = useNavigate();
 
   const [dish, setDish] = useState({}); 
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  function handlePreventDefault(event) {
-    if (event.defaultPrevented) return;  
-    event.preventDefault();
-  }
 
   function handleEditRedirect() {
     navigate(`/edit_dish/${dish.id}`)
   }
-
-/*   function handleFavoritedChange(event) {
-    handlePreventDefault(event);
-
-    console.log(isFavorite);
-    
-    if(!isFavorite) {
-      setIsFavorite(true); 
-    }
-    
-    // setIsFavorite(false);
-  } */
 
   useEffect(() => {
     async function fetchDish() {
@@ -74,36 +57,40 @@ export function DishDetails() {
             }
           }
         />
-        <FoodCard.FoodInfos 
-          dish={
-            {
-              name: dish.name,
-              description: dish.description
-            }
-          }
-        />
-        <FoodCard.Ingredients 
-          ingredients={dish.dishIngredients}
-        />
-        {isAdmin 
-          ?   
-            <Button
-              className='edit-redirect' 
-              title='Editar prato'
-              onClick={handleEditRedirect}
-            />
-          :    
-            <FoodCard.OrderInfos 
-              button={
-                {
-                  title: 'pedir',
-                  btn_price: formatCurrency(dish.price),
-                  icon: Receipt
-                }
+        <div
+          className='desktop-only'
+        >
+          <FoodCard.FoodInfos 
+            dish={
+              {
+                name: dish.dish_name,
+                description: dish.description,
               }
-            />
-        }
-        </FoodCard.Root>
+            }
+          />
+          <FoodCard.Ingredients 
+            ingredients={dish.dishIngredients}
+          />
+          {isAdmin 
+            ?   
+              <Button
+                className='edit-redirect' 
+                title='Editar prato'
+                onClick={handleEditRedirect}
+              />
+            :    
+              <FoodCard.OrderInfos 
+                button={
+                  {
+                    title: 'pedir',
+                    btn_price: formatCurrency(dish.price),
+                    icon: Receipt
+                  }
+                }
+              />
+          }
+        </div>
+      </FoodCard.Root>
     </Container>
   );
 }
