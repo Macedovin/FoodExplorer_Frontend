@@ -38,10 +38,6 @@ export const Container = styled.section`
       .swiper-button-next {
         display: block;
         
-        position: absolute;
-        z-index: 105;
-        top: 50%;
-        
         &::after {
           color: ${({ theme }) => theme.primary_text};
           
@@ -57,7 +53,6 @@ export const Container = styled.section`
         right: 4rem;
       }
     }
-    
   }
   
   @media only screen and (min-width: 768px) {

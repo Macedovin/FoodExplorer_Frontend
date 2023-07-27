@@ -9,9 +9,7 @@ import 'swiper/css/navigation';
 
 import { Navigation } from 'swiper';
 
-export function FoodSection({ /* content, */ title,children }) {
-
-  //const hasContent = content && content.length
+export function FoodSection({ title,children }) {
 
   return(
        
@@ -23,7 +21,6 @@ export function FoodSection({ /* content, */ title,children }) {
         <Swiper
           spaceBetween={16}
           slidesPerView={2}
-          mousewheel={true}
           slidesPerGroupSkip={1}
           centeredSlides={true}
           navigation={true}

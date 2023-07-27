@@ -15,14 +15,14 @@ export const Container = styled.main`
     font-size: 2.4rem;
     font-weight: 500;
     
-    svg {     
+    > svg {     
       margin-right: 1.1rem;
 
       height: 2.2rem; 
       width: 1.2rem;
     }
 
-    svg path {
+    > svg path {
       fill: ${({ theme }) => theme.primary_text};
     }
   }
@@ -117,10 +117,6 @@ export const Container = styled.main`
           width: 2.15rem;
         }
       }
-
-      @media only screen and (width: 768px) {
-
-      }
     }
   } 
 
@@ -185,7 +181,7 @@ export const Container = styled.main`
 
       gap: 6.7rem; 
 
-      .desktop-only {
+      .desktop-break_point {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -209,6 +205,10 @@ export const Container = styled.main`
           }
         }
       }
+    }
+
+    .edit-redirect {
+      width: 16.2rem;
     }
   }
 

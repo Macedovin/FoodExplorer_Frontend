@@ -58,7 +58,7 @@ export function DishDetails() {
           }
         />
         <div
-          className='desktop-only'
+          className='desktop-break_point'
         >
           <FoodCard.FoodInfos 
             dish={

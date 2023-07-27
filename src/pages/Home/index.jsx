@@ -35,7 +35,6 @@ export function Home() {
   }
 
   useEffect(() => {
-    console.log(search);
 
     async function fetchDishes() {
       setShowLoading(true);
@@ -58,8 +57,6 @@ export function Home() {
 
       setShowLoading(false);
     }    
-
-    console.log(allCategories);
 
     fetchDishes();
     
