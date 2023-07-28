@@ -53,7 +53,7 @@ export function DishDetails() {
           dish={
             {
               picture: dish.picture,
-              name: dish.name
+              name: dish.dish_name
             }
           }
         />

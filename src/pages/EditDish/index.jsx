@@ -293,12 +293,12 @@ export function EditDish() {
         Editar prato
       </h1>      
 
-      <img 
-        src={picture} 
-        alt={`Imagem de ${dishName}`}
-      />
 
       <Form>
+        <img 
+          src={picture} 
+          alt={`Imagem de ${dishName}`}
+        />
         <div className='col-3'>
           <Picture>
             <p>
