@@ -66,7 +66,9 @@ export function Profile() {
 
     <Container>
 
-      <TurnBackButton />
+      <TurnBackButton
+        className='goBack'
+      />
 
       <h1>
       Dados do perfil

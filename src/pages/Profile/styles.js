@@ -13,10 +13,6 @@ export const Container = styled.main`
 
   padding-bottom: 5.4rem;
 
-  @media only screen and (width: 320px) {
-    padding-inline: 3.4rem;
-  }
-
   .goBack {
     font-size: 1.6rem;
     font-weight: 500;
@@ -44,20 +40,51 @@ export const Container = styled.main`
       fill: ${({ theme }) => theme.primary_text};
     }
   }
-
+  
   > h1 {
     margin-top: 3.2rem;
 
     font-size: 3.2rem;
     font-weight: 500;
   }
+
+  @media only screen and (width: 320px) {
+    padding-inline: 3.4rem;
+  }
+
+  @media only screen and (min-width:768px) {
+    padding-bottom: 2.6rem;
+
+    .goBack {
+
+      font-size: 2.4rem;
+      font-weight: 700;
+  
+      > svg {
+    
+        margin-right: 1.1rem;
+  
+        height: 2.2rem; 
+        width: 1.2rem;
+      }
+    }
+    
+
+    > h1 {
+      display: none;
+    }
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-
+  
   gap: 2.6rem;
+
+  max-width: 34.8rem;
+
+  margin: 0 auto;
 
   > button {
     height: 4.8rem;
@@ -110,7 +137,26 @@ export const Avatar = styled.div`
         stroke-width: 2;  
       }
     }
-    
   }
 
+  @media only screen and (min-width: 768px) {
+    width: 18.6rem;
+    height: 18.6rem; 
+
+    margin: -2rem auto 2rem; 
+
+    > img {
+      width: 18.6rem;
+      height: 18.6rem;
+    }
+
+    > label {
+      height: 4.8rem; 
+      width: 4.8rem;
+
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.8rem;
+    }
+  }
 `;
