@@ -19,22 +19,6 @@ export const Container = styled.main`
     font-weight: 500;
   }
 
-  > img {
-    align-self: center;
-    
-    border-radius: 50%;
-
-    width: 7.5rem;
-    height: 7.5rem;
-
-    margin-bottom: 1.6rem;
-  
-    @media only screen and (min-width: 768px) {     
-      width: 9rem;
-      height: 9rem;
-    }
-  }
-
   @media only screen and (min-width: 768px) {
     padding-inline: 12rem;
 
@@ -92,6 +76,22 @@ export const Form = styled.form`
     gap: 2.4rem;
 
     width: 100%;
+  }
+  
+  > img {
+    align-self: center;
+    
+    border-radius: 50%;
+
+    width: 7.5rem;
+    height: 7.5rem;
+
+    margin-bottom: 1.6rem;
+  
+    @media only screen and (min-width: 768px) {     
+      width: 9rem;
+      height: 9rem;
+    }
   }
 
   #dish_name,

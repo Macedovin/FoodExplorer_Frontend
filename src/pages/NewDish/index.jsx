@@ -233,12 +233,11 @@ export function NewDish() {
         Novo prato
       </h1>      
 
-      {picture && 
-        <img src={picture} alt='Imagem do prato'/>
-      }
 
       <Form>
-        
+        {picture && 
+          <img src={picture} alt='Imagem do prato'/>
+        }        
         <div className='col-3'>
           <Picture>
             <p>
