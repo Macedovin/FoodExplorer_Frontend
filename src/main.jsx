@@ -8,7 +8,6 @@ import { AuthProvider } from './hooks/auth';
 import { SearchDataProvider } from './hooks/searchData';
 import { ConfirmDialogProvider } from './hooks/confirmDialog';
 //import { CartProvider } from './hooks/cart';
-//import{ DishesProvider } from './hooks/dishes' 
 
 import { ToastContainer } from 'react-toastify';
  

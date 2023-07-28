@@ -6,7 +6,7 @@ import { useAuth } from '../../hooks/auth';
 
 import avatarPlaceholder from '../../assets/icons/avatar.svg';
 
-export function ProfileDiv({ className }) {
+export function ProfileDiv({ className, onClick }) {
 
   const { user } = useAuth();
 
@@ -15,7 +15,8 @@ export function ProfileDiv({ className }) {
   return (
     <Container 
       className={className}
-      to='/profile' 
+      to='/profile'
+      onClick={onClick}
     >
       <div>
         <span>Bem-vindo,</span>
