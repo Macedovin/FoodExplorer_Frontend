@@ -5,7 +5,7 @@ export const adminLinks = [
   },
   {
     name: 'Histórico de pedidos',
-    to: '/order_history',
+    to: '/orders_history',
   },
   {
     name: 'Usuários',

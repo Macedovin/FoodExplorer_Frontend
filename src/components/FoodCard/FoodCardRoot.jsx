@@ -1,8 +1,6 @@
 import { Container } from './styles';
 
-//import { useAuth } from '../../hooks/auth';
-
-import { ConditionalLink } from '../ConditionalLink'; 
+import { ConditionalLink } from './ConditionalLink'; 
 
 export function FoodCardRoot({ isLink = false, to, children, ...rest }) {
   //const { isAdmin } = useAuth();

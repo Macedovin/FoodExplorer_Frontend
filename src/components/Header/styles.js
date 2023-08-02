@@ -34,13 +34,18 @@ export const Container = styled.header`
   .new_dish-btn {
     display: none;
   }
-
-
+  
   .leave-btn {
-    > svg {
-      transform: rotate(90deg);
-    }
 
+> svg {
+  transform: rotate(90deg);
+}
+}
+  .leave-btn,
+  .favorite-bdg,
+  .my-history-bdg,
+  .all-users-bdg,
+  .all-orders-bdg {
     > svg path {
       fill: ${({ theme }) => theme.primary_text}; 
     }
@@ -48,7 +53,15 @@ export const Container = styled.header`
 
   .larger-search, 
   .order-btn,
-  .leave-btn {
+  .leave-btn,
+  .favorite-bdg,
+  .favorite-btn,
+  .my-history-bdg,
+  .my-history-btn,
+  .all-users-bdg,
+  .all-users-btn,
+  .all-orders-bdg,
+  .all-orders-btn {
     display: none;
   }  
 
@@ -61,23 +74,42 @@ export const Container = styled.header`
   
     gap: 2.4rem;
   
-    .larger-search {
+    .larger-search,
+    .favorite-bdg,
+    .my-history-bdg,
+    .all-users-bdg,
+    .all-orders-bdg {
       display: flex;
+    }
+    
+    .new_dish-btn {
+      display: block;
+      
+      height: 5.2rem;
+      width: clamp(10rem, 2rem + 10vw, 15.6rem);
+    }
+
+    .leave-btn{
+      display: block;
     }
 
     .order-btn {
       display: none;
     }
+  }
 
-    .new_dish-btn {
-      display: block;
+  @media only screen and (min-width: 1024px) {
 
-      height: 5.2rem;
-      width: clamp(12rem, 2rem + 13vw, 21.6rem);
+    .order-btn,
+    .all-users-btn,
+    .all-orders-btn {
+      display: flex;
     }
-
-    .leave-btn{
-      display: block;
+    
+    .order-bdg, 
+    .all-users-bdg,
+    .all-orders-bdg {
+      display: none;
     }
   }
 
@@ -85,16 +117,9 @@ export const Container = styled.header`
     padding: 2.4rem 5rem; 
 
     .larger-search {
-      padding-left: 3.8rem;
+      padding-left: 1.5rem;
     } 
-
-    .order-bdg {
-      display: none;
-    }
-
-    .order-btn {
-      display: flex;
-    }
+    
   }
 
   @media only screen and (min-width: 1440px) {
@@ -104,12 +129,14 @@ export const Container = styled.header`
       padding-left: 6.8rem;
     }
 
-    .order-bdg {
-      display: none;
+    .favorite-btn,
+    .my-history-btn {
+      display: flex;
     }
 
-    .order-btn {
-      display: flex;
+    .my-history-bdg,
+    .favorite-bdg {
+      display: none;
     }
   }
 
@@ -174,7 +201,7 @@ export const LogoText = styled.div`
     }
   }
 
-  @media only screen and (min-width: 840px) {
+  @media only screen and (min-width: 1025px) {
 
   > p { 
     align-self: flex-end;

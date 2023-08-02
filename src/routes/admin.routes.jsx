@@ -23,7 +23,7 @@ export function AdminRoutes() {
         <Route path='/edit_dish/:id' element={<EditDish />}/>
         <Route path='/dish_details/:id' element={<DishDetails />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/order_history' element={<Orders />}/>
+        <Route path='/orders_history' element={<Orders />}/>
         <Route path='/users_list' element={<AllUsers />}/>
         <Route path='*' element={<NotFoundApp />}/>
       </Route>

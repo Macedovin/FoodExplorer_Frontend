@@ -12,6 +12,8 @@ export function UsersLayout() {
         <Header.MenuMobile />
         <Header.Brand />
         <Header.Search />
+        <Header.Favorites />
+        <Header.MyHistory />
         <Header.Orders />
         <Header.Logout />
         <Header.ThemeSwitcher />

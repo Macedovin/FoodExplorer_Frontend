@@ -12,6 +12,8 @@ export function AdminLayout() {
         <Header.MenuMobile />
         <Header.Brand />
         <Header.Search />
+        <Header.AllHistory />
+        <Header.Users />
         <Header.NewDish />
         <Header.Logout />
         <Header.ThemeSwitcher />
