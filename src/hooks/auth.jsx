@@ -143,8 +143,6 @@ function AuthProvider({ children }) {
       if(exp * 1000 < Date.now()) {
         return signOut();
       }
-
-      console.log(parseJwt, (exp * 1000), '/', Date.now());
     }
   }, [])
 

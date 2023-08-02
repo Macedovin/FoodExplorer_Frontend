@@ -1,9 +1,5 @@
 export const userLinks = [
   {
-    name: 'Pedidos',
-    to: '/orders',
-  },
-  {
     name: 'Meus Favoritos',
     to: '/favorites',
   },

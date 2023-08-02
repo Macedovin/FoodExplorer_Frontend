@@ -10,11 +10,8 @@ function SearchDataProvider({ children }) {
     
     const searchValue = event.target.value;
 
-    console.log(searchValue);
-
     setSearch(searchValue);
 
-    console.log(search);
   }
 
   return(

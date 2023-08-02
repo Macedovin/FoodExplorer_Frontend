@@ -11,7 +11,7 @@ export function Orders() {
   {/*       <Header /> */}
         <main>
           <h2>
-            Meu pedido
+            Todos os pedidos da aplicação
           </h2>
         </main>
   {/*       <Footer /> */}

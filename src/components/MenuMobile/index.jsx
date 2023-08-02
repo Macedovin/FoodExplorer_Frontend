@@ -16,8 +16,8 @@ import { MenuCustomLink } from './MenuCustomLink';
 import { Footer } from '../Footer';
 
 export function MenuMobile() { 
-  const { handleSearchChange } = useSearchData();
-
+  const { handleSearchChange, setSearch } = useSearchData();
+  
   const navigate = useNavigate();
 
   const { signOut, isAdmin } = useAuth();
@@ -47,6 +47,8 @@ export function MenuMobile() {
 
   function handleSignOut() {
     signOut();
+
+    setSearch('');
 
     navigate('/', { replace: true }); 
   }

@@ -19,14 +19,14 @@ export function HeaderOrders({ to }) {
   console.log(dishes.length)
 
   function handleRedirect() {
-    navigate('/orders');
+    navigate('/check_out');
   }
 
   return(
     <>
       <BadgeContainer 
         className='order-bdg'
-        to='/orders'
+        to='/check_out'
       >
         <Receipt width={26} height={23} />
         <InnerContainer>

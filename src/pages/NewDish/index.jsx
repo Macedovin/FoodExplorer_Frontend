@@ -141,6 +141,8 @@ export function NewDish() {
       category_id: cat_id,
       ingredients
     });
+
+    console.log(data);
     
     dataContent.append('data', data);
     dataContent.append('picture', pictureFile);     
@@ -170,6 +172,8 @@ export function NewDish() {
       return Toast().handleWarning('Ingrediente digitado, mas não adicionado. Verifique.')
     }         
   
+    console.log(price);
+
     const hasCurrencySymbol = price.includes('R$');
     const hasStrangeSpaceBeforeComma = price.includes(' ,');
     const hasStrangeSpaceAfterComma = price.includes(', ');
@@ -177,6 +181,8 @@ export function NewDish() {
     if (!hasCurrencySymbol || hasStrangeSpaceBeforeComma || hasStrangeSpaceAfterComma) {
       return Toast().handleWarning('O preço esta fora do padrão. Verifique.');
     }
+
+
 
     if(newCategory) {
 

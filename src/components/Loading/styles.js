@@ -5,6 +5,8 @@ export const Container = styled.div`
   top: 0;
   left: 0;
 
+  z-index: 105;
+
   display: grid;
   height: 100vh;
   width: 100%;

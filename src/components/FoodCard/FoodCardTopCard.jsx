@@ -43,7 +43,6 @@ export function FoodCardTopCard({ dish }) {
     
     params.id = dish.id;
 
-    console.log(isFavorite, params, dish.id);
     try {
       await api.post(`/favorites/${params.id}`);
 
