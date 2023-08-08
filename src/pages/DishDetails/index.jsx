@@ -8,8 +8,9 @@ import { useAuth } from '../../hooks/auth';
 
 import { api } from '../../services/api';
 
-import { FoodCard } from '../../components/FoodCard';
+import { Loading } from '../../components/Loading';
 import { TurnBackButton } from '../../components/TurnBackButton';
+import { FoodCard } from '../../components/FoodCard';
 import { Button } from '../../components/Button';
 
 import { ReactComponent as Receipt } from '../../assets/icons/Receipt.svg';
@@ -18,31 +19,47 @@ import { formatCurrency } from '../../utilities/formatCurrency';
 
 export function DishDetails() {
   const { isAdmin } = useAuth();
-  
+
   const params = useParams();
 
   const navigate = useNavigate();
 
-  const [dish, setDish] = useState({}); 
+  const [dish, setDish] = useState({});
 
+  const [showLoading, setShowLoading] = useState(false);
+  
   function handleEditRedirect() {
-    navigate(`/edit_dish/${dish.id}`)
+    navigate(`/edit_dish/${params.id}`)
   }
 
   useEffect(() => {
     async function fetchDish() {
-      const response = await api.get(`/dishes/${params.id}`);
+      setShowLoading(true);
+      
+      try {
+        const response = await api.get(`/dishes/${params.id}`);
+       
+        setDish(response.data);
+        
+      } catch(error) {
+        if(error.response) {
+          return Toast().handleError(error.response.data.message);
+        } else {
+          Toast().handleError('No momento, não foi possível carregar as informações do prato!');
+        }
+      }
 
-      console.log(response.data);
-
-      setDish(response.data);
+      setShowLoading(false);
     }
-
+    
     fetchDish();
-  }, [])
+    
+  }, []);
 
   return (
     <Container>
+      
+      {showLoading && <Loading />}
 
       <TurnBackButton
         className='goBack'
@@ -86,6 +103,9 @@ export function DishDetails() {
                     btn_price: formatCurrency(dish.price),
                     icon: Receipt
                   }
+                }
+                dish={
+                  {id: dish.dish_id}
                 }
               />
           }

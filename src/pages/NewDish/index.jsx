@@ -10,6 +10,7 @@ import { api } from '../../services/api';
 
 import { Toast } from '../../Toast';
 
+import { Loading } from '../../components/Loading';
 import { TurnBackButton } from '../../components/TurnBackButton';
 import { Input } from '../../components/Input';  
 import { Select } from '../../components/Select';
@@ -22,6 +23,8 @@ import { ReactComponent as Upload } from '../../assets/icons/UploadSimple.svg';
 export function NewDish() {
 
   const navigate = useNavigate();
+
+  const [showLoading, setShowLoading] = useState(false);
 
   const [isDisabled, setIsDisabled] = useState(false);
   
@@ -210,6 +213,10 @@ export function NewDish() {
 
   useEffect(() => {
     async function fetchDishCategories() {
+
+      setShowLoading(true);
+
+      try {
       const response = await api.get('/dish_categories');
       
       const categories = response.data;      
@@ -223,6 +230,15 @@ export function NewDish() {
       });
 
       setSelectOptions(fetchedCategories);
+    } catch(error) {
+      if(error.response) {
+        return Toast().handleError(error.response.data.message);
+      } else {
+        Toast().handleError('No momento, não foi possível carregar as informações das categorias!');
+      }
+    }
+     
+      setShowLoading(false);
     }
 
     fetchDishCategories();
@@ -231,14 +247,15 @@ export function NewDish() {
 
   return (
     <Container>
+      {showLoading && <Loading />}
+
       <TurnBackButton 
         className='goBack'
       />
 
       <h1>
         Novo prato
-      </h1>      
-
+      </h1> 
 
       <Form>
         {picture && 
@@ -273,7 +290,10 @@ export function NewDish() {
           <Select.Root
             className='category'
           >
-            <Select.Label label='Categoria' />
+            <Select.Label 
+              label='Categoria'
+              id='categories'
+            />
             <Select.Wrapper>
               {isSelectInputShown &&
                 

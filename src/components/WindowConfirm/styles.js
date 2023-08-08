@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: fixed;
+  z-index: 200;
   top: 0;
   left: 0;
 
@@ -9,7 +10,6 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
   place-content: center;
-  //overflow: hidden;
 
   background-color: rgba(35, 33, 41, 0.6);
 
@@ -58,13 +58,11 @@ export const Text = styled.div`
 export const ActionButtons = styled.div`
   display: flex;
   align-items: center;
-  //justify-content: space-between;
 
   gap: 1.5rem;
 
   > button {
     height: 4.8rem;
-    //width: 10rem; 
 
     padding-inline: 0.5rem;
 
@@ -73,7 +71,6 @@ export const ActionButtons = styled.div`
     &:hover {
       filter: brightness(1.2);
     }
-
   }
 
   .cancel {

@@ -41,9 +41,9 @@ function AuthProvider({ children }) {
   }
 
   function signOut() {
-    localStorage.removeItem('@foodexplorer:token');
+        localStorage.removeItem('@foodexplorer:token');
     localStorage.removeItem('@foodexplorer:user');
-    
+
     setIsAdmin(false);
     setUserData({});
 
@@ -144,7 +144,7 @@ function AuthProvider({ children }) {
         return signOut();
       }
     }
-  }, [])
+  }, []);
 
   return (
     <AuthContext.Provider value={{

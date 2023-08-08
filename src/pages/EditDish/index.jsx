@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { useConfirmDialog } from '../../hooks/confirmDialog.jsx';
+import { useConfirmDialog } from '../../hooks/confirmDialog';
 
 import { formatCurrency, numberFromCurrency } from '../../utilities/formatCurrency';
 
@@ -12,6 +12,7 @@ import { api } from '../../services/api';
 
 import { Toast } from '../../Toast'; 
 
+import { Loading } from '../../components/Loading';
 import { TurnBackButton } from '../../components/TurnBackButton';
 import { Input } from '../../components/Input';  
 import { Select } from '../../components/Select';
@@ -27,6 +28,8 @@ export function EditDish() {
   const navigate = useNavigate();
 
   const confirm = useConfirmDialog();
+
+  const [showLoading, setShowLoading] = useState(false);
 
   const [isDisabled, setIsDisabled] = useState(true);
   
@@ -241,24 +244,38 @@ export function EditDish() {
 
   useEffect(() => {
     async function fetchDish() {
-      const response = await api.get(`dishes/${params.id}`);
       
-      const dishToEdit = response.data;
+      setShowLoading(true);
       
-      const pictureURL = dishToEdit.picture ? `${api.defaults.baseURL}/files/picture/${dishToEdit.picture}`: picturePlaceholder; 
-      
-      setPicture(pictureURL);
-      
-      setDishName(dishToEdit.dish_name);
-      
-      dishToEdit.dishIngredients ? setIngredients(dishToEdit.dishIngredients.map(ingredients => ingredients.name)) : setIngredients(ingredients);
-      
-      setSelectValue({label: dishToEdit.category_name, value: dishToEdit.category_id});
+      try {
 
-      setPrice(formatCurrency(dishToEdit.price));
-      setDescription(dishToEdit.description);
+        const response = await api.get(`dishes/${params.id}`);
+        
+        const dishToEdit = response.data;
+        
+        const pictureURL = dishToEdit.picture ? `${api.defaults.baseURL}/files/picture/${dishToEdit.picture}`: picturePlaceholder; 
+        
+        setPicture(pictureURL);
+        
+        setDishName(dishToEdit.dish_name);
+        
+        dishToEdit.dishIngredients ? setIngredients(dishToEdit.dishIngredients.map(ingredients => ingredients.name)) : setIngredients(ingredients);
+        
+        setSelectValue({label: dishToEdit.category_name, value: dishToEdit.category_id});
+  
+        setPrice(formatCurrency(dishToEdit.price));
+        setDescription(dishToEdit.description);
+  
+        setData(dishToEdit);
+      } catch(error) {
+        if(error.response) {
+          return Toast().handleError(error.response.data.message);
+        } else {
+          Toast().handleError('No momento, não foi possível carregar as informações do prato!');
+        }
+      }
 
-      setData(dishToEdit);
+      setShowLoading(false);
     }
 
     fetchDish();
@@ -266,19 +283,32 @@ export function EditDish() {
 
   useEffect(() => {
     async function fetchDishCategories() {
-      const response = await api.get('/dish_categories');
+      setShowLoading(true);
 
-      const categories = response.data;
+      try {
 
-      const fetchedCategories = categories?.map(category => {
-
-        return {
-          label: category.name,
-          value: category.id
+        const response = await api.get('/dish_categories');
+  
+        const categories = response.data;
+  
+        const fetchedCategories = categories?.map(category => {
+  
+          return {
+            label: category.name,
+            value: category.id
+          }
+        });
+  
+        setSelectOptions(fetchedCategories);
+      } catch(error) {
+        if(error.response) {
+          return Toast().handleError(error.response.data.message);
+        } else {
+          Toast().handleError('No momento, não foi possível carregar as informações do prato!');
         }
-      });
+      }
 
-      setSelectOptions(fetchedCategories);
+      setShowLoading(false);
     }
 
     fetchDishCategories();
@@ -287,6 +317,9 @@ export function EditDish() {
 
   return (
     <Container>
+
+      {showLoading && <Loading />}
+      
       <TurnBackButton 
         className='goBack'
       />
@@ -331,7 +364,10 @@ export function EditDish() {
           <Select.Root
             className='category'
           >
-            <Select.Label label='Categoria' />
+            <Select.Label 
+              label='Categoria' 
+              id='categories'
+            />
             <Select.Wrapper>
               {isSelectInputShown &&
               
