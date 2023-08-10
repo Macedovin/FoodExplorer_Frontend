@@ -102,7 +102,6 @@ export const Form = styled.form`
 
     min-width: 47.6rem;
 
-
     > h2 {
     
       display: block;
@@ -112,6 +111,11 @@ export const Form = styled.form`
       font-weight: 500;
 
       text-align: center; 
+    }
+
+    #email,
+    .input-border {
+      border: 1px solid ${({ theme }) => theme.secondary_text}
     }
   } 
 `; 

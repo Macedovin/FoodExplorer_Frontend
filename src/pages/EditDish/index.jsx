@@ -313,7 +313,7 @@ export function EditDish() {
 
     fetchDishCategories();
     
-  }, [])
+  }, []);
 
   return (
     <Container>

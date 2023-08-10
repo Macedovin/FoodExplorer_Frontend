@@ -9,6 +9,8 @@ import { useAuth } from '../../hooks/auth';
 
 import { api } from '../../services/api'; 
 
+import { Toast } from '../../Toast';
+
 import { Loading } from '../../components/Loading';
 import { ProfileDiv } from '../../components/ProfileDiv';
 import { Banner } from '../../components/Banner';  
@@ -43,15 +45,15 @@ export function Home() {
 
         const response = await api.get(`/dishes?search=${search}`);
         
-        const categories = response.data  
+        const categories = response.data;  
 
         setAllCategories(categories);
-        
+
       } catch (error) {
         if (error.response) {
-          console.error(error.response.data.message);
+          Toast().handleError(error.response.data.message);
         } else {
-          console.error('Algo deu errado ao buscar os pratos');
+          Toast().handleError('Infelizmente, no momento, não foi possível carregar nossas delícias.');
         }
       }
 
@@ -117,7 +119,9 @@ export function Home() {
                           button={
                             {title: 'incluir'}
                           }
-                          id={dish.id}
+                          dish={
+                            {id: dish.id}
+                          }
                         />
                       </FoodCard.Root>
 

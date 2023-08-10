@@ -35,7 +35,9 @@ export const PasswordInput = forwardRef(function PasswordInput({ name, label, er
             />
           )} 
         </LabelWrapper>
-        <InputWrapper>      
+        <InputWrapper
+          className='input-border'
+        >      
           <input
             name={name} 
             id='password'

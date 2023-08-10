@@ -25,8 +25,8 @@ export const Container = styled.div`
     max-width: 100vw;
 
     margin-top: 17rem;
-    margin-left: 3.9rem;
     margin-right: 3.6rem;
+    margin-left: 3.9rem;
   }
 
 

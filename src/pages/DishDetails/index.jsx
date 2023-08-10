@@ -8,6 +8,7 @@ import { useAuth } from '../../hooks/auth';
 
 import { api } from '../../services/api';
 
+import { Toast } from '../../Toast';
 import { Loading } from '../../components/Loading';
 import { TurnBackButton } from '../../components/TurnBackButton';
 import { FoodCard } from '../../components/FoodCard';
@@ -43,7 +44,7 @@ export function DishDetails() {
         
       } catch(error) {
         if(error.response) {
-          return Toast().handleError(error.response.data.message);
+          Toast().handleError(error.response.data.message);
         } else {
           Toast().handleError('No momento, não foi possível carregar as informações do prato!');
         }
