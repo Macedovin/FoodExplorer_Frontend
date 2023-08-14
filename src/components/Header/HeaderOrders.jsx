@@ -38,7 +38,7 @@ export function HeaderOrders() {
         className='order-btn'
         title='Pedidos'
         icon={Receipt}
-        quantity={getCartQuantity}
+        quantity={getCartQuantity === 0 ? '0' : getCartQuantity}
         onClick={handleRedirect}
       />    
     </>

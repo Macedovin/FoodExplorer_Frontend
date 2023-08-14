@@ -12,11 +12,23 @@ function CartProvider({ children }) {
   function handleAddToCart(id, quantity) {  
 
     const dishAlreadyAdded = cartDishes.find(dish => dish.id === id);
+    
+    let limitedQuantityReached;
 
     const newDish = { id, quantity };
 
     if(!dishAlreadyAdded) {
       
+      if(newDish.quantity >= 10) {
+        console.log('Sou maior que 10');
+
+        newDish.quantity = 10;
+
+        limitedQuantityReached = true;
+
+        Toast().handleInfo('Máximo de 10 unidades por prato.');
+      }
+
       setCartDishes(prevState => [...prevState, newDish]);
       
       localStorage.setItem('@foodexplorer:shoppingCart', JSON.stringify([newDish, ...cartDishes]));
@@ -24,7 +36,6 @@ function CartProvider({ children }) {
       Toast().handleSuccess('Prato(s) adicionado(s) ao carrinho com sucesso!');
     } else {
       let updatedQuantity = dishAlreadyAdded.quantity + quantity;
-      let limitedQuantityReached;
 
       if(updatedQuantity >= 10) {
         updatedQuantity = 10;
