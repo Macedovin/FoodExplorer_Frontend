@@ -183,8 +183,8 @@ export const Picture = styled.div`
       gap: 1rem;
     }
 
-    @media only screen and (width: 1024px) {
-      padding-left: 2rem;
+    @media only screen and (min-width: 1024px) {
+      padding-inline: 2rem;
     }
 
     @media only screen and (min-width: 1440px) {

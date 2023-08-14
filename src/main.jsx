@@ -7,7 +7,7 @@ import { CustomThemeProvider } from './hooks/theme';
 import { AuthProvider } from './hooks/auth';
 import { SearchDataProvider } from './hooks/searchData';
 import { ConfirmDialogProvider } from './hooks/confirmDialog';
-//import { CartProvider } from './hooks/cart';
+import { CartProvider } from './hooks/cart';
 
 import { ToastContainer } from 'react-toastify';
  
@@ -21,9 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <ConfirmDialogProvider>
         <SearchDataProvider>
-          {/* <CartProvider> */}
+          <CartProvider>
             <Routes />
-          {/* </CartProvider> */}
+          </CartProvider>
         </SearchDataProvider>
         </ConfirmDialogProvider>
       </AuthProvider>

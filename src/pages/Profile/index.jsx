@@ -40,8 +40,6 @@ export function Profile() {
   async function handleUpdate({ name, email, new_password, old_password }) {
     event.preventDefault();
 
-    console.log(name, email, new_password, old_password);
-
     const updatedInfos = {
       new_name: name,
       new_email: email,

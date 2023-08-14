@@ -14,6 +14,11 @@ dist-ssr
 
 STYLE_COLORS.md
 
+AllUsers-advanced
+CheckOut-advanced
+OrderHistory-advanced
+Orders-advanced
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

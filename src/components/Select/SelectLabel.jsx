@@ -1,8 +1,11 @@
-export function SelectLabel({ label, id }) {
+export function SelectLabel({ label, id, className }) {
   return(
     label && 
         
-      <label htmlFor={id}>
+      <label 
+        htmlFor={id}
+        className={className}
+      >
         {label}
       </label>
     

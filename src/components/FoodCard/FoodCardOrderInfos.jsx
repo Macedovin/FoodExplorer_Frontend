@@ -20,7 +20,6 @@ export function FoodCardOrderInfos({ dish, button }) {
 
   const [total, setTotal] = useState(1); 
   
-  
   function handlePreventDefault(event) {
     if (event.defaultPrevented) return;  
     event.preventDefault();

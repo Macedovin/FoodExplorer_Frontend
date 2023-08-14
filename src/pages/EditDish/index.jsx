@@ -175,8 +175,6 @@ export function EditDish() {
       new_ingredients: ingredients
     });
 
-    console.log(data);
-
     dataContent.append('data', data);
     dataContent.append('picture', pictureFile);
 

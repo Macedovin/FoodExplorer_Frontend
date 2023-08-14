@@ -144,8 +144,6 @@ export function NewDish() {
       category_id: cat_id,
       ingredients
     });
-
-    console.log(data);
     
     dataContent.append('data', data);
     dataContent.append('picture', pictureFile);     
@@ -174,8 +172,6 @@ export function NewDish() {
     if (newIngredient) {
       return Toast().handleWarning('Ingrediente digitado, mas não adicionado. Verifique.')
     }         
-  
-    console.log(price);
 
     const hasCurrencySymbol = price.includes('R$');
     const hasStrangeSpaceBeforeComma = price.includes(' ,');

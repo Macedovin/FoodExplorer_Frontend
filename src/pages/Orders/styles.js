@@ -1,27 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-/*   width: 100%;
+export const Container = styled.main`
 
-  min-height: 100%;
+  grid-area: content;
 
-  display: grid;
-  grid-template-rows: 11.4rem 1fr 7.7rem;
-  grid-template-areas:
-    'header'
-    'content'
-    'footer'; 
-*/
+  overflow-x: visible;
+  overflow-y: overlay;
+
+  padding: 0 2.4rem;
   
-    > main {
-    overflow-x: visible;
-    overflow-y: overlay;
+  > h1 {
+    font-size: 2.4rem;
+    font-weight: 500;
 
-    padding: 0 2.4rem;
-
-    > h2 {
-      font-size: 2.4rem;
-    }
+    margin-block: 3.5rem;
   }
-
 `;

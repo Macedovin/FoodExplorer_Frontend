@@ -33,44 +33,6 @@ export function SelectInner({ id, selectValue, onChange, hasEmptyOption = false,
     return option == selectValue ;
   }
 
-/*   useEffect(() => {
-    console.log('Estou no effect do select');
-    console.log(containerRef.current);
-
-    const handlerEvents = (event) => {
-        if (event.target != containerRef.current) return
-      console.log(event.code);
-      
-        switch (event.code) {
-          case 'Enter':
-          case 'Space':
-            console.log('Enter ou space clicado');
-            setIsOpen(prevState => !prevState);
-            if (isOpen) {
-              handleSelectOption(options[highlightedOption]);
-            }
-            break;
-          case 'ArrowUp':
-          case 'ArrowDown':
-            console.log('setas clicadas')
-            
-            const newValue = highlightedIndex + (event.code === 'ArrowDown' ? 1 : -1);
-
-            if (newValue >= 0 && newValue < options.length) {
-              setHighlightedIndex(newValue);
-            }
-
-            break;
-        }
-    } 
-
-    containerRef.current?.addEventListener('keydown', handlerEvents);
-
-    return () => {
-      containerRef.current?.removeEventListener('keydown', handlerEvents);
-    }
-  }, [isOpen, highlightedIndex, options]); */
-
   return(
     <>
       <InnerSelect
