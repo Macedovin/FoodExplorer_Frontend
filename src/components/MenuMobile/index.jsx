@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 import { useAuth } from '../../hooks/auth';
 import { useSearchData } from '../../hooks/searchData';
+import { useCart } from '../../hooks/cart';
+import { useConfirmDialog } from '../../hooks/confirmDialog';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -17,6 +19,8 @@ import { Footer } from '../Footer';
 
 export function MenuMobile() { 
   const { handleSearchChange, setSearch } = useSearchData();
+  const confirm = useConfirmDialog();
+  const { getCartQuantity, emptyCart } = useCart();
   
   const navigate = useNavigate();
 
@@ -45,12 +49,33 @@ export function MenuMobile() {
     navigate('/');    
   }
 
-  function handleSignOut() {
+  function setSignOutState() {
     signOut();
-
+    
     setSearch('');
 
-    navigate('/', { replace: true }); 
+    navigate('/', { replace: true });
+  }
+
+  async function handleSignOut() {
+
+    if(getCartQuantity > 0) {
+      
+      const userConfirmLogout = await confirm({
+        description: 'Existem produtos no carrinho de compras! Deseja sair sem finalizar o pedido?',
+        confirmButtonLabel: 'Sim, sair'
+      });
+
+      if (userConfirmLogout) {
+        setSignOutState()
+
+        emptyCart();
+      }
+
+      return updateMenu();
+    } 
+
+    setSignOutState()
   }
 
   useEffect(() => {

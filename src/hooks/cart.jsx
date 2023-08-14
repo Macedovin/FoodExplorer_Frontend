@@ -1,70 +1,93 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { Toast } from '../Toast';
 
 export const CartContext = createContext({});
 
 function CartProvider({ children }) {
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartDishes, setCartDishes] = useState([]);
 
-  function getItemQuantity(id) {
+  const getCartQuantity = cartDishes.reduce((quantity, dish) => dish.quantity + quantity, 0);
 
-    cartItems.find(item => item.id === id)?.quantity || 0
+  function handleAddToCart(id, quantity) {  
 
-/*     if(quantity === undefined) {
-      return 0;
-    }
-    
-    return quantity; */
-  }
+    const dishAlreadyAdded = cartDishes.find(dish => dish.id === id);
 
-  function increaseOneToCart(id) {
-    const quantity = getItemQuantity(id);
+    const newDish = { id, quantity };
 
-    if (quantity === 0) {
-      setCartItems(
-        [
-          ...cartItems,
-          {id: id, quantity: 1}
-        ]
-      )
+    if(!dishAlreadyAdded) {
+      
+      setCartDishes(prevState => [...prevState, newDish]);
+      
+      localStorage.setItem('@foodexplorer:shoppingCart', JSON.stringify([newDish, ...cartDishes]));
+      
+      Toast().handleSuccess('Prato(s) adicionado(s) ao carrinho com sucesso!');
     } else {
-      setCartItems(
-        cartItems.map(item => {
-          item.id === id ? {...item, quantity: item.quantity + 1} : item
-        })
-      )
+      let updatedQuantity = dishAlreadyAdded.quantity + quantity;
+      let limitedQuantityReached;
+
+      if(updatedQuantity >= 10) {
+        updatedQuantity = 10;
+        limitedQuantityReached = true;
+
+        Toast().handleInfo('Máximo de 10 unidades por prato.');
+      }
+
+      const newDishUpdated = {
+        ...newDish,
+        quantity: updatedQuantity
+      };
+
+      const dishesInCartFiltered = cartDishes.filter(dish => dish.id !== id)
+
+      setCartDishes([newDishUpdated, ...dishesInCartFiltered]);
+    
+      localStorage.setItem('@foodexplorer:shoppingCart', JSON.stringify([newDishUpdated, ...dishesInCartFiltered]));
+      
+      if(!limitedQuantityReached) {
+        Toast().handleSuccess('Prato(s) adicionado(s) com sucesso!');
+      }
     }
   } 
 
-  function removeFromCart(id) {
-    setCartItems(cartItems => cartItems.filter(currentItem => {
-        return currentItem.id != id
-      })
-    )
-  }
-  
-  function removeOneFromCart(id) {
-    const quantity = getItemQuantity(id);
+  function removeFromCart(id, name) {
+    console.log(cartDishes);
+    const filteredCartDishes = cartDishes.filter(dish => dish.id !== id);
+    
+    Toast().handleInfo(`Prato "${name}" removido do carrinho.`);
 
-    if(quantity === 1) {
-      removeFromCart(id);
+    setCartDishes(filteredCartDishes)
+    
+    console.log(filteredCartDishes);
+
+    localStorage.setItem('@foodexplorer:shoppingCart', JSON.stringify(filteredCartDishes));
+  }
+
+  function emptyCart() {
+
+    setCartDishes([]);
+    localStorage.removeItem('@foodexplorer:shoppingCart');
+
+  }
+
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem('@foodexplorer:shoppingCart'));
+    
+    if (cartItems) {
+      setCartDishes(cartItems);
     } else {
-      setCartItems(
-        cartItems.map(item => {
-          item.id === id ? {...item, quantity: item.quantity - 1} : item
-        })
-      )
+      setCartDishes([]);
     }
-  }
 
+  }, [])
 
   return (
     <CartContext.Provider value={{
-      cartItems,
-      getItemQuantity,
-      increaseOneToCart,
+      cartDishes,
+      getCartQuantity,
+      handleAddToCart,
       removeFromCart,
-      removeOneFromCart
+      emptyCart
     }}>
       {children}
     </CartContext.Provider>

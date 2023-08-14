@@ -12,7 +12,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   margin: 0 auto;
   padding: 5.8rem 2.4rem 2.8rem 3.8rem;
 
@@ -31,21 +31,29 @@ export const Container = styled.header`
     width: clamp(12rem, 2rem + 14vw, 21.6rem);
   }
 
+  .all-orders-bdg {
+    svg {
+      path {
+        stroke: ${({ theme }) => theme.primary_text};
+        stroke-width: 2;
+      }
+    } 
+  }
+
   .new_dish-btn {
     display: none;
   }
   
   .leave-btn {
+    > svg {
+      transform: rotate(90deg);
+    }
+  }
 
-> svg {
-  transform: rotate(90deg);
-}
-}
   .leave-btn,
   .favorite-bdg,
   .my-history-bdg,
-  .all-users-bdg,
-  .all-orders-bdg {
+  .all-users-bdg {
     > svg path {
       fill: ${({ theme }) => theme.primary_text}; 
     }
@@ -72,7 +80,7 @@ export const Container = styled.header`
   @media only screen and (min-width: 768px) {
     padding: 2.4rem 2.4rem;
   
-    gap: 2.4rem;
+    gap: 1.2rem;
   
     .larger-search,
     .favorite-bdg,
@@ -91,6 +99,7 @@ export const Container = styled.header`
 
     .leave-btn{
       display: block;
+      padding-left: 0.5rem;
     }
 
     .order-btn {
@@ -123,7 +132,7 @@ export const Container = styled.header`
   }
 
   @media only screen and (min-width: 1440px) {
-    padding: 2.8rem 12rem; 
+    padding: 2.4rem 12rem; 
     
     .larger-search {
       padding-left: 6.8rem;
@@ -141,7 +150,7 @@ export const Container = styled.header`
   }
 
   @media only screen and (min-width: 1800px) {
-    padding: .8rem 17rem; 
+    padding: 2.4rem 17rem; 
     
     .larger-search {
       padding-left: 9.8rem;
@@ -195,6 +204,7 @@ export const LogoText = styled.div`
   @media only screen and (min-width: 768px) {
 
     flex-direction: column;
+    gap: 0;
 
     > p { 
       align-self: center;
@@ -213,12 +223,15 @@ export const LogoText = styled.div`
 
 export const BadgeContainer = styled(Link)`
   position: relative;
-
-  display: flex;
-  align-items: center;
+  top: 3px;
 
   > svg path {
     fill: ${({ theme }) => theme.primary_text};
+  }
+
+  > svg {
+    height: 2.6rem;
+    width: 2.6rem;
   }
 `;
 
@@ -228,13 +241,13 @@ export const InnerContainer = styled.div`
   align-items: center;
 
   position: absolute;
-  top: -1rem;
+  top: -0.8rem;
   right: -1rem;
 
   background-color: ${({ theme }) => theme.buttons_background};
 
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 
   border-radius: 9999px;
 `;
