@@ -53,6 +53,10 @@ export const Text = styled.div`
     margin-bottom: 1.2rem;
   }
 
+  > p {
+    white-space: pre-line;
+  }
+
 `;
 
 export const ActionButtons = styled.div`

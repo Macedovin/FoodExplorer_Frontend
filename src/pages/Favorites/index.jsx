@@ -14,7 +14,6 @@ import { RemoveItemCard } from '../../components/RemoveItemCard';
 
 import { ReactComponent as Heart } from '../../assets/icons/Heart.svg';
  
-
 export function Favorites() {
   const confirm = useConfirmDialog();
 
@@ -23,7 +22,6 @@ export function Favorites() {
   const [showLoading, setShowLoading] = useState(false);
   
   async function handleRemoveFavorite(deleted) {
-    console.log('Vou remover um favorito.... ->', deleted.dish_id);
     
     const userRemoveFavorite = await confirm({
       description: `O prato "${deleted.name}" será removido da sua lista de favoritos. 
@@ -60,7 +58,6 @@ export function Favorites() {
   
         setUserFavorites(response.data);
   
-        console.log(response.data);
       } catch(error) {
         if (error.response) {
           Toast().handleError(error.response.data.message)

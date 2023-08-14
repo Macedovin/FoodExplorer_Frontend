@@ -41,7 +41,7 @@ function AuthProvider({ children }) {
   }
 
   function signOut() {
-        localStorage.removeItem('@foodexplorer:token');
+    localStorage.removeItem('@foodexplorer:token');
     localStorage.removeItem('@foodexplorer:user');
 
     setIsAdmin(false);
@@ -141,6 +141,8 @@ function AuthProvider({ children }) {
       const { exp } = parseJwt;
 
       if(exp * 1000 < Date.now()) {
+        localStorage.removeItem('@foodexplorer:shoppingCart');
+        
         return signOut();
       }
     }
