@@ -51,12 +51,12 @@ As the second persona (**administrator**) you will be able to create, see/ read,
 
 - By clicking here, you can [explore some foods](https://foodexplorerv.netlify.app/)! 
 
-		- To try as administrator, use the login bellow:
+	- To try as administrator, use the login bellow:
 
-			```bash
-			"email": vinicius@email.com	
-			"password": 123456
-			```
+		```bash
+		"email": vinicius@email.com	
+		"password": 123456
+		```
 
 **or**
 
