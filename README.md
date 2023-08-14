@@ -51,6 +51,13 @@ As the second persona (**administrator**) you will be able to create, see/ read,
 
 - By clicking here, you can [explore some foods](https://foodexplorerv.netlify.app/)! 
 
+		- To try as administrator, use the login bellow:
+
+			```bash
+			"email": vinicius@email.com	
+			"password": 123456
+			```
+
 **or**
 
 - You can [clone this repository](#utilization) and execute it locally. 
@@ -179,6 +186,7 @@ To reach this layout, based on the original project of __*Daniel Duarte*__, prov
 **⚠️ Important!!!** 
 	
 	This project is using free hoisting for the backend, so there may be delays in server response time.
+
 
 ## Author
 
