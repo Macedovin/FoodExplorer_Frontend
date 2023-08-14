@@ -107,6 +107,7 @@ export function CheckOut() {
         if (error.response) {
           Toast().handleError(error.response.data.message);
         } else {
+          console.log(error);
           Toast().handleError('Infelizmente, não foi possível carregar os dados. Volte mais tarde!');
         }
       } 
