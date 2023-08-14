@@ -3,8 +3,21 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
 
+  margin-block: 5rem;
+
+  @media only screen and (width: 375px){
+    margin-top: -2rem;
+    margin-bottom: 5rem;
+  }
+
+  @media only screen and (width: 390px) {
+    margin-top: -3rem;
+  }
+
   @media only screen and (min-width: 768px) {
     display: flex;
+
+    gap: 1.7rem;
 
     align-items: center;
     justify-content: space-around;
@@ -21,21 +34,26 @@ export const Brand = styled.div`
   text-align: start;
 
   > svg {
-    height: 2.7rem;
-    width: 2.7rem;
+    height: 4.7rem;
+    width: 4.7rem;
   }
 
   @media only screen and (min-width: 768px) {
+    flex-direction: column;
     align-self: center;
 
+    text-align: center;
+
+    gap: 3.5rem;
+
     > svg {
-      height: 4.3rem;
-      width: 4.3rem;
+      height: 9.3rem;
+      width: 9.3rem;
     }
   }  
 
-  @media only screen and (max-width: 850px) and (min-width: 800px) {
-    max-width: 23.5rem;
+  @media only screen and (min-width: 920px) {
+    flex-direction: row;
   }
 `;
 

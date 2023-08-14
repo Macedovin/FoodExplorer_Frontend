@@ -13,7 +13,7 @@ import { Input } from '../../components/Input';
 import { PasswordInput } from '../../components/Input/PasswordInput';
 import { Button } from '../../components/Button';
 
-import { ReactComponent as LogoIcon } from '../../assets/icons/Logo_polygon.svg';
+import { ReactComponent as LogoIcon } from '../../assets/icons/Start_logo.svg';
  
 import { Link } from 'react-router-dom';
 
