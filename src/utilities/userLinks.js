@@ -5,6 +5,6 @@ export const userLinks = [
   },
   {
     name: 'Histórico de pedidos',
-    to: '/order_history',
+    to: '/my_orders',
   }
 ]

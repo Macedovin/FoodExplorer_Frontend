@@ -16,7 +16,7 @@ export function UserRoutes() {
         <Route index element={<Home />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/check_out' element={<CheckOut />} />
-        <Route path='/order_history' element={<OrderHistory />} />
+        <Route path='/my_orders' element={<OrderHistory />} />
         <Route path='/dish_details/:id' element={<DishDetails />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='*' element={<NotFoundApp />}/>

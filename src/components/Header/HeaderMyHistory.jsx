@@ -9,7 +9,7 @@ export function HeaderMyHistory() {
   const navigate = useNavigate(); 
 
   function handleRedirect() {
-    navigate('/order_history');
+    navigate('/my_orders');
   }
 
   return(
