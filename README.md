@@ -19,9 +19,9 @@
 <p align="center">
 	<a href="#about">About</a> •
 	<a href="#notice">Notice</a> •
-  <a href="#preview">Preview</a> •
+  	<a href="#preview">Preview</a> •
 	<a href="#tech-stack-and-tools">Tech Stack and tools</a> •
-  <a href="#functionalities">Functionalities</a> •
+ 	<a href="#functionalities">Functionalities</a> •
 	<a href="#utilization">Utilization</a> •
 	<a href="#publication">Publication</a> •
 	<a href="#author">Author</a> 
@@ -179,13 +179,17 @@ To reach this layout, based on the original project of __*Daniel Duarte*__, prov
 
 **or**
 
+## Publication
+
+<br/>
+
 > See this application in action! 
 
 - [Explore some foods!](https://foodexplorerv.netlify.app/) 
 
 **⚠️ Important!!!** 
 	
-	This project is using free hoisting for the backend, so there may be delays in server response time.
+	This project is using free hoisting for both backend and frontend, so there may be delays in server response time.
 
 
 ## Author
